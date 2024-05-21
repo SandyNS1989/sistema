@@ -106,16 +106,25 @@ setInterval(async () => {
 
     const messages = data.map(generateContainer)
 
-     // Scroll para a última mensagem enviada
-     var chatMessages = document.getElementById("chat-messages");
-     chatMessages.innerHTML = ""
+    // Limpa as mensagens anteriores
+    var chatMessages = document.getElementById("chat-messages");
+    var isScrolledToBottom = chatMessages.scrollHeight - chatMessages.clientHeight <= chatMessages.scrollTop + 1;
 
-     messages.forEach(arg => {
+    chatMessages.innerHTML = "";
+
+    // Adiciona as novas mensagens
+    messages.forEach(arg => {
         chatMessages.appendChild(arg);
     });
-    
-   chatMessages.scrollBottom = chatMessages.scrollHeight;    
+
+    // Se já estiver no final antes de atualizar, permanece no final
+    if (isScrolledToBottom) {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
 }, 200);
+
+
+
 
 
 setup()
@@ -192,6 +201,12 @@ function openChat(profileElement) {
     chatMessagesContainer.innerHTML = '';
 
 }
+
+
+
+
+
+
 
 
 
