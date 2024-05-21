@@ -153,6 +153,13 @@ function sendMessage() {
     }
 }
 
+document.getElementById("message-input").addEventListener("keypress", function(event) {
+    // Verifica se a tecla pressionada é "Enter" (código 13)
+    if (event.key === "Enter") {
+        sendMessage(); // Chama a função sendMessage() quando "Enter" for pressionado
+    }
+});
+
 
 // FIM RYAN 1
 
