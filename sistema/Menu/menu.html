@@ -8,8 +8,7 @@
     <link rel="stylesheet" href="../global/form.css">
     <link rel="stylesheet" href="switch.css">
     <link rel="shortcut icon" href="../Logo/LOGO_02_DEGRADE.png" type="image/x-icon">
-    <link rel="stylesheet" href="../chat/chat.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <title>MENU</title>
 
 </head>
@@ -69,35 +68,7 @@
         </label>
     </div>
 
-    <dialog id="mod-chat">
-        <form onsubmit="toggleChat(event)" id="chat-popup">
-
-        <div class="profile-list" id="profile-list"> </div>
-        <div class="chat">
-            <div class="chat-header">
-                <span id="chat-title">Chat</span>
-                <img id="chat-avatar" src="" alt="Avatar" class="chat-avatar" style="display: none;">
-                <div class="chat-header-info">
-                    <span id="chat-name" class="chat-name"></span>
-                    <span id="chat-status" class="chat-status"></span>
-                </div>
-                <button onclick="toggleChat()" class="close-chat-btn">&times;</button>
-            </div>
-            <!-- Contêiner de mensagens é criado dinamicamente pelo JavaScript -->
-            <div class="chat-messages" id="chat-messages">
-            </div>
-            <div class="chat-input">
-                <input type="text" id="message-input" placeholder="Digite sua mensagem...">
-                <button onclick="sendMessage()">Enviar</button>
-            </div>
-        </div>
-
-    </dialog>
-
-    <button onclick="toggleChat()" class="open-chat-btn">
-        <i class="bi bi-chat-dots"></i>
-    </button>
-
+   
     <div class="container">
 
         <div class="inicio">MENU</div>
@@ -164,7 +135,6 @@
         </form>
 
 
-        <script href="../chat/chat.js"></script>
         <script src="../global/auth.js"></script>
         <script type="text/javascript" src="menu.js"></script>
 
