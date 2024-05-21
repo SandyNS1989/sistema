@@ -193,26 +193,26 @@ input:checked+.slider:before {
 
 /* cadastro paciente */
 .backdrop {
-  top: 28.6%;
+  top: 28.8%;
   left: 53.8%;
 }
 
 /* agendamento */
 .backdrop1 {
-  top: 56.3%;
+  top: 56.5%;
   left: 53.8%;
 }
 
 /* cadastro convenio */
 .backdrop2 {
-  top: 28.5%;
-  left: 78.8%;
+  top: 28.8%;
+  left: 78%;
 }
 
 /* fluxo de caixa */
 .backdrop3 {
-  top: 56.3%;
-  left: 78.8%;
+  top: 56.5%;
+  left: 78%;
 }
 
 .button0:hover+.backdrop,

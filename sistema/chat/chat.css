@@ -7,8 +7,7 @@ body {
 }
 
 .chat-popup {
-    margin-top:30%;
-    
+    margin-top:30%;    
     position: relative;
     display: none;
     bottom: 20px;
@@ -71,7 +70,7 @@ body {
 .chat-header {
     display: flex;
     align-items: center;
-    background-color: #075e54;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
     color: #fff;
     padding: 10px;
     position: relative;
