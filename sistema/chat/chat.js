@@ -115,7 +115,7 @@ setInterval(async () => {
     ))
 
      chatMessages.scrollTop = chatMessages.scrollHeight;
-}, 5000);
+}, 200);
 
 
 setup()
