@@ -2,15 +2,18 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    height: 80%;
+   
 }
 
 .chat-popup {
+    margin-top:30%;
+    
+    position: relative;
     display: none;
-    position: fixed;
     bottom: 20px;
-    right: 20px;
-    width: 400px;
-    height: 500px;
+    width: 99%;
+    height: 435px;
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;

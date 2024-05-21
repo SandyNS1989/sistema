@@ -9,9 +9,10 @@ body {
 
   .container {
     
-    position:relative;
+    position:absolute;
+    top:5%;
     left:30%;
-    width: 70%;
+    width: 65%;
     height: 85%;
     background: #f8fdfd;
     background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 251, 249) 100%);
@@ -21,6 +22,23 @@ body {
     box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
     margin: 0;
   }
+
+  .unstyled {
+    border: unset;
+}
+
+  iframe {
+    margin-top: 3%;
+    z-index:3;
+    position: relative;
+    display:flex;
+    top:70%;
+    left:68%;
+    width: 32%;
+    height: 570px;
+    border-radius: 10px;
+   
+}
 
   
   .heading {
