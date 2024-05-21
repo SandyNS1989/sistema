@@ -19,6 +19,9 @@ model Messages {
   to String
   content String
   createdAt DateTime @default(now())
+  
+
+
 }
 
 model Cadastro_pacientes {
@@ -64,6 +67,7 @@ model cadastro_user {
   Email   String
   Usuario String @unique
   Senha   String
+
 
   recoveryCode Int?
 

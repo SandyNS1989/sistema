@@ -10,7 +10,7 @@ function generateContainer(message) {
         var messageContainer = document.createElement("div");
 
         if (message.from === from) {
-            messageContainer.style="margin-left: auto"
+            messageContainer.style="margin-left: auto; background-color: rgb(101, 181, 184);color: #fff;"
         }
 
         messageContainer.classList.add("message", "sent");
@@ -192,3 +192,13 @@ function openChat(profileElement) {
     chatMessagesContainer.innerHTML = '';
 
 }
+
+
+
+
+
+
+
+
+
+

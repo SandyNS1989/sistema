@@ -50,3 +50,4 @@ if (senhainp.value!==c_senhainp.value){
        mainSide.classList.add("off") 
     }
    })
+

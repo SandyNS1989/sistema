@@ -171,12 +171,13 @@ body {
 
 .message.sent {
     align-self: flex-end;
-    background-color: rgb(101, 181, 184)
+    background: rgb(246, 247, 247);
+    color:rgb(65, 116, 119);
 }
 
 .message.received {
     align-self: flex-start;
-    background: rgb(246, 247, 247);
+    
 }
 
 .message-info {
