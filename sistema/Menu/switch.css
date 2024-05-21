@@ -206,13 +206,13 @@ input:checked+.slider:before {
 /* cadastro convenio */
 .backdrop2 {
   top: 28.5%;
-  left: 78%;
+  left: 78.8%;
 }
 
 /* fluxo de caixa */
 .backdrop3 {
   top: 56.3%;
-  left: 78%;
+  left: 78.8%;
 }
 
 .button0:hover+.backdrop,
