@@ -110,11 +110,11 @@ setInterval(async () => {
      var chatMessages = document.getElementById("chat-messages");
      chatMessages.innerHTML = ""
 
-    messages.forEach(arg => (
-        chatMessages.appendChild(arg)
-    ))
-
-     chatMessages.scrollTop = chatMessages.scrollHeight;
+     messages.forEach(arg => {
+        chatMessages.appendChild(arg);
+    });
+    
+   chatMessages.scrollBottom = chatMessages.scrollHeight;    
 }, 200);
 
 
