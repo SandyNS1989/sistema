@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat NS</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css"
+        rel="stylesheet">
     <link rel="stylesheet" href="chat.css">
-    
+
 </head>
+
 <body>
     <button onclick="toggleChat()" class="open-chat-btn">
         <i class="bi bi-chat-dots"></i>
-        <!-- <div id="chat">
-            <div class="notification">
-              <span id="chat-icon">💬</span>
-              <span id="notification-badge" class="badge" style="display: none;"></span>
-            </div>
-          </div> -->
     </button>
 
-    
-    
-
     <div id="chat-popup" class="chat-popup">
-       
+
         <div class="profile-list" id="profile-list">
-            
+
         </div>
         <div class="chat">
             <div class="chat-header">
@@ -40,12 +34,12 @@
             <!-- Contêiner de mensagens é criado dinamicamente pelo JavaScript -->
             <div class="chat-messages" id="chat-messages">
                 <div class="logo"><img src="../Logo/LOGO_02_DEGRADE200.png" alt="logo"></div>
-               <br>
-               <br>
+                <br>
+                <br>
                 <div class="texto"> Clique em um contato para iniciar a conversa </div>
             </div>
 
-            
+
             <div class="chat-input">
                 <input type="text" id="message-input" placeholder="Digite sua mensagem...">
                 <button onclick="sendMessage()">Enviar</button>
@@ -56,4 +50,5 @@
     <script src="../global/auth.js"></script>
     <script src="chat.js"></script>
 </body>
+
 </html>

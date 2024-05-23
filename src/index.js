@@ -384,7 +384,8 @@ app.put("/atendimento", async (req, res) => {
 
 })
 
-app.post("/chat", async (req, res) => {    
+app.post("/chat", async (req, res) => {  
+      
     const messages = await prisma.messages.findMany({
         where: {
             OR: [
@@ -407,35 +408,7 @@ app.post("/chat/message", async (req, res) => {
     res.status(200).json(message)
 })
 
-app.post('/update-visualization', async (req, res) => {
-    try {
-      await prismaClient.messages.updateMany({
-        data: { visualizado: true },
-        where: {
-          from: req.body.to,
-          to: req.body.from,
-          visualizado: false,
-        },
-      });
-      res.json({ success: true });
-    } catch (error) {
-      res.status(500).json({ error: 'Error updating visualization status' });
-    }
-  });
 
-  app.get('/unread-messages-count', async (req, res) => {
-    try {
-      const count = await prismaClient.messages.count({
-        where: {
-          to: req.query.to,
-          visualizado: false,
-        },
-      });
-      res.json({ count });
-    } catch (error) {
-      res.status(500).json({ error: 'Error fetching unread messages count' });
-    }
-  });
 
 
 app.listen(porta, () => {
