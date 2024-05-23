@@ -9,8 +9,3 @@ body {
   background-color: #ddece9;
 }
 
-@media (max-width: 480px){
-  body {
-      color: #299b8c;
-    }
-  }
