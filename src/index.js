@@ -385,6 +385,14 @@ app.put("/atendimento", async (req, res) => {
 })
 
 app.post("/chat", async (req, res) => {  
+    await prisma.messages.update({
+        data: { visualizado: true},
+      where : {
+      from: req.body.to,
+      to: req.body.from,
+      visualizado: false,
+      }
+      })
       
     const messages = await prisma.messages.findMany({
         where: {

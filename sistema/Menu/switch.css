@@ -169,11 +169,11 @@ input:checked+.slider:before {
 }
 
 .button2 {
-  left: 62.5%;
+  left: 59.5%;
 }
 
 .button3 {
-  left: 62.5%;
+  left: 59.5%;
 }
 
 
@@ -193,25 +193,25 @@ input:checked+.slider:before {
 
 /* cadastro paciente */
 .backdrop {
-  top: 28.8%;
-  left: 53.8%;
+  top: 28.5%;
+  left: 53%;
 }
 
 /* agendamento */
 .backdrop1 {
-  top: 56.5%;
-  left: 53.8%;
+  top: 55%;
+  left: 53%;
 }
 
 /* cadastro convenio */
 .backdrop2 {
-  top: 28.8%;
+  top: 28.5%;
   left: 78%;
 }
 
 /* fluxo de caixa */
 .backdrop3 {
-  top: 56.5%;
+  top: 55%;
   left: 78%;
 }
 
@@ -219,7 +219,7 @@ input:checked+.slider:before {
 .button1:hover+.backdrop1,
 .button2:hover+.backdrop2,
 .button3:hover+.backdrop3 {
-  top: 80;
+  
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   transform: rotate(15deg) translateX(5%) translateY(-20%);
 }
@@ -244,7 +244,7 @@ a {
 
 .logo {
   position:absolute; 
-  top: 55%;
+  top: 42%;
   left: 27%;
   transform: translate(-50%, -50%);
   background-size: 50%;
