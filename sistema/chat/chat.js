@@ -209,18 +209,18 @@ function openChat(profileElement) {
 
 }
 
+async function checkUnreadMessages() {
+    const response = await fetch('/unread-messages-count?to=USER_ID');
+    const data = await response.json();
+    const badge = document.getElementById('notification-badge');
 
+    if (data.count > 0) {
+      badge.style.display = 'block';
+      badge.textContent = data.count;
+    } else {
+      badge.style.display = 'none';
+    }
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+  setInterval(checkUnreadMessages, 5000); // Check every 5 seconds
+  checkUnreadMessages(); // Initial check

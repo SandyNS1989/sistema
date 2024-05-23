@@ -21,18 +21,20 @@ body {
   }
 
 .chat-popup {
+    
     overflow-y:auto;
-    margin-top:30%;    
+    margin-top:15%;    
     position: relative;
     display: none;
     bottom: 20px;
     width: 99%;
-    height: 435px;
+    height: 485px;
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+ 
 }
 
 .profile-list {

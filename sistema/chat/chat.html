@@ -11,15 +11,19 @@
 <body>
     <button onclick="toggleChat()" class="open-chat-btn">
         <i class="bi bi-chat-dots"></i>
-    </button>
-
-    <div id="chat-popup" class="chat-popup">
-        <div id="chat">
+        <!-- <div id="chat">
             <div class="notification">
               <span id="chat-icon">💬</span>
               <span id="notification-badge" class="badge" style="display: none;"></span>
             </div>
-          </div>
+          </div> -->
+    </button>
+
+    
+    
+
+    <div id="chat-popup" class="chat-popup">
+       
         <div class="profile-list" id="profile-list">
             
         </div>
@@ -40,6 +44,8 @@
                <br>
                 <div class="texto"> Clique em um contato para iniciar a conversa </div>
             </div>
+
+            
             <div class="chat-input">
                 <input type="text" id="message-input" placeholder="Digite sua mensagem...">
                 <button onclick="sendMessage()">Enviar</button>

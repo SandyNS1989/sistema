@@ -32,10 +32,10 @@ body {
     z-index:3;
     position: relative;
     display:flex;
-    top:70%;
+    top:55%;
     left:68%;
     width: 32%;
-    height: 570px;
+    height: 580px;
     border-radius: 10px;
    
 }
