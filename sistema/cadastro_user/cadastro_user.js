@@ -51,3 +51,18 @@ if (senhainp.value!==c_senhainp.value){
     }
    })
 
+   function displayThumbnail(event) {
+    const input = event.target;
+    const file = input.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const thumbnail = document.getElementById('thumbnail');
+        thumbnail.src = e.target.result;
+        thumbnail.style.display = 'block';
+      }
+      reader.readAsDataURL(file);
+    }
+  }
+  
+
