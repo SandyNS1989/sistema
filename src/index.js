@@ -384,20 +384,20 @@ app.put("/atendimento", async (req, res) => {
 
 })
 
-/*
- * await prisma.messages.update({
-        data: { visualizado: true},
-      where : {
-      from: req.body.to,
-      to: req.body.from,
-      visualizado: false,
-      }
-      })
-      
- */
 
-app.post("/chat", async (req, res) => {  
-    
+
+app.post("/chat", async (req, res) => {
+if (req.body.focus)
+    await prisma.messages.updateMany({
+        data: { visualizado: true },
+        where: {
+            from: req.body.to,
+            to: req.body.from,
+            visualizado: false,
+        }
+    })
+
+
     const messages = await prisma.messages.findMany({
         where: {
             OR: [
@@ -409,6 +409,7 @@ app.post("/chat", async (req, res) => {
         take: -20
     })
 
+
     res.status(200).json(messages)
 })
 
@@ -418,6 +419,24 @@ app.post("/chat/message", async (req, res) => {
     })
 
     res.status(200).json(message)
+})
+
+
+app.post("/chat/pendentes", async (req, res) => {
+
+    const message = await prisma.messages.findMany({
+        where: {
+            visualizado: false,
+            to: req.body.from
+        }
+    })
+
+    const users = message.map(({from}) => from).reduce((acc, cur) => {
+        if (acc.includes(cur)) return acc
+        return [...acc, cur]
+    }, [])
+
+    res.status(200).json(users)
 })
 
 

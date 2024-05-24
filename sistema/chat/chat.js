@@ -1,6 +1,11 @@
 // RYAN  1
 let from = ""
 let to = ""
+
+
+let ultimaMensagemid = ''
+let carregado = false
+
 function generateContainer(message) {
         var activeProfileName = document.getElementById("chat-name").textContent;
     
@@ -19,7 +24,14 @@ function generateContainer(message) {
         
         var messageStatus = document.createElement("span");
         messageStatus.classList.add("message-status");
-        messageStatus.innerHTML = '<i class="bi bi-check-all"></i>'; // Ícone de confirmação de leitura
+
+        
+        if (message.visualizado && message.from === from) {
+
+            messageStatus.innerHTML = '<i class="bi bi-check-all simbolo-visualizado"></i>';
+        } else {
+            messageStatus.innerHTML = '<i class="bi bi-check-all"></i>';
+        }
         
         // var messageDelete = document.createElement("span");
         // messageDelete.classList.add("message-delete");
@@ -42,13 +54,14 @@ function generateContainer(message) {
         // };
         messageContainer.appendChild(messageText);
         messageInfo.appendChild(timeText); // Horário
-        messageInfo.appendChild(document.createTextNode(" · ")); // Dois pontinhos separando
+        // messageInfo.appendChild(document.createTextNode(" · ")); // Dois pontinhos separando
         messageInfo.appendChild(messageStatus);
         // messageInfo.appendChild(messageEdit);
         // messageInfo.appendChild(messageDelete);
         messageContainer.appendChild(messageInfo);
        return messageContainer
 }
+
 async function setup() {
     const token = localStorage.getItem(CHAVE)
     const response = await fetch('/verify', {
@@ -63,6 +76,8 @@ async function setup() {
     const response2 = await fetch('/users')
     const data2 = await response2.json()
     const element = document.getElementById("profile-list")
+    element.innerHTML = ''
+    
     data2.filter(arg=>arg.id !== data.id).forEach((arg, index) => {
         element.innerHTML += `
         
@@ -74,10 +89,44 @@ async function setup() {
         `
     })
 }
+
+
+// PARTE DA NOTIFICACAO
 setInterval(async () => {
-    if (to === "" || from === "") return
+    const response3 = await fetch('/chat/pendentes', {
+        body: JSON.stringify({from}),
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    const data3 = await response3.json()
+
+    const aa = document.querySelectorAll(".profile")
+    const bb = document.querySelector(".open-chat-btn")
+    
+    if (data3.length > 0 ) {
+        bb.classList.add('notificacao')
+        
+    } else {
+        bb.classList.remove('notificacao')
+    }
+
+    aa.forEach(arg => {
+        arg.classList.remove('notificacao')
+
+        if (data3.includes(arg.getAttribute('data-to'))) {
+            arg.classList.add('notificacao')
+        }
+    })
+}, 3000)
+
+setInterval(async () => {
+    var chatPopup = document.getElementById("chat-popup");
+    if (to === "" || from === "" || (chatPopup.style.display === "none" || chatPopup.style.display === "")) return
     const response = await fetch('/chat', {
-        body: JSON.stringify({ to, from }),
+        body: JSON.stringify({ to, from, focus: document.hasFocus() }),
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
@@ -97,8 +146,20 @@ setInterval(async () => {
     if (isScrolledToBottom) {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
-}, 200);
+
+    const ultimaMensagem = data[data.length - 1]
+
+    if (carregado && ultimaMensagemid !== ultimaMensagem.id && ultimaMensagem.to === from) {
+        sendNotification("Nova mensagem", ultimaMensagem.content)
+        console.log("E PRA TER NOTIFICADO")
+    } else {
+        carregado = true
+    }
+    
+    ultimaMensagemid = ultimaMensagem.id
+}, 1000);
 setup()
+
 function sendMessage() {
     var messageInput = document.getElementById("message-input");
     var message = messageInput.value.trim();
@@ -135,6 +196,9 @@ function toggleChat() {
     } else {
         chatPopup.style.display = "none";
     }
+
+    
+    carregado =false
 }
 function triggerFileInput(event) {
     event.stopPropagation();
@@ -153,6 +217,7 @@ function uploadPhoto(event) {
     }
 }
 function openChat(profileElement) {
+    carregado = false
     var name = profileElement.getAttribute('data-name');
     var status = profileElement.getAttribute('data-status');
     to =  profileElement.getAttribute('data-to');
@@ -160,7 +225,7 @@ function openChat(profileElement) {
     document.getElementById("chat-avatar").style.display = "block";
     document.getElementById("chat-avatar").src = profileElement.querySelector('img').src;
     document.getElementById("chat-name").textContent = name;
-    document.getElementById("chat-status").textContent = status === "online" ? "Online" : "Offline";
+    //document.getElementById("chat-status").textContent = status === "online" ? "Online" : "Offline";
     document.getElementById("chat-popup").style.display = "block";
     // Limpar mensagens antigas
     var chatMessagesContainer = document.getElementById("chat-messages");

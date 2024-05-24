@@ -58,6 +58,18 @@ body {
     transition: background-color 0.3s;
 }
 
+.notificacao::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;  /* Tamanho do ponto de notificação */
+    height: 8px; /* Tamanho do ponto de notificação */
+    background-color: red;
+    border-radius: 50%;
+    border: 2px solid white; /* Borda branca para parecer um ponto flutuante */
+}
+
 .profile:hover {
     background-color: #e0e0e0; /* Cor de preenchimento ao passar o mouse */
 }
@@ -237,4 +249,9 @@ body {
     border-radius: 50%;
     background: red;
     color: white;
+  }
+
+
+  .simbolo-visualizado {
+    color: #33e1f8
   }
