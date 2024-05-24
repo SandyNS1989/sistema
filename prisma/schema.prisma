@@ -19,7 +19,7 @@ model Messages {
   to String
   content String
   createdAt DateTime @default(now())
-  
+  visualizado Boolean @default(false)
 
 
 }

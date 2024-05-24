@@ -1,18 +1,13 @@
 // RYAN  1
-
 let from = ""
 let to = ""
-
 function generateContainer(message) {
         var activeProfileName = document.getElementById("chat-name").textContent;
     
-
         var messageContainer = document.createElement("div");
-
         if (message.from === from) {
             messageContainer.style="margin-left: auto; background-color: rgb(101, 181, 184);color: #fff;"
         }
-
         messageContainer.classList.add("message", "sent");
         var messageText = document.createElement("span");
         messageText.textContent = message.content;
@@ -36,7 +31,6 @@ function generateContainer(message) {
         //         messageContainer.remove();
         //     }
         // };
-
         // var messageEdit = document.createElement("span");
         // messageEdit.classList.add("message-edit");
         // messageEdit.innerHTML = '<i class="bi bi-pencil"></i>'; // Ícone de edição
@@ -46,7 +40,6 @@ function generateContainer(message) {
         //         messageText.textContent = newMessage;
         //     }
         // };
-
         messageContainer.appendChild(messageText);
         messageInfo.appendChild(timeText); // Horário
         messageInfo.appendChild(document.createTextNode(" · ")); // Dois pontinhos separando
@@ -54,13 +47,10 @@ function generateContainer(message) {
         // messageInfo.appendChild(messageEdit);
         // messageInfo.appendChild(messageDelete);
         messageContainer.appendChild(messageInfo);
-
        return messageContainer
 }
-
 async function setup() {
     const token = localStorage.getItem(CHAVE)
-
     const response = await fetch('/verify', {
         body: JSON.stringify({ token }),
         method: 'POST',
@@ -68,16 +58,11 @@ async function setup() {
             "Content-Type": "application/json"
         }
     })
-
     const data = await response.json()
     from = data.id;
-
     const response2 = await fetch('/users')
     const data2 = await response2.json()
-
-
     const element = document.getElementById("profile-list")
-
     data2.filter(arg=>arg.id !== data.id).forEach((arg, index) => {
         element.innerHTML += `
         
@@ -88,12 +73,9 @@ async function setup() {
         
         `
     })
-
 }
-
 setInterval(async () => {
     if (to === "" || from === "") return
-
     const response = await fetch('/chat', {
         body: JSON.stringify({ to, from }),
         method: 'POST',
@@ -101,41 +83,25 @@ setInterval(async () => {
             "Content-Type": "application/json"
         }
     })
-
     const data = await response.json()
-
     const messages = data.map(generateContainer)
-
     // Limpa as mensagens anteriores
     var chatMessages = document.getElementById("chat-messages");
     var isScrolledToBottom = chatMessages.scrollHeight - chatMessages.clientHeight <= chatMessages.scrollTop + 1;
-
     chatMessages.innerHTML = "";
-
     // Adiciona as novas mensagens
     messages.forEach(arg => {
         chatMessages.appendChild(arg);
     });
-
     // Se já estiver no final antes de atualizar, permanece no final
     if (isScrolledToBottom) {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 }, 200);
-
-
-
-
-
 setup()
-
-
-
-
 function sendMessage() {
     var messageInput = document.getElementById("message-input");
     var message = messageInput.value.trim();
-
     if (message !== "") {       
         fetch('/chat/message', {
             method: 'POST',
@@ -147,7 +113,6 @@ function sendMessage() {
                 "Content-Type": "application/json"
             }
         })
-
          // Limpar o campo de entrada
          messageInput.value = "";
     }
@@ -171,13 +136,11 @@ function toggleChat() {
         chatPopup.style.display = "none";
     }
 }
-
 function triggerFileInput(event) {
     event.stopPropagation();
     var fileInput = event.target.parentElement.querySelector('.upload-photo-input');
     fileInput.click();
 }
-
 function uploadPhoto(event) {
     var input = event.target;
     if (input.files && input.files[0]) {
@@ -189,22 +152,17 @@ function uploadPhoto(event) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-
 function openChat(profileElement) {
     var name = profileElement.getAttribute('data-name');
     var status = profileElement.getAttribute('data-status');
-
     to =  profileElement.getAttribute('data-to');
-
     document.getElementById("chat-title").style.display = "none";
     document.getElementById("chat-avatar").style.display = "block";
     document.getElementById("chat-avatar").src = profileElement.querySelector('img').src;
     document.getElementById("chat-name").textContent = name;
     document.getElementById("chat-status").textContent = status === "online" ? "Online" : "Offline";
     document.getElementById("chat-popup").style.display = "block";
-
     // Limpar mensagens antigas
     var chatMessagesContainer = document.getElementById("chat-messages");
     chatMessagesContainer.innerHTML = '';
-
 }
