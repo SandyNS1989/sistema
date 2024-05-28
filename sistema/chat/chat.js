@@ -82,7 +82,7 @@ async function setup() {
         element.innerHTML += `
         
         <div class="profile" data-name="${arg.Nome}" data-to="${arg.id}" data-status="online" onclick="openChat(this)">
-            <img src="https://source.unsplash.com/random/?Person&${index}" alt="${arg.Nome}" class="profile-pic" id="nayara-pic">
+            <img src="${arg.foto}" alt="${arg.Nome}" class="profile-pic" id="nayara-pic">
             <span class="profile-name">${arg.Nome}</span>
         </div>
         

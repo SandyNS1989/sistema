@@ -73,6 +73,8 @@ model cadastro_user {
 
   Profissional Boolean
   Secretaria Boolean
+
+  foto String?
 }
 
 model Fluxo_de_caixa {

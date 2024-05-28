@@ -13,12 +13,30 @@ const issecretaria = document.getElementById("secretaria")
 const isprofissional = document.getElementById("profissional")
 
 
-function cadastro_user(event) {
+const fotinha = document.getElementById("fotinha")
+
+
+const toBase64 = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+});
+
+
+async function cadastro_user(event) {
     event.preventDefault()
 
 if (senhainp.value!==c_senhainp.value){
     alert("Senha Incorreta")
     return
+}
+
+let foto = null
+
+if (fotinha.files.length !== 0) {
+    const arquivoFoto = fotinha.files[0]
+    foto = await toBase64(arquivoFoto)
 }
 
     fetch("/cadastro_user", {
@@ -31,6 +49,7 @@ if (senhainp.value!==c_senhainp.value){
             Senha: senhainp.value,
             Secretaria: issecretaria.checked,
             Profissional: isprofissional.checked,
+            foto,
         }),
         headers: {
             "Content-Type": "application/json"
