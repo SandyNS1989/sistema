@@ -27,14 +27,13 @@ h1{
 }
 
 .escrita {
-  margin-top: 10%;
   display: block;
   font-size: 13.5px;
   width: 70%;
   font-weight: normal;
   color: white;
   padding-block: 5px;
-  margin: 15%;
+  margin-left: 15%;
   border-radius: 20px;
   box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
   border: none;
@@ -58,7 +57,7 @@ h1{
   transition: all 0.2s ease-in-out;
   color: rgb(0, 0, 0);
   text-transform: uppercase;
-  margin-top: 40%;
+  margin-top: 15%;
 
 
 }
