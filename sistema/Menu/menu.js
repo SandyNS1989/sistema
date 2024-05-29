@@ -1,5 +1,7 @@
 verificaAutenticado()
 
+
+
 document.getElementById("btn_cadastro").addEventListener("click", () => {
     window.location.href = '../Cadastro_pacientes/Cadastro.html'
  })
@@ -17,6 +19,7 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
    }
  })
 
+
  let Usuario = ''
 
  ;(async () => {
@@ -30,8 +33,14 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
        }
    })
 
+
+   
+
    const data = await response.json()
    Usuario = data.Usuario;
+
+   const userGreeting = document.getElementById('userGreeting');
+   userGreeting.textContent = `Olá, ${Usuario}!`;
 
    if (data.Secretaria) {
       const btnFluxo = document.getElementById("btn_fluxo");
@@ -49,6 +58,8 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
       // COISAS Q EU QUERO FAZER SE N FOR PROFISSIONAL
    }
 })().catch(console.error)
+
+
 
 
 
