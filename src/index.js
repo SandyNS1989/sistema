@@ -178,6 +178,19 @@ app.post("/cadastro_user", async (req, res) => {
 
 })
 
+app.put("/cadastrar_user/:id", async (req, res) => {
+    await prisma.cadastro_user.update({
+        data: req.body,
+        where: {
+            id: req.params.id
+        }
+    })
+
+    res.status(201).json({
+        message: "ok"
+    })
+})
+
 app.post("/cadastro_espera", async (req, res) => {
     await prisma.cadastro_espera.create({
         data: req.body

@@ -4,8 +4,6 @@ document.getElementById("btn_voltar_mp").addEventListener("click", () => {
     window.location.href = '../Login/Login.html'
 })
 
-const list = document.getElementById("lista")
-
 const nameinp = document.getElementById("name")
 const emailinp = document.getElementById("email")
 const userinp = document.getElementById("user")
@@ -14,14 +12,10 @@ const c_senhainp = document.getElementById("c_senha")
 const issecretaria = document.getElementById("secretaria")
 const isprofissional = document.getElementById("profissional")
 
-
-const fotinha = document.getElementById("fotinha")
-
-    ;(async () => {
+    ; (async () => {
         const params = new URLSearchParams(window.location.search)
-        const response = await fetch(`/users/${params.get('id')}`)
-        const data = await response.json() 
-    
+        const response = await fetch(`/cadastro_user/${params.get('id')}`)
+        const data = await response.json()
 
         nameinp.value = data.Nome
         emailinp.value = data.Email
@@ -29,19 +23,20 @@ const fotinha = document.getElementById("fotinha")
         senhainp.value = data.Senha
         issecretaria.checked = data.Secretaria
         isprofissional.checked = data.Profissional
-        foto,
+        foto = data
 
-
-        response2 = await fetch('/users')
-        
+        const response2 = await fetch('/users')
         const consultores = await response2.json()
 
 
-        consultores.forEach(({Usuario, Nome}) => {
+        consultores.forEach(({ Usuario, Nome }) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
         })
 
-})();
+    })();
+
+
+const fotinha = document.getElementById("fotinha")
 
 
 const toBase64 = file => new Promise((resolve, reject) => {
@@ -52,7 +47,7 @@ const toBase64 = file => new Promise((resolve, reject) => {
 });
 
 
-async function cadastro_user(event) {
+    function cadastro_user(event) {
     event.preventDefault()
     const params = new URLSearchParams(window.location.search)
    
@@ -60,10 +55,10 @@ async function cadastro_user(event) {
 
     if (fotinha.files.length !== 0) {
         const arquivoFoto = fotinha.files[0]
-        foto = await toBase64(arquivoFoto)
+        foto = toBase64(arquivoFoto)
     }
 
-    fetch(`/cadastro_user/${params.get('id')}`, {
+    fetch("/cadastro_user", {
         method: "PUT",
         body: JSON.stringify({
 
@@ -79,7 +74,7 @@ async function cadastro_user(event) {
             "Content-Type": "application/json"
         }
     }).then(response => response.json()).then(data => {
-        alert("Perfil atualizado com sucesso!")
+        alert("Perfil Atualizado com sucesso!")
         window.location.reload()
     }).catch(() => alert("Erro ao atualizar"))
 }
