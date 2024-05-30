@@ -12,9 +12,21 @@ const c_senhainp = document.getElementById("c_senha")
 const issecretaria = document.getElementById("secretaria")
 const isprofissional = document.getElementById("profissional")
 
+let id = " "
     ; (async () => {
-        const params = new URLSearchParams(window.location.search)
-        const response = await fetch(`/cadastro_user/${params.get('id')}`)
+        const token = localStorage.getItem(CHAVE)
+
+        const response = await fetch('/verify', {
+            body: JSON.stringify({ token }),
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+     
+     
+        
+     
         const data = await response.json()
 
         nameinp.value = data.Nome
@@ -23,15 +35,12 @@ const isprofissional = document.getElementById("profissional")
         senhainp.value = data.Senha
         issecretaria.checked = data.Secretaria
         isprofissional.checked = data.Profissional
-        foto = data
+        id = data.id
+        const thumbnail = document.getElementById('thumbnail');
+            thumbnail.src = data.foto
+            thumbnail.style.display = 'block';
 
-        const response2 = await fetch('/users')
-        const consultores = await response2.json()
-
-
-        consultores.forEach(({ Usuario, Nome }) => {
-            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-        })
+      
 
     })();
 
@@ -47,7 +56,7 @@ const toBase64 = file => new Promise((resolve, reject) => {
 });
 
 
-    function cadastro_user(event) {
+    async function cadastro_user(event) {
     event.preventDefault()
     const params = new URLSearchParams(window.location.search)
    
@@ -55,10 +64,11 @@ const toBase64 = file => new Promise((resolve, reject) => {
 
     if (fotinha.files.length !== 0) {
         const arquivoFoto = fotinha.files[0]
-        foto = toBase64(arquivoFoto)
+        foto = await toBase64(arquivoFoto)
     }
+    console.log (foto)
 
-    fetch("/cadastro_user", {
+    fetch(`/cadastrar_user/${id}`, {
         method: "PUT",
         body: JSON.stringify({
 
