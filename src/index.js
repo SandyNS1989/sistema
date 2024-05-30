@@ -114,7 +114,7 @@ app.get("/agendamentos_filtrado", async (req, res) => {
     console.log(filter)
     const agendamentos_filtrados = await prisma.agendamento.findMany({
         orderBy: {
-            Horario_da_consulta: 'asc'
+            Data_do_Atendimento: 'asc'
         },
         where: {
             Nome: filter, NOT: {
@@ -364,6 +364,30 @@ app.post("/cadastro_prof", async (req, res) => {
     res.status(201).json({
         message: "ok"
     })
+})
+
+app.get("/cadastro_prof/:especialista", async (req, res) => {
+    const data = await prisma.cadastro_prof.findUnique ({
+        where:{
+            Especialista: req.params.especialista
+        }
+    })
+
+    res.json(
+        data
+    )
+})
+
+app.put("/cadastro_prof/:especialista", async (req, res) => {
+    const data = await prisma.cadastro_prof.update ({
+        where:{
+            Especialista: req.params.especialista
+        }, data:req.body
+    })
+
+    res.json(
+        data
+    )
 })
 
 app.post("/atendimento", async (req, res) => {

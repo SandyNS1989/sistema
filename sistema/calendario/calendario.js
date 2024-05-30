@@ -688,11 +688,15 @@ function loadConsultas(event) {
 
 function insertItemCancelado(item, index) {
     let tr = document.createElement("tr");
+const moment = new Date(item.Data_do_Atendimento)
+const dia = moment.getDate()
+const mes = moment.getMonth()+1
+const ano = moment.getFullYear()
 
     tr.innerHTML = `
       <td><input type="checkbox"></td>
       <td id="${item.id}">${item.Nome}</td>
-      <td>${item.Data_do_Atendimento}</td>
+      <td>${dia}/${mes}/${ano}</td>
       <td>${item.Horario_da_consulta}</td>
       <td>${item.Status_da_Consulta}</td>
     `;

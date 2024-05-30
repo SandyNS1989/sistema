@@ -103,6 +103,8 @@ model cadastro_prof {
  Horarios_de_Atendimento     String
  Especialidade               String
  Registro_do_Profissional    String
+ Especialista                String @unique
+
 }
 
 model Atendimento {
