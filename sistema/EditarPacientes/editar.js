@@ -34,13 +34,12 @@ const phonemaeinp = document.getElementById("phonemae")
         // phonemaeinp = data.phonemae
 
 
-        const response2 = await fetch('/users')
-            const consultores = await response2.json()
+       
+           
 
 
-            consultores.forEach(({Usuario, Nome}) => {
-                list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-            })
+
+           
 
     })();
 
@@ -86,3 +85,36 @@ document.getElementById('mostrarSubformi').addEventListener('change', function (
     var subformi = document.getElementById('subformi');
     subformi.style.display = this.checked ? 'block' : 'none';
 });
+
+;(async () => {
+    const token = localStorage.getItem(CHAVE)
+  
+    const response = await fetch('/verify', {
+        body: JSON.stringify({ token }),
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+  
+    const data = await response.json()
+  
+    // data = USUARIO DO BANCO LOGADO
+  
+  // -----------------------------------
+  
+    const response2 = await fetch('/users')
+    const consultores = await response2.json()
+  
+  
+    if (data.Secretaria) {
+      consultores.filter(arq=>!arq.Secretaria && arq.Nome !== "ADM").forEach(({Usuario, Nome}) => {
+            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+        })
+    } else {
+        [data].forEach(({Usuario, Nome}) => {
+            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            console.log(Usuario)
+        })
+    }
+  })().catch(console.error)
