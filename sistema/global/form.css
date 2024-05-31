@@ -23,24 +23,7 @@ body {
     margin: 0;
   }
 
-  .unstyled {
-    border: unset;
-}
-
-  iframe {
-    max-height: 20%;
-    top: 3%;
-    margin-right: 0%;
-    z-index:4;
-    position: relative;
-    display:flex;
-    top:55%;
-    left:70%;
-    width: 35%;
-    height: 575px;
-    border-radius: 10px;
-   
-}
+  
 
   
   .heading {
