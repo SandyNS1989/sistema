@@ -59,10 +59,6 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
    }
 })().catch(console.error)
 
-
-
-
-
  function redirecionaCadUser() {
     if (Usuario === 'Adm'){
        location.href = '../cadastro_user/cadastro_user.html'
