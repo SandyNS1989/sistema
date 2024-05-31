@@ -55,6 +55,7 @@ function cadastrar_paciente(event) {
     }).catch(() => alert("Erro ao cadastrar"))
 }
 
+let Usuario = ''
 
 ;(async () => {
     const token = localStorage.getItem(CHAVE)
@@ -68,6 +69,9 @@ function cadastrar_paciente(event) {
     })
 
     const data = await response.json()
+    Usuario = data.Usuario;
+    const userGreeting = document.getElementById('userGreeting');
+    userGreeting.textContent = `Olá, ${Usuario}!`;
 
     // data = USUARIO DO BANCO LOGADO
 
