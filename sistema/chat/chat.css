@@ -25,12 +25,12 @@ body {
     z-index:5;
     margin-right: 0%;
     overflow-y:auto;
-    margin-top:10%;    
+    margin-top:15%;    
     position: relative;
     display: none;
     bottom: 20px;
-    width: 92%;
-    height: 400px;
+    width: 79%;
+    height: 485px;
     border: 1px solid #ccc;
     border-radius: 10px;
     overflow: hidden;
@@ -40,7 +40,7 @@ body {
 }
 
 .profile-list {
-    width: 28%;
+    width: 100px;
     height: 100%;
     float: left;
     overflow-y: scroll;
@@ -178,7 +178,7 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    left:80%;
+    left:70%;
     top:90%;
 }
 
