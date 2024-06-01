@@ -61,6 +61,7 @@ function deleteItem(index) {
   }).then(() => {
     loadItens()
   })
+  location.reload();
 }
 
 function insertItem(item, index) {
@@ -136,6 +137,9 @@ const getItensBD = async () => {
   const data = await response.json()
 
   Usuario = data.Usuario
+
+  const userGreeting = document.getElementById('userGreeting');
+  userGreeting.textContent = `Olá, ${Usuario}!`;
 
   await  getItensBD()
 
