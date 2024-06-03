@@ -64,7 +64,7 @@ h1{
 
 .switch-container {
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding: 9px;
@@ -395,7 +395,7 @@ a {
 
 
 }   */
-
+/* 
 @media screen and (max-width: 430px) {
   .logo{
    display: none;
@@ -410,19 +410,19 @@ a {
   left:5%;
 }
 
-/* cadastro paciente  */
+/* cadastro paciente  
 .backdrop {
   left:24%;
   top: 16.6%;
   margin-bottom: 5%;
 }
-/* agendamento  */
+/* agendamento  
 .backdrop1 {
   left:24%;
   top: 47.3%;
   margin-bottom: 5%;
 }
-/* cadastro de convenio  */
+/* cadastro de convenio  
 .backdrop2 {
   left:24%;
   top: 31.9%;
@@ -430,7 +430,7 @@ a {
 }
 
 
-/* fluxo  */
+/* fluxo  
 .backdrop3 {
 
   left:24%;
@@ -463,4 +463,4 @@ a {
 }
 
 
-}
+} */

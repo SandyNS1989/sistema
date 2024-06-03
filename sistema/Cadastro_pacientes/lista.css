@@ -76,7 +76,7 @@ h1{
 
 .switch-container {
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding: 9px;
@@ -267,9 +267,9 @@ input:checked+.slider:before {
   width: 80px;
   text-align: center;
 }
-
+/* 
 @media screen and (max-width:1312px){
-  /* barra lateral */
+  /* barra lateral 
   .slider{
     width: 45%;     
   }
@@ -298,4 +298,4 @@ input:checked+.slider:before {
   margin-top: 100%;
   
 }
-}
+} */

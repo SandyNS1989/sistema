@@ -187,7 +187,7 @@ h1{
 
 .switch-container1 {
 
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   padding: 9px;
