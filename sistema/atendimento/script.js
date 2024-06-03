@@ -1,8 +1,18 @@
-document.getElementById("btn_voltar_atd").addEventListener("click", () => {
+verificaAutenticado()
+
+document.getElementById("ch-side").addEventListener("change",event=>{
+    const mainSide=document.getElementById("main-side")
+    if(event.target.checked){
+       mainSide.classList.remove("off") 
+    }
+    else{
+       mainSide.classList.add("off") 
+    }
+  })
+
+  document.getElementById("btn_voltar_atd").addEventListener("click", () => {
     window.location.href = '../calendario/calendario.html';
 });
-
-
 
 // Selecionando elementos do DOM
 const timerElement = document.getElementById('timer');
@@ -221,5 +231,43 @@ getAtendimentos().then(response => response.json()).then(data => {
     
 })
 }
+
+let Usuario = ''
+
+;(async () => {
+    const token = localStorage.getItem(CHAVE)
+
+    const response = await fetch('/verify', {
+        body: JSON.stringify({ token }),
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+
+    const data = await response.json()
+    Usuario = data.Usuario;
+    const userGreeting = document.getElementById('userGreeting');
+    userGreeting.textContent = `Olá, ${Usuario}!`;
+
+    // data = USUARIO DO BANCO LOGADO
+
+// -----------------------------------
+
+    const response2 = await fetch('/users')
+    const consultores = await response2.json()
+
+
+    if (data.Secretaria) {
+        consultores.filter(arq=>!arq.Secretaria && arq.Nome !== "ADM").forEach(({Usuario, Nome}) => {
+            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+        })
+    } else {
+        [data].forEach(({Usuario, Nome}) => {
+            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+          
+        })
+    }
+})().catch(console.error)
 
 //getAllAtendimentos();

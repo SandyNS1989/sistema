@@ -271,32 +271,43 @@ button[type="submit"]:hover {
 
 *::-webkit-scrollbar {
     display: none;
-}
-
-h4 {
+  }
+  
+  h4 {
     margin-top: 20%;
-}
-
-.escrita {
-    margin-top: 10%;
+  }
+  
+  h1{
+    top:5%;
+    width: 100%;
+    height: 55%;
+    background: #065757;
+    border-radius: 15px;
+    padding: 10px 13px;
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
+    margin: 0;
+  }
+  
+  .escrita {
     display: block;
     font-size: 13.5px;
     width: 70%;
     font-weight: normal;
     color: white;
     padding-block: 5px;
-    margin: 15%;
+    margin-left: 15%;
     border-radius: 20px;
     box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
     border: none;
     transition: all 0.2s ease-in-out;
     color: white;
     text-transform: uppercase;
-
-}
-
-.contato {
-
+  
+  }
+  
+  .contato {
+  
     font-size: 12.5px;
     width: 70%;
     font-weight: normal;
@@ -309,11 +320,13 @@ h4 {
     transition: all 0.2s ease-in-out;
     color: rgb(0, 0, 0);
     text-transform: uppercase;
-
-}
-
-.switch-container {
-
+    margin-top: 25%;
+  
+  
+  }
+  
+  .switch-container {
+  
     position: absolute;
     top: 0;
     left: 0;
@@ -321,14 +334,14 @@ h4 {
     display: block;
     flex-direction: column;
     align-items: center;
-    height: 580px;
+    height: 98%;
     margin: 0;
     max-width: 30%;
     width: 15%;
-}
-
-.switch-container main {
-
+  }
+  
+  .switch-container main {
+  
     border-radius: 15px;
     position: absolute;
     padding-top: 32px;
@@ -336,38 +349,38 @@ h4 {
     height: 100%;
     color: white;
     background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
-}
-
-.switch-container main.off {
+  }
+  
+  .switch-container main.off {
     display: none;
-}
-
-
-.switch {
+  }
+  
+  
+  .switch {
     font-size: 1rem;
     position: relative;
     display: inline-block;
     width: 4em;
     height: 2em;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
     opacity: 0;
     width: 0;
     height: 0;
-}
-
-a {
+  }
+  
+  a {
     text-decoration: none;
     margin: 0;
     color: inherit;
-}
-
-
-
-/* The slider */
-.slider {
+  }
+  
+  
+  
+  /* The slider */
+  .slider {
     position: absolute;
     cursor: pointer;
     inset: 0;
@@ -375,9 +388,9 @@ a {
     transition: 0.4s;
     border-radius: 0.5em;
     box-shadow: 0 0.2em #dfd9d9;
-}
-
-.slider:before {
+  }
+  
+  .slider:before {
     position: absolute;
     content: "";
     height: 1.5em;
@@ -388,21 +401,21 @@ a {
     background-color: lightsalmon;
     transition: 0.4s;
     box-shadow: 0 0.4em #bcb4b4;
-}
-
-.slider:hover::before {
+  }
+  
+  .slider:hover::before {
     box-shadow: 0 0.2em #bcb4b4;
     bottom: 0.5em;
-}
-
-input:checked+.slider:before {
+  }
+  
+  input:checked+.slider:before {
     transform: translateX(2em);
     background: lightgreen;
-}
+  }
 
-@media screen and (max-width:1260px) {
+/* @media screen and (max-width:1260px) {
 
-    /* barra lateral */
+    /* barra lateral 
     .slider {
         width: 45%;
     }
@@ -432,7 +445,7 @@ input:checked+.slider:before {
 
     }
 
-    /* geral */
+    /* geral 
     .NS {
         text-align: center;
     }
@@ -482,4 +495,4 @@ input:checked+.slider:before {
         margin-top: 280%;
     }
 }
-
+ */
