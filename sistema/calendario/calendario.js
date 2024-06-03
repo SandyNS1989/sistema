@@ -89,6 +89,7 @@ async function carregarLista(force) {
     let data = await response.json()
 
     console.log(document.getElementById("lista").value.toLowerCase())
+   
 
     data = data.filter(arg =>
         arg.Data_do_Atendimento === `${cY}-${cM}-${cD}` &&
@@ -352,9 +353,10 @@ let pacientesFiltrados = []
 
 document.getElementById('agendamento').addEventListener('click', () => {
     if (list.value === "-") {
+        alert("Selecione o Especialista")
         return
     }
-
+    
     pacientesFiltrados = todosPacientes.filter(({Especialista}) => Especialista === list.value)
     age_name.disabled = false
     document.getElementById("btn-start-atendimento").style="display:none"
