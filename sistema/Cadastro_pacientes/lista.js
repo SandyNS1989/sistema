@@ -75,6 +75,9 @@ list.addEventListener('change', e => {
   })
 
   const data = await response.json()
+  Usuario = data.Usuario;
+  const userGreeting = document.getElementById('userGreeting');
+    userGreeting.textContent = `Olá, ${Usuario}!`;
 
   // data = USUARIO DO BANCO LOGADO
 
