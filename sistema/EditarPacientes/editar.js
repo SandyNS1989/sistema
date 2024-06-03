@@ -31,15 +31,7 @@ const phonemaeinp = document.getElementById("phonemae")
         cepinp.value = data.CEP
         // phonepaiinp = data.phonepai
         // namemaeinp = data.namemae
-        // phonemaeinp = data.phonemae
-
-
-       
-           
-
-
-
-           
+        // phonemaeinp = data.phonemae          
 
     })();
 
@@ -98,6 +90,9 @@ document.getElementById('mostrarSubformi').addEventListener('change', function (
     })
   
     const data = await response.json()
+    Usuario = data.Usuario;
+    const userGreeting = document.getElementById('userGreeting');
+    userGreeting.textContent = `Olá, ${Usuario}!`;
   
     // data = USUARIO DO BANCO LOGADO
   
