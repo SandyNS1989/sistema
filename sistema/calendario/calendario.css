@@ -16,6 +16,7 @@ body {
   width: 100%;
   align-items: center;
   background: linear-gradient(to right, #a9cfc6);
+ 
 }
 
 header {
@@ -34,9 +35,10 @@ main {
   display: flex;
   height: 100%;
   width: 100%;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   overflow: hidden;
+  
 }
 
 .borda {
@@ -732,6 +734,23 @@ label {
     margin-bottom: 1%;
     
   }
+
+  .unstyled {
+    border: unset;
+}
+
+  iframe {
+    position: fixed;
+    max-height: 100%;
+    margin-right: 0%;
+    z-index:1000;    
+    top:13%;
+    left:67.5%;
+    width: 38%;
+    height: 89%;
+    border-radius: 10px;
+   
+}
 
   /* @media screen and (max-width:1260px){
     header{
