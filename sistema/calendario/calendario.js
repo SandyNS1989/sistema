@@ -81,20 +81,20 @@ async function carregarLista(force) {
 
     generateNewList()
 
-    const cD = currentDayLista.getDate().toString().padStart(2, '0')
+    const cD = (currentDayLista.getDate()).toString().padStart(2, '0')
     const cM = (currentDayLista.getMonth() + 1).toString().padStart(2, '0')
     const cY = currentDayLista.getFullYear().toString().padStart(2, '0')
 
     const response = await fetch('/agendamentos')
-    let data = await response.json()
-
-    console.log(document.getElementById("lista").value.toLowerCase())
-   
+    let data = await response.json()   
+    console.log("asdsad", data)
 
     data = data.filter(arg =>
         arg.Data_do_Atendimento === `${cY}-${cM}-${cD}` &&
         arg.Especialista.toLowerCase().includes(document.getElementById("lista").value.toLowerCase())
     )
+
+    console.log("asdsad", data, `${cY}-${cM}-${cD}`)
 
     data.forEach(arg => {
         const contentId = `agendamento-${arg.Horario_da_consulta}`;
@@ -192,7 +192,8 @@ const generateCalendar = async (month, year) => {
             day.innerHTML = nDay
 
             day.onclick = (() => {
-                const calendarCurrentDate = new Date(`${year}-${String(month + 1).padStart(2, '0')}-${String(nDay + 1).padStart(2, '0')}`)
+                console.log(nDay)
+                const calendarCurrentDate = new Date(`${year}-${String(month + 1).padStart(2, '0')}-${String(nDay).padStart(2, '0')}`)
                 newCurrentDay = calendarCurrentDate;
                 generateCalendar(month, year)
             })
@@ -691,7 +692,7 @@ function loadConsultas(event) {
 function insertItemCancelado(item, index) {
     let tr = document.createElement("tr");
 const moment = new Date(item.Data_do_Atendimento)
-const dia = moment.getDate()
+const dia = moment.getDate() + 1
 const mes = moment.getMonth()+1
 const ano = moment.getFullYear()
 
