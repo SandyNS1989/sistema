@@ -279,6 +279,7 @@ setInterval(() => {
 
 
 const list = document.getElementById("lista")
+let consultores = []
 
 ;(async () => {
     const token = localStorage.getItem(CHAVE)
@@ -298,7 +299,7 @@ const list = document.getElementById("lista")
 // -----------------------------------
 
     const response2 = await fetch('/users')
-    const consultores = await response2.json()
+    consultores = await response2.json()
 
     if (data.Secretaria) {
         consultores.filter(arq=>!arq.Secretaria && arq.Nome !== "ADM").forEach(({Usuario, Nome}) => {
@@ -307,7 +308,6 @@ const list = document.getElementById("lista")
     } else {
         [data].forEach(({Usuario, Nome}) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-            console.log(Usuario)
         })
     }
 })().catch(console.error)
@@ -315,7 +315,7 @@ const list = document.getElementById("lista")
 list.onchange = async function (e) {
     await carregarLista(true)
 
-    document.getElementById('selectedName').innerHTML = `AGENDA DR(a) - ${list.value}`
+    document.getElementById('selectedName').innerHTML = `AGENDA DR(a) - ${consultores.find(arg => arg.Usuario === list.value).Nome }`
 }
 
 const espec = document.getElementById("especialista");
