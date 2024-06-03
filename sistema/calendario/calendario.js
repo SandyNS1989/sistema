@@ -193,7 +193,7 @@ const generateCalendar = async (month, year) => {
 
             day.onclick = (() => {
                 console.log(nDay)
-                const calendarCurrentDate = new Date(`${year}-${String(month + 1).padStart(2, '0')}-${String(nDay).padStart(2, '0')}`)
+                const calendarCurrentDate = new Date(`${year}-${month + 1}-${nDay}`)
                 newCurrentDay = calendarCurrentDate;
                 generateCalendar(month, year)
             })
