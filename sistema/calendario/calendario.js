@@ -590,9 +590,9 @@ function espera(event) {
 
 
     const nameinp = document.getElementById("esp-name")
-    const phoneinp = document.getElementById("phone")
-    const convenioinp = document.getElementById("convenio")
-    const observacaoinp = document.getElementById("observacao")
+    const phoneinp = document.getElementById("esp-phone")
+    const convenioinp = document.getElementById("esp-convenio")
+    const observacaoinp = document.getElementById("esp-observacao")
 
    
 
@@ -602,7 +602,7 @@ function espera(event) {
             Nome: nameinp.value,
             Telefone: phoneinp.value,
             Convenio: convenioinp.value,
-            Especialista: list.value,
+            Especialista: list2.value,
             Observacao: observacaoinp.value,
         }),
         headers: {
@@ -620,6 +620,11 @@ const getItensBD = async () => {
     items = await response.json()
 }
 
+async function deleteItem(id) {
+    await fetch(`/Lista_espera/${id}`, {method: 'DELETE'})
+    loadItens()
+}
+
 function insertItem(item, index) {
     let tr = document.createElement("tr");
 
@@ -627,10 +632,10 @@ function insertItem(item, index) {
       <td>${item.Nome}</td>
       <td>${item.Telefone}</td>
       <td>${item.Convenio}</td>
-      <td>${item.Observacao}</td>
       <td>${item.Especialista}</td>
+      <td>${item.Observacao}</td>
       <td class="columnAction">
-        <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+        <button onclick="deleteItem('${item.id}')"><box-icon name="trash"></box-icon></button>
       </td>
     `;
 
