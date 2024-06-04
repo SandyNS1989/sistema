@@ -7,10 +7,7 @@ document.getElementById("btn_voltar_mp").addEventListener("click", () => {
 const nameinp = document.getElementById("name")
 const emailinp = document.getElementById("email")
 const userinp = document.getElementById("user")
-const senhainp = document.getElementById("senha")
-const c_senhainp = document.getElementById("c_senha")
-const issecretaria = document.getElementById("secretaria")
-const isprofissional = document.getElementById("profissional")
+
 
 let id = " "
     ; (async () => {
@@ -32,9 +29,6 @@ let id = " "
         nameinp.value = data.Nome
         emailinp.value = data.Email
         userinp.value = data.Usuario
-        senhainp.value = data.Senha
-        issecretaria.checked = data.Secretaria
-        isprofissional.checked = data.Profissional
         id = data.id
         const thumbnail = document.getElementById('thumbnail');
             thumbnail.src = data.foto
@@ -75,9 +69,6 @@ const toBase64 = file => new Promise((resolve, reject) => {
             Nome: nameinp.value,
             Email: emailinp.value,
             Usuario: userinp.value,
-            Senha: senhainp.value,
-            Secretaria: issecretaria.checked,
-            Profissional: isprofissional.checked,
             foto,
         }),
         headers: {
