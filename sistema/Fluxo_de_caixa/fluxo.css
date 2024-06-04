@@ -43,10 +43,8 @@ h1{
 .contato {
   font-size: 75%;
   width: 70%;
-  font-weight: normal;
   color: white;
   padding-block: 5px;
- font-weight: bolder;
   border-radius: 20px;
   box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
   border: none;
@@ -380,72 +378,27 @@ th {
   text-align: center;
 }
 
-/* @media screen and (max-width:1200px) {
-  
-.containertabela{
-  width: 132%;
-}
+@media screen and (max-width:1081px) {
+  iframe{
+    margin-top:8%;
+    margin-left:-1%;
+   }
 
-.container{
-  height: 85%;
-  top: 5%;
-}
-
-.switch-container{
-  width: 130%;
-}
-
-.escrita{
-  font-size: 85%;
-}
-
-i{
-  width: 20%;
-}
-
-.voltar-button{
-  position: absolute;
-  left:4%;
-  width: 10%;
-  top:5%;
-}
-
-}
-
-@media screen and (max-width:800px) {
-  
-  .containertabela{
-    width: 132%;
-  }
-  
-  .container{
-    height: 140%;
-    width: 80%;
-    top: 5%;
-  }
-  
   .switch-container{
-    width: 130%;
-  }
-  
-  .escrita{
-    font-size: 85%;
-  }
-  
-  i{
-    width: 20%;
-  }
-  
-  .voltar-button{
-    position: absolute;
-    left:4%;
     width: 15%;
-    top:8%;
   }
 
-  th {
-    margin-right:15%;
-    
+  .contato{
+    margin-top:225%;
   }
-  
-  } */
+
+  .containertabela{
+    width: 120%;
+  }
+
+  h1{
+    width: 110%;
+  }
+
+
+  }

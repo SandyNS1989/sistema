@@ -282,38 +282,24 @@ input:checked+.slider:before {
   transform: translateX(2em);
   background: lightgreen;
 }
-/* @media screen and (max-width:1200px) {
-  .container {
-    position: relative;
-    width: 45%;
-    top: -5%;
+
+@media screen and (max-width:1081px) {
+
+  iframe{
+    margin-top:8%;
+    margin-left:-1%;
+   }
+
+   .container{
+    width: 40%;
+    margin-top: 8%;
+   }
+
+   h1{
+    width: 110%;
   }
 
-  .switch-container {
-    z-index: 9999999999;
+   .contato{
+    margin-top:78%;
   }
 }
-
-@media screen and (max-width:900px) {
-  .container {
-    z-index: -1;
-    position: relative;
-    width: 85%;
-    top: -5%;
-  }
-
-  .switch-container {
-    z-index: 9999999999;
-    max-width: 15%;
-    width: 90%;
-  }
-
-  h4 {
-    margin-top: 3%;
-  }
-
-  .input{
-    width: 75%;
-  }
-
-} */
