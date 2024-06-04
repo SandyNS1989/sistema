@@ -31,9 +31,7 @@ app.post("/login", async (req, res) => {
 
     const token = jsonwebtoken.sign({
         usuario: req.body.usuario
-    }, SECRET, {
-        expiresIn: "1d"
-    })
+    }, SECRET)
     res.json({
         token
     })
