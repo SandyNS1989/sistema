@@ -87,21 +87,19 @@ async function carregarLista(force) {
 
     const response = await fetch('/agendamentos')
     let data = await response.json()   
-    console.log("asdsad", data)
 
     data = data.filter(arg =>
         arg.Data_do_Atendimento === `${cY}-${cM}-${cD}` &&
         arg.Especialista.toLowerCase().includes(document.getElementById("lista").value.toLowerCase())
     )
 
-    console.log("asdsad", data, `${cY}-${cM}-${cD}`)
 
     data.forEach(arg => {
         const contentId = `agendamento-${arg.Horario_da_consulta}`;
         const contentEl = document.getElementById(contentId);
 
         if (contentEl) {
-            contentEl.innerHTML = `${todosPacientes.find(pac => arg.Nome === pac.id).Nome} - Especialista: ${arg.Especialista}  ${arg.observacao}`
+            contentEl.innerHTML = `${todosPacientes.find(pac => arg.Nome === pac.id)?.Nome} - Especialista: ${arg.Especialista}  ${arg.observacao}`
 
             contentEl.style = 'cursor: pointer; user-select: none;'
 
