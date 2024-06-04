@@ -296,27 +296,62 @@ a {
   color: rgb(0, 2, 2);
 }
 
- @media screen and (max-width:1280px) {
+ @media screen and (max-width:1081px) {
+  .logo{
+    width:20%;
+    left:10.2%;
+  }
+
+  .container{
+    height: 79%;
+  }
+ 
+  .button0{
+    margin-top:12%;
+    width:28%;
+    left:55%;
+  }
+
+  .button2{
+    top:17%;
+    width:28%;
+    left:55.5%;
+  }
+
+  .button1{
+    top:15%;
+    width:28%;
+    left:55%;
+  }
+
+  .button3{
+    top:15%;
+    width:28%;
+    left:55.5%;
+  }
 
  .backdrop {
- 
+ width: 23%;
   top: 31%;
   left: 53.5%;
   margin-bottom: 5%;
 }
 .backdrop1 {
-  top: 59.5%;
+  width: 23%;
+  top: 54%;
   left: 53.5%;
   margin-bottom: 5%;
 }
 .backdrop2 {
+  width: 23%;
   top: 31%;
-  left: 79%;
+  left: 77%;
   margin-bottom: 5%;
 }
 .backdrop3 {
-  left: 79%;
-  top: 59.5%;  
+  width: 23%;
+  left: 77%;
+  top: 54%;  
   margin-bottom: 5%;
 } 
 
@@ -331,6 +366,10 @@ a {
 
 .switch-container{
   height: 98%;;
+}
+
+.out-button{
+  top:80%;
 }
 
 
