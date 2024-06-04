@@ -278,6 +278,7 @@ setInterval(() => {
 
 
 const list = document.getElementById("lista")
+const list2 = document.getElementById("esp-especialista")
 let consultores = []
 
 ;(async () => {
@@ -303,10 +304,12 @@ let consultores = []
     if (data.Secretaria) {
         consultores.filter(arq=>!arq.Secretaria && arq.Nome !== "ADM").forEach(({Usuario, Nome}) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
         })
     } else {
         [data].forEach(({Usuario, Nome}) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
         })
     }
 })().catch(console.error)
@@ -398,7 +401,7 @@ const observacaoinp = document.getElementById("observacao")
 const id_agendamento = document.getElementById("id_agendamento")
 
 function atualizaTelefone() {
-    const paciente = pacientesFiltrados.find(paciente => paciente.id = nameinp.value)
+    const paciente = pacientesFiltrados.find(paciente => paciente.id === nameinp.value)
     phoneinp.value = paciente.Telefone
 }
 
