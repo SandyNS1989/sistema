@@ -42,6 +42,9 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
    const userGreeting = document.getElementById('userGreeting');
    userGreeting.textContent = `Olá, ${Usuario}!`;
 
+   const userGreeting1 = document.getElementById('userGreeting1');
+   userGreeting1.textContent = `Bem-vindo(a) ${Usuario}!`;
+
    if (data.Secretaria) {
       const btnFluxo = document.getElementById("btn_fluxo");
       btnFluxo.parentNode.removeChild(btnFluxo);
