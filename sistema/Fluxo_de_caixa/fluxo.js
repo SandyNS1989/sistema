@@ -158,4 +158,4 @@ document.getElementById("ch-side").addEventListener("change",event=>{
 
 document.getElementById("btn_voltar_flx").addEventListener("click", () => {
   window.location.href = '../Menu/menu.html';
-});
+}); 
