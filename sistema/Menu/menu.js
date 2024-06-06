@@ -50,6 +50,8 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
       btnFluxo.parentNode.removeChild(btnFluxo);
       const backdrop3 = document.getElementById("backdrop3");
       backdrop3.parentNode.removeChild(backdrop3);
+      const flxlateral = document.getElementById("flxLateral");
+      flxlateral.parentNode.removeChild(flxLateral);
       
    } else {
       // COISAS Q EU QUERO FAZER SE N FOR SECRETARIA
