@@ -120,7 +120,7 @@ setInterval(async () => {
             arg.classList.add('notificacao')
         }
     })
-}, 3000)
+}, 1000)
 
 setInterval(async () => {
     var chatPopup = document.getElementById("chat-popup");
