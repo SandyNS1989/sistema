@@ -14,82 +14,82 @@
   <link rel="stylesheet" href="../global/font.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <iframe class="unstyled"
-  src="https://animated-guacamole-5gv7vgg755pqc76x-3000.app.github.dev/sistema/chat/chat.html"></iframe>
+    src="https://animated-guacamole-5gv7vgg755pqc76x-3000.app.github.dev/sistema/chat/chat.html"></iframe>
 </head>
 
 <body>
   <div class="switch-container">
     <main class="off" id="main-side">
-        <div class="escrita">
-            <h1>
-                <a href="../meuPerfil/meuPerfil.html">
+      <div class="escrita">
+        <h1>
+          <a href="../meuPerfil/meuPerfil.html">
 
-                    <div id="meuUsuario"
-                        style="flex: 1 1 0; color: white; font-size: 16px; font-family: Nunito; font-weight: 400; word-wrap: break-word">
-                        <i style="font-size:large; align-items: center; " class="bi bi-person-square"></i> 
-                        <br>
-                        <p style="text-align: center;" id="userGreeting"></p>
-                        <h4 style="font-size: xx-small;margin: 0; color: aqua; text-align: center;">Editar perfil</h4>
-                    </div>
-            </h1>
+            <div id="meuUsuario"
+              style="flex: 1 1 0; color: white; font-size: 16px; font-family: Nunito; font-weight: 400; word-wrap: break-word">
+              <i style="font-size:large; align-items: center; " class="bi bi-person-square"></i>
+              <br>
+              <p style="text-align: center;" id="userGreeting"></p>
+              <h4 style="font-size: xx-small;margin: 0; color: aqua; text-align: center;">Editar perfil</h4>
+            </div>
+        </h1>
 
 
-            <h4> </a>
-                <a href="../cadastro_prof/cadastro_prof.html">
-                    <i class="bi bi-person-lock"></i> Cadastro do Profissional</a>
-            </h4>
+        <h4> </a>
+          <a href="../cadastro_prof/cadastro_prof.html">
+            <i class="bi bi-person-lock"></i> Cadastro do Profissional</a>
+        </h4>
 
-            <h4>
-                <a href="#" onclick="redirecionaCadUser()">
-                    <i class="bi bi-person-lock"></i> Cadastro de Usuário</a>
-            </h4>
+        <h4>
+          <a href="#" onclick="redirecionaCadUser()">
+            <i class="bi bi-person-lock"></i> Cadastro de Usuário</a>
+        </h4>
 
-            <h4>
-                <a href="../cadastro_convenio/cadastro_convenio.html">
-                    <i class="bi bi-journals"></i> Cadastro de Convênio</a>
-            </h4>
+        <h4>
+          <a href="../cadastro_convenio/cadastro_convenio.html">
+            <i class="bi bi-journals"></i> Cadastro de Convênio</a>
+        </h4>
 
-            <h4>
-                <a href="../calendario/calendario.html">
-                    <i class="bi bi-calendar2-check"></i> Agendamento</a>
-            </h4>
+        <h4>
+          <a href="../calendario/calendario.html">
+            <i class="bi bi-calendar2-check"></i> Agendamento</a>
+        </h4>
 
-            <h4>
-                <a href="../Fluxo_de_caixa/fluxo.html" id="flx-lateral">
-                    <i class="bi bi-cash-coin"></i> Fluxo de Caixa</a>
-            </h4>
-        </div>
+        <h4>
+          <a href="../Fluxo_de_caixa/fluxo.html" id="flx-lateral">
+            <i class="bi bi-cash-coin"></i> Fluxo de Caixa</a>
+        </h4>
+      </div>
 
-        <div>
-            <div class="contato"> Contato </div>
-        </div>
+      <div>
+        <div class="contato"> Contato </div>
+      </div>
 
-        <div>
-            <a class="contato" href="https://wa.me/message/6JNNR37HJXYQM1">
-                <i class="bi bi-whatsapp"></i><span>
-                </span>(19) 98149-4345</a>
-        </div>
+      <div>
+        <a class="contato" href="https://wa.me/message/6JNNR37HJXYQM1">
+          <i class="bi bi-whatsapp"></i><span>
+          </span>(19) 98149-4345</a>
+      </div>
 
-        <div>
-            <a class="contato" href="https://www.instagram.com/ns_basetech?igsh=eXZ6aDl4dWt5NmRj">
-                <i class="bi bi-instagram"></i><span style="margin-left: 5px;"></span>@ns_basetech </a>
-        </div>
+      <div>
+        <a class="contato" href="https://www.instagram.com/ns_basetech?igsh=eXZ6aDl4dWt5NmRj">
+          <i class="bi bi-instagram"></i><span style="margin-left: 5px;"></span>@ns_basetech </a>
+      </div>
 
 
     </main>
     <label class="switch">
-        <input type="checkbox" id="ch-side">
-        <span class="slider"></span>
+      <input type="checkbox" id="ch-side">
+      <span class="slider"></span>
     </label>
-</div>
+  </div>
 
 
-   
 
-  <div class="container">   
-      <div class="heading">Fluxo de Caixa</div>
-      <div><b>NS BaseTech</b></div>
-      <div class="hr-customizado"></div> 
+
+  <div class="container">
+    <div class="heading">Fluxo de Caixa</div>
+    <div><b>NS BaseTech</b></div>
+    <div class="hr-customizado"></div>
 
     <main>
       <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_flx"></input>
@@ -131,10 +131,17 @@
           </select>
         </div>
 
+        <div class="divDate">
+          <label for="date">Data</label>
+          <input type="date" id="date" />
+        </div>
+
+        
+
         <button class="incluir-button" id="btnNew">Incluir</button>
       </div>
 
-      <div class= "containertabela">
+      <div class="containertabela">
         <div class="divTable">
           <table>
             <thead>
@@ -142,6 +149,7 @@
                 <th>Descrição</th>
                 <th class="columnAmount">Valor</th>
                 <th class="columnType">Tipo</th>
+                <th class="columnDate">Data</th>
                 <th class="columnAction"></th>
               </tr>
             </thead>

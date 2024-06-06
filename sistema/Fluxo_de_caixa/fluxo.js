@@ -6,6 +6,7 @@ const tbody = document.querySelector("tbody");
 const descItem = document.querySelector("#desc");
 const amount = document.querySelector("#amount");
 const type = document.querySelector("#type");
+const date = document.querySelector("#date");
 const btnNew = document.querySelector("#btnNew");
 
 const incomes = document.querySelector(".incomes");
@@ -15,16 +16,18 @@ const total = document.querySelector(".total");
 let items = []
 
 btnNew.onclick = () => {
-  if (descItem.value === "" || amount.value === "" || type.value === "") {
+  if (descItem.value === "" || amount.value === "" || type.value === ""|| date.value === "") {
     return alert("Preencha todos os campos!");
   }
   
   const Descricao = descItem.value
   const Valor = parseInt(amount.value, 10);
   const Tipo = type.value
+  const Data = date.value
 
   descItem.value = "";
   amount.value = "";
+  date.value = "";
 
   fetch('/Fluxo_de_caixa', {
     method: 'POST',
@@ -32,6 +35,7 @@ btnNew.onclick = () => {
       Descricao,
       Valor,
       Tipo,
+      Data,
       Especialista: Usuario
     }),
     headers: {
@@ -70,11 +74,13 @@ function insertItem(item, index) {
   tr.innerHTML = `
     <td>${item.Descricao}</td>
     <td>R$ ${item.Valor}</td>
+    
     <td class="columnType">${
       item.Tipo === "Entrada"
         ? '<i class="bx bxs-chevron-up-circle"></i>'
         : '<i class="bx bxs-chevron-down-circle"></i>'
     }</td>
+    <td>${item.Data}</td>
     <td class="columnAction">
       <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
     </td>

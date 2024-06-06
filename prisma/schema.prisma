@@ -82,6 +82,7 @@ model Fluxo_de_caixa {
   Descricao String
   Valor     Int
   Tipo      String
+  Data      String
   Especialista        String
 }
 
