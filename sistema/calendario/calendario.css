@@ -517,13 +517,13 @@ li::before {
 
 .esperaSt {
   overflow: auto;
-  left: 35%;
+  left: 5%;
   text-align: center;
   border-radius: 20px;
-  width: 50%;
-  height: 100%;
+  width: 90%;
+  height: 80%;
   border: none;
-  margin-top: 2%;
+  margin-top: 5%;
   
 }
 
@@ -539,16 +539,37 @@ table {
   width: 98%;
   padding: 20px 0;
   border-radius: 5px;
+  border-collapse: collapse; /* Remove spacing between cells */
 }
 
 
-.inputdata{
-  border:none;
-  box-shadow: 0px 0px 5px #969595;
-  border-radius: 10%;
-  margin: 2%;
-  width:15%;
+.inputespera {
+  width: 100%;
+  margin: 0;
+  position: relative;
+  padding: 0;
 }
+
+.inputespera th, .inputespera td {
+  padding: 1%; /* Remove padding from table cells */
+  
+}
+
+.inputespera th {
+  width: 20%; /* Set appropriate width for each column */
+}
+
+.inputespera .input {
+  width: 100%; /* Ensure inputs take the full width of the table cell */
+  background: white;
+  border: none;
+  padding: 10px; /* Adjust padding to reduce size */
+  border-radius: 20px; /* Adjust border-radius for inputs */
+  margin: 0.5%; /* Remove margin from inputs */
+  box-shadow: #a9cfc6 0px 5px 5px -2px; /* Adjust box shadow to fit smaller input size */
+  border: 1px solid #ddd; /* Add a border for better input visibility */
+}
+
 
 .heading {
   text-align: center;
@@ -701,7 +722,7 @@ label {
   }
   th, td {
       border: 1px solid #dddddd;
-      text-align: left;
+      text-align: center;
       padding: 8px;
   }
   tr:nth-child(even) {

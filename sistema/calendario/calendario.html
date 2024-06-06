@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
     <iframe class="unstyled"
-    src="https://animated-guacamole-5gv7vgg755pqc76x-3000.app.github.dev/sistema/chat/chat.html"></iframe>
+        src="https://animated-guacamole-5gv7vgg755pqc76x-3000.app.github.dev/sistema/chat/chat.html"></iframe>
     <link rel="stylesheet" href="calendario.css">
     <link rel="shortcut icon" href="../Logo/LOGO_02_DEGRADE.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -35,10 +35,11 @@
         <div class="hr-customizado"></div>
 
         <form onsubmit="agendamento(event)" id="formagendamento" class="form" data-agendamentoId="0">
-            <select class="input" name="name" id="age_name" style="margin-bottom: 2%; margin-right: 2%;" onchange="atualizaTelefone()">
-               
+            <select class="input" name="name" id="age_name" style="margin-bottom: 2%; margin-right: 2%;"
+                onchange="atualizaTelefone()">
+
             </select>
-           
+
 
             </select>
 
@@ -99,8 +100,10 @@
 
 
             <input type="hidden" id="id_agendamento" name="id_agendamento">
-            
-            <input class="login-button" type="button" onclick="atendimento(document.getElementById('id_agendamento').value, document.getElementById('age_name').value)" value="Iniciar atendimento" id="btn-start-atendimento">
+
+            <input class="login-button" type="button"
+                onclick="atendimento(document.getElementById('id_agendamento').value, document.getElementById('age_name').value)"
+                value="Iniciar atendimento" id="btn-start-atendimento">
 
         </form>
     </dialog>
@@ -110,22 +113,31 @@
 
     <dialog id="mod-espera" class="esperaSt">
 
-        <form onsubmit="espera(event)" id="formespera" class="form">
+        <form onsubmit="espera(event)" id="formespera">
 
             <div class="heading">Lista de Espera</div>
 
+            <div class="inputespera">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input class="input"  name="name" id="esp-name" placeholder="Nome"></input></th>
+                            <th><input class="input" name="phone" id="esp-phone" placeholder="Telefone"></input></th>
+                            <th><input class="input" name="convenio" id="esp-convenio" placeholder="Convênio"></input></th>
+                            <th><input class="input" type="text" name="observacao" id="esp-observacao" placeholder="Observação"></th>
+                            
+                        </tr>
+                    </thead>
+                </table>
+                <th>
+                    <optgroup label="Especialista"></optgroup>
+                    <select style="width:50%;" class="input" type="text" name="Especialista" id="esp-especialista"></select>
+                
+            </div>
 
-            <input class="input" name="name" id="esp-name" placeholder="Nome"></input>
-            <input class="input" name="phone" id="esp-phone" placeholder="Telefone"></input>
-            <input class="input" name="convenio" id="esp-convenio" placeholder="Convênio"></input>
-            <input class="input" type="text" name="observacao" id="esp-observacao" placeholder="Observação">
 
-            <optgroup label="Especialista"></optgroup>
-            <select class="input" type="text" name="Especialista" id="esp-especialista">
 
-            </select>
-
-            <input class="login-button" type="submit" value="Adicionar" id="btn_adicionar">
+            <input class="close-button" type="submit" value="Adicionar" id="btn_adicionar">
 
         </form>
 
@@ -145,24 +157,24 @@
                 <tbody>
                 </tbody>
 
-            </table>            
+            </table>
         </div>
-        <input  class="close-button"  type="button" value="FECHAR" id="btn-close-espera">
+        <input class="close-button" type="button" value="FECHAR" id="btn-close-espera">
     </dialog>
 
     <dialog id="mod-cancelado" class="canceladoSt">
-        
+
         <form onsubmit="cancelado(event)" id="formcancelado" class="form">
-           
+
             <div class="heading">Lista de Consultas</div>
 
             <select class="input" name="name" id="age_name_cancelado" style="margin-bottom: 2%; margin-right: 2%;">
                 <option value="">Selecione um paciente</option>
             </select>
-            
-            <button  class="cancel-button"onclick="loadConsultas(event)">Buscar Consultas</button>
+
+            <button class="cancel-button" onclick="loadConsultas(event)">Buscar Consultas</button>
             <br>
-            
+
             <br>
 
             <div><b>Lista de Consultas</b></div>
@@ -183,12 +195,12 @@
 
                     </table>
                 </div>
-                
-                <button  class="cancel-button"onclick="deleteSelectedRows(event)">Excluir Selecionados</button>
+
+                <button class="cancel-button" onclick="deleteSelectedRows(event)">Excluir Selecionados</button>
 
                 <input class="login-button" type="button" value="FECHAR" id="btn-close-cancelado">
         </form>
-    
+
     </dialog>
 
     <header>
