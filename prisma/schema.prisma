@@ -29,6 +29,7 @@ model Cadastro_pacientes {
   Nome                       String
   Telefone                   String
   Email                      String
+  Data_de_Nascimento         String
   CPF_CNPJ                   String @unique
   Endereco                   String
   Numero                     String

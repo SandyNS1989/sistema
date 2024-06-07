@@ -11,6 +11,18 @@ body {
  
 }
 
+.inputnasc{
+  width:auto; 
+  background: white;
+  border: none;
+  padding: 15px 10px;
+  border-radius: 20px;
+  justify-content: center;
+ text-align: center;
+  box-shadow: #a9cfc6 0px 10px 10px -5px;
+  border-inline: 2px solid transparent;
+}
+
 .NS{
   text-align: center;
 }
