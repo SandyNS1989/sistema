@@ -136,10 +136,49 @@
           <input type="date" id="date" />
         </div>
 
-        
-
-        <button class="incluir-button" id="btnNew">Incluir</button>
+        <button class="incluir-button" type="button" id="btnNew">Incluir</button>
       </div>
+
+      <div class="resume">
+        <h5>Filtros</h5>
+      </div>
+
+      <div class="resume">
+
+
+        <div class="divType">
+          <label for="meses">Mês</label>
+          <select id="meses" name="meses" onchange="loadItens()">
+            <option value="">Todos</option>
+            <option value="01">Janeiro</option>
+            <option value="02">Fevereiro</option>
+            <option value="03">Março</option>
+            <option value="04">Abril</option>
+            <option value="05">Maio</option>
+            <option value="06">Junho</option>
+            <option value="07">Julho</option>
+            <option value="08">Agosto</option>
+            <option value="09">Setembro</option>
+            <option value="10">Outubro</option>
+            <option value="11">Novembro</option>
+            <option value="12">Dezembro</option>
+          </select>
+        </div>
+
+
+        <div class="divDesc">
+          <label for="selected-year">Ano</label>
+          <input type="number" id="selected-year" placeholder="Todos" onchange="loadItens()" />
+        </div>
+
+        <div class="divType">
+          <label for="selected-Pacientes">Pacientes</label>
+          <select id="selected-Pacientes" name="meses" onchange="loadItens()">
+            <option value="">Todos</option>
+          </select>
+        </div>
+      </div>
+
 
       <div class="containertabela">
         <div class="divTable">

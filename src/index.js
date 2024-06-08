@@ -272,25 +272,37 @@ app.get("/Fluxo_de_caixa", async (req, res) => {
     const fluxos = await prisma.Fluxo_de_caixa.findMany()
 
 
-    const consultas = await prisma.Agendamento.groupBy({
-        by: ['Especialista'],
-        _sum: {
-            Valor_da_Consulta: true,
-        },
+    const consultas = await prisma.Agendamento.findMany({
         where: {
-            Status_do_pagamento: 'Pago'
+            Status_do_pagamento: 'Pago',
         }
     })
 
-    consultas.forEach((consulta) => {
+    const pacietesCache = {}
+
+    for (const consulta of consultas) {
+        let nome = ''
+
+        if (!pacietesCache[consulta.Nome]) {
+            const pac = await prisma.cadastro_pacientes.findUnique({
+                where: {id: consulta.Nome}
+            })
+
+            pacietesCache[consulta.Nome] = pac
+        }
+
+        nome = pacietesCache[consulta.Nome].Nome ?? 'Não encontrado'
+
         fluxos.push({
-            id: `esp-${consulta.Especialista}`,
-            Descricao: `Pacientes: ${consulta.Especialista}`,
-            Valor: String(consulta._sum.Valor_da_Consulta),
+            id: `con-${consulta.id}`,
+            Descricao: `Atendimento: ${nome}`,
+            Valor: String(consulta.Valor_da_Consulta),
             Tipo: 'Entrada',
-            Especialista: consulta.Especialista
+            Especialista: consulta.Especialista,
+            Data: consulta.Data_do_Atendimento
+            
         })
-    })
+    }
 
     res.json(fluxos)
 

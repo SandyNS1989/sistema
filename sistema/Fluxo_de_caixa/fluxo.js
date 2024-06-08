@@ -15,11 +15,11 @@ const total = document.querySelector(".total");
 
 let items = []
 
-btnNew.onclick = () => {
-  if (descItem.value === "" || amount.value === "" || type.value === ""|| date.value === "") {
+btnNew.onclick = (event) => {
+  if (descItem.value === "" || amount.value === "" || type.value === "" || date.value === "") {
     return alert("Preencha todos os campos!");
   }
-  
+
   const Descricao = descItem.value
   const Valor = parseInt(amount.value, 10);
   const Tipo = type.value
@@ -29,6 +29,8 @@ btnNew.onclick = () => {
   amount.value = "";
   date.value = "";
 
+
+  
   fetch('/Fluxo_de_caixa', {
     method: 'POST',
     body: JSON.stringify({
@@ -42,14 +44,11 @@ btnNew.onclick = () => {
       "Content-Type": "application/json"
     }
   }).then(() => {
-    loadItens()
-  }) 
+      location.reload();
+  })
 
 };
 
-document.getElementById('btnNew').addEventListener('click', function() {
-  location.reload();
-});
 
 function deleteItem(index) {
 
@@ -57,7 +56,7 @@ function deleteItem(index) {
   fetch('/Fluxo_de_caixa', {
     method: 'DELETE',
     body: JSON.stringify({
-    id: items[index].id
+      id: items[index].id
     }),
     headers: {
       "Content-Type": "application/json"
@@ -75,14 +74,16 @@ function insertItem(item, index) {
     <td>${item.Descricao}</td>
     <td>R$ ${item.Valor}</td>
     
-    <td class="columnType">${
-      item.Tipo === "Entrada"
-        ? '<i class="bx bxs-chevron-up-circle"></i>'
-        : '<i class="bx bxs-chevron-down-circle"></i>'
+    <td class="columnType">${item.Tipo === "Entrada"
+      ? '<i class="bx bxs-chevron-up-circle"></i>'
+      : '<i class="bx bxs-chevron-down-circle"></i>'
     }</td>
     <td>${item.Data}</td>
     <td class="columnAction">
-      <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+      ${
+        item.Descricao.startsWith('Atendimento: ') ? '' : `<button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>`
+      }
+      
     </td>
   `;
 
@@ -90,20 +91,32 @@ function insertItem(item, index) {
 }
 
 function loadItens() {
-  tbody.innerHTML = "";
-    items.filter(item => item.Especialista === Usuario).forEach((item, index) => {
-      insertItem(item, index);
-    });
+  const mes = document.getElementById('meses').value
+  const selectedYear = document.getElementById('selected-year').value
+  const selectedPaciente = document.getElementById('selected-Pacientes').value
 
-    getTotals();
+  console.log(selectedPaciente)
+
+  tbody.innerHTML = "";
+
+  const itensFiltrados = items.filter(item => item.Especialista === Usuario 
+    && (mes === '' || item.Data.split('-')[1] === mes) 
+    && (selectedYear === '' || item.Data.split('-')[0] === selectedYear) 
+    && (selectedPaciente === '' || item.Descricao === selectedPaciente))
+
+  itensFiltrados.forEach((item, index) => {
+    insertItem(item, index);
+  });
+
+  getTotals(itensFiltrados);
 }
 
-function getTotals() {
-  const amountIncomes = items
+function getTotals(itensFiltrados) {
+  const amountIncomes = itensFiltrados
     .filter((item) => item.Tipo === "Entrada" && item.Especialista === Usuario)
     .map((transaction) => Number(transaction.Valor));
 
-  const amountExpenses = items
+  const amountExpenses = itensFiltrados
     .filter((item) => item.Tipo === "Saída" && item.Especialista === Usuario)
     .map((transaction) => Number(transaction.Valor));
 
@@ -125,40 +138,49 @@ function getTotals() {
 const getItensBD = async () => {
   const response = await fetch('/Fluxo_de_caixa')
   items = await response.json()
+
+
+  const atendimentos = items.filter(items => items.Descricao.startsWith('Atendimento: ')).map(arg => arg.Descricao)
+
+  let atendimentosDistintos = [...new Set(atendimentos)];
+
+  document.getElementById('selected-Pacientes').innerHTML += atendimentosDistintos.map(arg => `
+    <option value="${arg}">${arg.replace('Atendimento: ', '')}</option>  
+  `)
 }
 
 
 
-;(async () => {
-  const token = localStorage.getItem(CHAVE)
+  ; (async () => {
+    const token = localStorage.getItem(CHAVE)
 
-  const response = await fetch('/verify', {
+    const response = await fetch('/verify', {
       body: JSON.stringify({ token }),
       method: 'POST',
       headers: {
-          "Content-Type": "application/json"
+        "Content-Type": "application/json"
       }
-  })
+    })
 
-  const data = await response.json()
+    const data = await response.json()
 
-  Usuario = data.Usuario
+    Usuario = data.Usuario
 
-  const userGreeting = document.getElementById('userGreeting');
-  userGreeting.textContent = `Olá, ${Usuario}!`;
+    const userGreeting = document.getElementById('userGreeting');
+    userGreeting.textContent = `Olá, ${Usuario}!`;
 
-  await  getItensBD()
+    await getItensBD()
 
-  loadItens();
-})().catch(console.error)
+    loadItens();
+  })().catch(console.error)
 
-document.getElementById("ch-side").addEventListener("change",event=>{
-  const mainSide=document.getElementById("main-side")
-  if(event.target.checked){
-     mainSide.classList.remove("off") 
+document.getElementById("ch-side").addEventListener("change", event => {
+  const mainSide = document.getElementById("main-side")
+  if (event.target.checked) {
+    mainSide.classList.remove("off")
   }
-  else{
-     mainSide.classList.add("off") 
+  else {
+    mainSide.classList.add("off")
   }
 })
 
