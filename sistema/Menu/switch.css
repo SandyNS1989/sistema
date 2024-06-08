@@ -5,15 +5,67 @@
   box-sizing: border-box;
 }
 
-.barrinha{
+.barrinha {
   position: relative;
-  width:18%;
-  height:45%;
-  left:82%;
-  background: rgb(12, 158, 146) 0%;
+  width: 19%;
+  height: 45%;
+  left: 81.5%;
+  background: rgb(12, 158, 146);
   border: 2px solid rgb(255, 255, 255);
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+#meuUsuario1 {
+  flex: 1 1 0;
+  color: white;
+  font-size: 16px;
+  font-family: Nunito;
+  font-weight: 400;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#thumbnail {
+  position: absolute;
+  top: 15%;
+  width: 50px;
+  /* Define a largura da miniatura */
+  height: auto;
+  /* Mantém a proporção da imagem */
+
+  border-radius: 5%;
+  /* Faz a imagem ficar redonda */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  /* Adiciona sombra à imagem */
+  left: 5%;
+}
+
+.bi-person-square {
+  font-size: large;
+  position: absolute;
+  margin: 0;
+}
+
+#userGreeting1 {
+  text-align: right;
+  margin: 0;
+  margin-top: 3%;
+
+}
+
+.online {
+  margin: 0;
+  font-size: xx-small;
+  margin: 0;
+  color: aqua;
+  text-align: center;
+}
+
+
 
 
 *::-webkit-scrollbar {
@@ -24,8 +76,8 @@ h4 {
   margin-top: 20%;
 }
 
-h1{
-  top:5%;
+h1 {
+  top: 5%;
   width: 100%;
   height: 55%;
   background: #065757;
@@ -182,7 +234,7 @@ input:checked+.slider:before {
   font-size: 13px;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  
+
 }
 
 .button1 {
@@ -240,7 +292,7 @@ input:checked+.slider:before {
 .button1:hover+.backdrop1,
 .button2:hover+.backdrop2,
 .button3:hover+.backdrop3 {
-  
+
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
   transform: rotate(15deg) translateX(5%) translateY(-20%);
 }
@@ -264,7 +316,7 @@ a {
 }
 
 .logo {
-  position:absolute; 
+  position: absolute;
   top: 42%;
   left: 23%;
   transform: translate(-50%, -50%);
@@ -306,96 +358,100 @@ a {
   color: rgb(0, 2, 2);
 }
 
- @media screen and (max-width:1081px) {
-  .logo{
-    width:20%;
-    left:10.2%;
+@media screen and (max-width:1081px) {
+  .logo {
+    width: 20%;
+    left: 10.2%;
   }
 
-  .container{
+  .container {
     height: 79%;
   }
- 
-  .button0{
-    margin-top:12%;
-    width:28%;
-    left:55%;
+
+  .button0 {
+    margin-top: 12%;
+    width: 28%;
+    left: 55%;
   }
 
-  .button2{
-    top:17%;
-    width:28%;
-    left:55.5%;
+  .button2 {
+    top: 17%;
+    width: 28%;
+    left: 55.5%;
   }
 
-  .button1{
-    top:15%;
-    width:28%;
-    left:55%;
+  .button1 {
+    top: 15%;
+    width: 28%;
+    left: 55%;
   }
 
-  .button3{
-    top:15%;
-    width:28%;
-    left:55.5%;
+  .button3 {
+    top: 15%;
+    width: 28%;
+    left: 55.5%;
   }
 
- .backdrop {
- width: 23%;
-  top: 31%;
-  left: 53.5%;
-  margin-bottom: 5%;
-}
-.backdrop1 {
-  width: 23%;
-  top: 54%;
-  left: 53.5%;
-  margin-bottom: 5%;
-}
-.backdrop2 {
-  width: 23%;
-  top: 31%;
-  left: 77%;
-  margin-bottom: 5%;
-}
-.backdrop3 {
-  width: 23%;
-  left: 77%;
-  top: 54%;  
-  margin-bottom: 5%;
-} 
+  .backdrop {
+    width: 23%;
+    top: 31%;
+    left: 53.5%;
+    margin-bottom: 5%;
+  }
 
-.out-button {
-  top: 85%;
-  height: 9%;
+  .backdrop1 {
+    width: 23%;
+    top: 54%;
+    left: 53.5%;
+    margin-bottom: 5%;
+  }
+
+  .backdrop2 {
+    width: 23%;
+    top: 31%;
+    left: 77%;
+    margin-bottom: 5%;
+  }
+
+  .backdrop3 {
+    width: 23%;
+    left: 77%;
+    top: 54%;
+    margin-bottom: 5%;
+  }
+
+  .out-button {
+    top: 85%;
+    height: 9%;
+  }
+
+  .contato {
+    margin-top: 63%;
+  }
+
+  .switch-container {
+    height: 98%;
+    ;
+  }
+
+  .out-button {
+    top: 80%;
+  }
+
+  iframe {
+    margin-top: 8%;
+    margin-left: -1%;
+  }
+
+  h1 {
+    width: 110%;
+  }
+
+  .barrinha {
+    width: 30%;
+    height: 50%;
+  }
+
+
+
 }
-
-.contato{
-  margin-top: 63%;
-}
-
-.switch-container{
-  height: 98%;;
-}
-
-.out-button{
-  top:80%;
-}
-
-iframe{
- margin-top:8%;
- margin-left:-1%;
-}
-
-h1{
-  width: 110%;
-}
-
-.barrinha{
-  width:30%;
-  height: 50%;
-}
-
-
-
-} 
