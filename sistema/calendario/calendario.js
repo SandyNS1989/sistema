@@ -708,6 +708,7 @@ const ano = moment.getFullYear()
       <td>${dia}/${mes}/${ano}</td>
       <td>${item.Horario_da_consulta}</td>
       <td>${item.Status_da_Consulta}</td>
+      <td>${item.Status_do_pagamento}</td>
     `;
 
     tbodyCancelado.appendChild(tr);
