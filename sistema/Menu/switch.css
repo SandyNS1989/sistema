@@ -37,7 +37,7 @@
   height: auto;
   /* Mantém a proporção da imagem */
 
-  border-radius: 5%;
+  border-radius: 50%;
   /* Faz a imagem ficar redonda */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   /* Adiciona sombra à imagem */
