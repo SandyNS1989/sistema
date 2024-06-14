@@ -62,8 +62,14 @@ function cadastrar_paciente(event) {
             "Content-Type": "application/json"
         }
     }).then(response => response.json()).then(data => {
+        if (lista.value === "-") {
+            alert("Selecione o Especialista")
+            return
+        }
+        else{
         alert("Paciente atualizado com sucesso!")
         window.location.reload()
+    }
     }).catch(() => alert("Erro ao atualizar"))
 }
 
@@ -113,7 +119,7 @@ document.getElementById('mostrarSubformi').addEventListener('change', function (
     } else {
         [data].forEach(({Usuario, Nome}) => {
             list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-            console.log(Usuario)
+            
         })
     }
   })().catch(console.error)

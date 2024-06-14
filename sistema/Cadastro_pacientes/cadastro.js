@@ -52,6 +52,7 @@ function cadastrar_paciente(event) {
             "Content-Type": "application/json"
         }
     }).then(response => response.json()).then(data => {
+        
         alert("Paciente cadastrado com sucesso!")
         window.location.reload()
     }).catch(() => alert("Erro ao cadastrar"))
