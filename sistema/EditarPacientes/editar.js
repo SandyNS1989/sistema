@@ -31,9 +31,10 @@ const phonemaeinp = document.getElementById("phonemae")
         addressinp.value = data.Endereco
         numberinp.value = data.Numero
         cepinp.value = data.CEP
-        // phonepaiinp = data.phonepai
-        // namemaeinp = data.namemae
-        // phonemaeinp = data.phonemae          
+        namepaiinp.value = data.Nome_do_Pai_ou_Responsavel
+        phonepaiinp.value = data.Telefone_Pai
+        namemaeinp.value = data.Nome_da_Mae_ou_Responsavel
+        phonemaeinp.value = data.Telefone_Mae         
 
     })();
 
