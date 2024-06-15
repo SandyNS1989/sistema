@@ -3,6 +3,8 @@ document.getElementById("btn_voltar_ed").addEventListener("click", () => {
     window.location.href = '../Menu/menu.html'
 })
 
+
+
 const list = document.getElementById("lista")
 
 const nameinp = document.getElementById("name")
@@ -13,6 +15,7 @@ const cpf_cnpjinp = document.getElementById("cpf_cnpj")
 const addressinp = document.getElementById("address")
 const numberinp = document.getElementById("number")
 const cepinp = document.getElementById("cep");
+const isehcrianca = document.getElementById("mostrarSubformi")
 const namepaiinp = document.getElementById("namepai")
 const phonepaiinp = document.getElementById("phonepai")
 const namemaeinp = document.getElementById("namemae")
@@ -31,6 +34,7 @@ const phonemaeinp = document.getElementById("phonemae")
         addressinp.value = data.Endereco
         numberinp.value = data.Numero
         cepinp.value = data.CEP
+        isehcrianca.checked = data.Eh_Crianca
         namepaiinp.value = data.Nome_do_Pai_ou_Responsavel
         phonepaiinp.value = data.Telefone_Pai
         namemaeinp.value = data.Nome_da_Mae_ou_Responsavel
@@ -52,6 +56,7 @@ function cadastrar_paciente(event) {
             Endereco: addressinp.value,
             Numero: numberinp.value,
             CEP: cepinp.value,
+            Eh_Crianca: isehcrianca.checked,
             Nome_do_Pai_ou_Responsavel: namepaiinp.value,
             Telefone_Pai: phonepaiinp.value,
             Nome_da_Mae_ou_Responsavel: namemaeinp.value,
@@ -87,6 +92,8 @@ document.getElementById('mostrarSubformi').addEventListener('change', function (
     var subformi = document.getElementById('subformi');
     subformi.style.display = this.checked ? 'block' : 'none';
 });
+
+
 
 ;(async () => {
     const token = localStorage.getItem(CHAVE)

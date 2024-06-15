@@ -24,6 +24,7 @@ const cpf_cnpjinp = document.getElementById("cpf_cnpj")
 const addressinp = document.getElementById("address")
 const numberinp = document.getElementById("number")
 const cepinp = document.getElementById("cep")
+const isehcrianca = document.getElementById("mostrarSubforme")
 const namepaiinp = document.getElementById("namepai")
 const phonepaiinp = document.getElementById("phonepai")
 const namemaeinp = document.getElementById("namemae")
@@ -42,6 +43,7 @@ function cadastrar_paciente(event) {
             Endereco: addressinp.value,
             Numero: numberinp.value,
             CEP: cepinp.value,
+            Eh_Crianca: isehcrianca.checked,
             Nome_do_Pai_ou_Responsavel: namepaiinp.value,
             Telefone_Pai: phonepaiinp.value,
             Nome_da_Mae_ou_Responsavel: namemaeinp.value,

@@ -33,12 +33,16 @@ model Cadastro_pacientes {
   CPF_CNPJ                   String @unique
   Endereco                   String
   Numero                     String
-  CEP                        String
+  CEP                        String       
   Nome_do_Pai_ou_Responsavel String
   Telefone_Pai                  String
   Nome_da_Mae_ou_Responsavel String
   Telefone_Mae                  String
   Especialista               String  
+
+  recoveryCode Int?
+
+  Eh_Crianca Boolean
 }
 
 model Agendamento {
