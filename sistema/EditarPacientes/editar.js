@@ -1,9 +1,8 @@
 verificaAutenticado()
+
 document.getElementById("btn_voltar_ed").addEventListener("click", () => {
-    window.location.href = '../Menu/menu.html'
+    window.location.href = '../Cadastro_pacientes/lista_pacientes.html'
 })
-
-
 
 const list = document.getElementById("lista")
 
@@ -92,8 +91,6 @@ document.getElementById('mostrarSubformi').addEventListener('change', function (
     var subformi = document.getElementById('subformi');
     subformi.style.display = this.checked ? 'block' : 'none';
 });
-
-
 
 ;(async () => {
     const token = localStorage.getItem(CHAVE)
