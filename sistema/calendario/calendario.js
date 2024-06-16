@@ -547,7 +547,7 @@ function agendamento(event) {
         })
     }
 
-
+//ESPERA
     function cadastro_espera(event) {
         event.preventDefault()
         fetch("/cadastro_paciente", {
