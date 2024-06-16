@@ -568,11 +568,7 @@ function agendamento(event) {
             window.location.reload()
         }).catch(() => alert("Erro ao adicionar"))
     }
-
-
 }
-
-
 
 function AbrirEspera() {
     // modEspera.showModal()
@@ -587,14 +583,12 @@ function AbrirEspera() {
 function espera(event) {
     event.preventDefault()
 
-
-
     const nameinp = document.getElementById("esp-name")
     const phoneinp = document.getElementById("esp-phone")
     const convenioinp = document.getElementById("esp-convenio")
-    const observacaoinp = document.getElementById("esp-observacao")
+    const observacaoinp = document.getElementById("esp-observacao")   
 
-   
+
 
     fetch('/Lista_espera', {
         method: 'POST',
@@ -615,10 +609,35 @@ function espera(event) {
 }
 
 // loadintens espera
-const getItensBD = async () => {
-    const response = await fetch('/Lista_espera')
-    items = await response.json()
+const getItensBD = async (valuePacienteFiltrado) => {
+    const response = await fetch("/agendamentos_filtrado?id="+valuePacienteFiltrado, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+    });
+
+    itemsEspera = await response.json()
+    itemsEspera.map(arg => {
+        arg.Nome = todosPacientes.find(({id}) => id === arg.Nome).Nome
+        return arg
+    })
 }
+
+function loadConsultas(event) {    
+    event.preventDefault()
+    let pacienteFiltrado = document.getElementById("age_name_espera");
+    let valuePacienteFiltrado = pacienteFiltrado.value;
+    getConsultasBD(valuePacienteFiltrado).then(() => {
+        tbodyEspera.innerHTML = "";
+        itemsEspera.forEach((item, index) => {
+            insertItemEspera(item, index);
+        });
+
+    }).catch(console.error)
+}
+
+
 
 async function deleteItem(id) {
     await fetch(`/Lista_espera/${id}`, {method: 'DELETE'})
@@ -653,6 +672,25 @@ function loadItens() {
 
     }).catch(console.error)
 }
+
+let pacientesFiltradosEspera = []
+const nameinpespera = document.getElementById("age_name_espera")
+
+
+document.getElementById('espera').addEventListener('click', () => {
+    if (list.value === "-") {
+        return
+    }
+
+    pacientesFiltradosEspera = todosPacientes.filter(({Especialista}) => Especialista === list.value)
+
+    nameinpespera.innerHTML = ''
+    pacientesFiltradosEspera.forEach(item => {
+        nameinpespera.innerHTML += `<option value="${item.id}">${item.Nome}</option>`
+    })
+
+    modEspera.showModal()
+});
 
 document.getElementById('btn-close-espera').addEventListener('click', () => {
     modEspera.close()

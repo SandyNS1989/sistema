@@ -121,8 +121,10 @@
                 <table>
                     <thead>
                         <tr>
-                            <th><input class="input"  name="name" id="esp-name" placeholder="Nome"></input></th>
-                            <th><input class="input" name="phone" id="esp-phone" placeholder="Telefone"></input></th>
+                            <th><select class="input" name="name" id="age_name_espera" style="margin-bottom: 2%; margin-right: 2%;" onchange="atualizaTelefone()">
+                                <option value="">Selecione um paciente</option>
+                            </select></th>
+                            <th><input class="input" type="text" name="phone" id="phoneespera" placeholder="Telefone" disabled></input></th>
                             <th><input class="input" name="convenio" id="esp-convenio" placeholder="Convênio"></input></th>
                             <th><input class="input" type="text" name="observacao" id="esp-observacao" placeholder="Observação"></th>
                             
@@ -154,7 +156,7 @@
                         <th class="columnAction">#</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="tbodyEspera">
                 </tbody>
 
             </table>
