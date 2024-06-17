@@ -86,7 +86,7 @@ async function carregarLista(force) {
     const cY = currentDayLista.getFullYear().toString().padStart(2, '0')
 
     const response = await fetch('/agendamentos')
-    let data = await response.json()   
+    let data = await response.json()
 
     data = data.filter(arg =>
         arg.Data_do_Atendimento === `${cY}-${cM}-${cD}` &&
@@ -104,7 +104,7 @@ async function carregarLista(force) {
             contentEl.style = 'cursor: pointer; user-select: none;'
 
             contentEl.onclick = () => {
-                pacientesFiltrados = todosPacientes.filter(({Especialista}) => Especialista === list.value)
+                pacientesFiltrados = todosPacientes.filter(({ Especialista }) => Especialista === list.value)
 
                 nameinp.innerHTML = ''
                 pacientesFiltrados.forEach(item => {
@@ -112,7 +112,7 @@ async function carregarLista(force) {
                 })
 
                 age_name.disabled = true
-                document.getElementById("btn-start-atendimento").style="display:auto"
+                document.getElementById("btn-start-atendimento").style = "display:auto"
 
 
                 modAgen.showModal()
@@ -281,43 +281,43 @@ const list = document.getElementById("lista")
 const list2 = document.getElementById("esp-especialista")
 let consultores = []
 
-;(async () => {
-    const token = localStorage.getItem(CHAVE)
+    ; (async () => {
+        const token = localStorage.getItem(CHAVE)
 
-    const response = await fetch('/verify', {
-        body: JSON.stringify({ token }),
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
+        const response = await fetch('/verify', {
+            body: JSON.stringify({ token }),
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        const data = await response.json()
+
+        // data = USUARIO DO BANCO LOGADO
+
+        // -----------------------------------
+
+        const response2 = await fetch('/users')
+        consultores = await response2.json()
+
+        if (data.Secretaria) {
+            consultores.filter(arq => !arq.Secretaria && arq.Nome !== "ADM").forEach(({ Usuario, Nome }) => {
+                list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+                list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            })
+        } else {
+            [data].forEach(({ Usuario, Nome }) => {
+                list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+                list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            })
         }
-    })
-
-    const data = await response.json()
-
-    // data = USUARIO DO BANCO LOGADO
-
-// -----------------------------------
-
-    const response2 = await fetch('/users')
-    consultores = await response2.json()
-
-    if (data.Secretaria) {
-        consultores.filter(arq=>!arq.Secretaria && arq.Nome !== "ADM").forEach(({Usuario, Nome}) => {
-            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-            list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-        })
-    } else {
-        [data].forEach(({Usuario, Nome}) => {
-            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-            list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-        })
-    }
-})().catch(console.error)
+    })().catch(console.error)
 
 list.onchange = async function (e) {
     await carregarLista(true)
 
-    document.getElementById('selectedName').innerHTML = `AGENDA DR(a) - ${consultores.find(arg => arg.Usuario === list.value).Nome }`
+    document.getElementById('selectedName').innerHTML = `AGENDA DR(a) - ${consultores.find(arg => arg.Usuario === list.value).Nome}`
 }
 
 const espec = document.getElementById("especialista");
@@ -345,7 +345,7 @@ statusc.innerHTML += `<option>${tipoDoStatusc2}</option>`;
 statusc.innerHTML += `<option>${tipoDoStatusc3}</option>`;
 statusc.innerHTML += `<option>${tipoDoStatusc4}</option>`;
 
-;(async () => {
+; (async () => {
     const response = await fetch('/pacientes')
     todosPacientes = await response.json()
 })()
@@ -358,10 +358,10 @@ document.getElementById('agendamento').addEventListener('click', () => {
         alert("Selecione o Especialista")
         return
     }
-    
-    pacientesFiltrados = todosPacientes.filter(({Especialista}) => Especialista === list.value)
+
+    pacientesFiltrados = todosPacientes.filter(({ Especialista }) => Especialista === list.value)
     age_name.disabled = false
-    document.getElementById("btn-start-atendimento").style="display:none"
+    document.getElementById("btn-start-atendimento").style = "display:none"
 
     nameinp.innerHTML = ''
     pacientesFiltrados.forEach(item => {
@@ -448,9 +448,9 @@ document.getElementById('mostrarSubform').addEventListener('change', function ()
 });
 
 function converterDataFormatoBrasileiroParaISO(data) {
-   var partes = data.split("/");
-   return partes[2] + "-" + partes[1] + "-" + partes[0];
- }
+    var partes = data.split("/");
+    return partes[2] + "-" + partes[1] + "-" + partes[0];
+}
 
 function agendamento(event) {
     event.preventDefault()
@@ -547,89 +547,90 @@ function agendamento(event) {
         })
     }
 
-//ESPERA
-function cadastro_espera(event) {
+    //ESPERA
+    function cadastro_espera(event) {
+        event.preventDefault()
+        fetch("/cadastro_paciente", {
+            method: "POST",
+            body: JSON.stringify({
+                Nome: nameinp.value,
+                Telefone: phoneinp.value,
+                Convenio: convenioinp.value,
+                Observacao: observacaoinp.value,
+                Especialista: list.value,
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(response => response.json()).then(data => {
+            alert("Paciente adicionado a lista de espera com sucesso!")
+            window.location.reload()
+        }).catch(() => alert("Erro ao adicionar"))
+    }
+}
+function AbrirEspera() {
+    // modEspera.showModal()
+    if (typeof modEspera.showModal === "function") {
+        modEspera.showModal(); // Abre o modal
+    } else {
+        // Fallback para navegadores que não suportam showModal
+        modEspera.style.display = "block";
+    }
+}
+function espera(event) {
     event.preventDefault()
-    fetch("/cadastro_paciente", {
-        method: "POST",
+    const nameinp = document.getElementById("esp-name")
+    const phoneinp = document.getElementById("phone")
+    const convenioinp = document.getElementById("esp-convenio")
+    const observacaoinp = document.getElementById("esp-observacao")
+
+    fetch('/Lista_espera', {
+        method: 'POST',
         body: JSON.stringify({
             Nome: nameinp.value,
             Telefone: phoneinp.value,
             Convenio: convenioinp.value,
-            Especialista: list.value,
             Observacao: observacaoinp.value,
+            Especialista: list.value,
         }),
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(response => response.json()).then(data => {
-        alert("Paciente adicionado a lista de espera com sucesso!")
-        window.location.reload()
-    }).catch(() => alert("Erro ao adicionar"))
-}
-}
-function AbrirEspera() {
-// modEspera.showModal()
-if (typeof modEspera.showModal === "function") {
-    modEspera.showModal(); // Abre o modal
-} else {
-    // Fallback para navegadores que não suportam showModal
-    modEspera.style.display = "block";
-}
-}
-function espera(event) {
-event.preventDefault()
-const nameinp = document.getElementById("esp-name")
-const phoneinp = document.getElementById("phone")
-const convenioinp = document.getElementById("convenio")
-const observacaoinp = document.getElementById("observacao")
-
-fetch('/Lista_espera', {
-    method: 'POST',
-    body: JSON.stringify({
-        Nome: nameinp.value,
-        Telefone: phoneinp.value,
-        Convenio: convenioinp.value,
-        Especialista: list.value,
-        Observacao: observacaoinp.value,
-    }),
-    headers: {
-        "Content-Type": "application/json"
-    }
-}).then(() => {
-    loadItens()
-})
+    }).then(() => {
+        loadItens()
+    })
 }
 // loadintens espera
 const getItensBD = async () => {
-const response = await fetch('/Lista_espera')
-items = await response.json()
+    const response = await fetch('/Lista_espera')
+    items = await response.json()
 }
 function insertItem(item, index) {
-let tr = document.createElement("tr");
-tr.innerHTML = `
+    let tr = document.createElement("tr");
+    tr.innerHTML = `
   <td>${item.Nome}</td>
   <td>${item.Telefone}</td>
   <td>${item.Convenio}</td>
-  <td>${item.Observacao}</td>
   <td>${item.Especialista}</td>
+  <td>${item.Observacao}</td>
+ 
   <td class="columnAction">
     <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
   </td>
 `;
-tbody.appendChild(tr);
+    tbody.appendChild(tr);
 }
 const tbody = document.querySelector("tbody");
 function loadItens() {
-getItensBD().then(() => {
-    tbody.innerHTML = "";
-    items.forEach((item, index) => {
-        insertItem(item, index);
-    });
-}).catch(console.error)
+    getItensBD().then(() => {
+        tbody.innerHTML = "";
+        items.forEach((item, index) => {
+            insertItem(item, index);
+        });
+    }).catch(console.error)
 }
 document.getElementById('btn-close-espera').addEventListener('click', () => {
-modEspera.close()
+    modEspera.close()
 })
 loadItens()
 
@@ -639,21 +640,21 @@ const tbodyCancelado = document.getElementById("tbodyCancelado");
 
 const getConsultasBD = async (valuePacienteFiltrado) => {
 
-    const response = await fetch("/agendamentos_filtrado?id="+valuePacienteFiltrado, {
+    const response = await fetch("/agendamentos_filtrado?id=" + valuePacienteFiltrado, {
         method: "GET",
         headers: {
-          "Content-Type": "application/json",
+            "Content-Type": "application/json",
         },
-      });
+    });
 
     itemsCancelado = await response.json()
     itemsCancelado.map(arg => {
-        arg.Nome = todosPacientes.find(({id}) => id === arg.Nome).Nome
+        arg.Nome = todosPacientes.find(({ id }) => id === arg.Nome).Nome
         return arg
     })
 }
 
-function loadConsultas(event) {    
+function loadConsultas(event) {
     event.preventDefault()
     let pacienteFiltrado = document.getElementById("age_name_cancelado");
     let valuePacienteFiltrado = pacienteFiltrado.value;
@@ -670,10 +671,10 @@ function loadConsultas(event) {
 
 function insertItemCancelado(item, index) {
     let tr = document.createElement("tr");
-const moment = new Date(item.Data_do_Atendimento)
-const dia = moment.getDate() + 1
-const mes = moment.getMonth()+1
-const ano = moment.getFullYear()
+    const moment = new Date(item.Data_do_Atendimento)
+    const dia = moment.getDate() + 1
+    const mes = moment.getMonth() + 1
+    const ano = moment.getFullYear()
 
     tr.innerHTML = `
       <td><input type="checkbox"></td>
@@ -687,18 +688,18 @@ const ano = moment.getFullYear()
     tbodyCancelado.appendChild(tr);
 }
 
-  
 
-function deleteItemInDB(event,index) {
+
+function deleteItemInDB(event, index) {
     fetch("/agendamento_desabilitado", {
-      method: "PUT",
-      body: JSON.stringify({
-        id: index,
-        Status_da_Consulta: "Cancelado",
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+        method: "PUT",
+        body: JSON.stringify({
+            id: index,
+            Status_da_Consulta: "Cancelado",
+        }),
+        headers: {
+            "Content-Type": "application/json",
+        },
     }).then(response => response.json()).then(data => {
         loadConsultas(event)
     })
@@ -708,34 +709,34 @@ function deleteItemInDB(event,index) {
 function deleteSelectedRows(event) {
 
     event.preventDefault()
-  
+
     var table = document.getElementById("tableCancelados");
     var checkboxes = table.querySelectorAll("input[type='checkbox']:checked");
-  
-    checkboxes.forEach(function(checkbox) {
-      var row = checkbox.parentNode.parentNode;
-  
-      var parentTd = checkbox.parentElement;
-      var nextTd = parentTd.nextElementSibling;
-    var idDoElemento = nextTd.getAttribute('id');
-    //   row.parentNode.removeChild(row);
-  
-      deleteItemInDB(event,idDoElemento);
+
+    checkboxes.forEach(function (checkbox) {
+        var row = checkbox.parentNode.parentNode;
+
+        var parentTd = checkbox.parentElement;
+        var nextTd = parentTd.nextElementSibling;
+        var idDoElemento = nextTd.getAttribute('id');
+        //   row.parentNode.removeChild(row);
+
+        deleteItemInDB(event, idDoElemento);
     });
-  }
+}
 
-  var elementos = document.getElementsByClassName('trashCancelado');
+var elementos = document.getElementsByClassName('trashCancelado');
 
-  // Itera sobre a lista de elementos
-  for (var i = 0; i < elementos.length; i++) {
-      // Adiciona um ouvinte de evento de clique a cada elemento
-      elementos[i].addEventListener('click', function(event) {
-          // Impede o comportamento padrão do evento (neste caso, o clique)
-          event.preventDefault();
-          
-          // Insira aqui o que você deseja fazer quando um elemento com a classe 'trashCancelado' for clicado
-      });
-  }
+// Itera sobre a lista de elementos
+for (var i = 0; i < elementos.length; i++) {
+    // Adiciona um ouvinte de evento de clique a cada elemento
+    elementos[i].addEventListener('click', function (event) {
+        // Impede o comportamento padrão do evento (neste caso, o clique)
+        event.preventDefault();
+
+        // Insira aqui o que você deseja fazer quando um elemento com a classe 'trashCancelado' for clicado
+    });
+}
 
 
 document.getElementById('btn-close-cancelado').addEventListener('click', () => {
@@ -761,7 +762,7 @@ document.getElementById('cancelado').addEventListener('click', () => {
         return
     }
 
-    pacientesFiltradosCancelado = todosPacientes.filter(({Especialista}) => Especialista === list.value)
+    pacientesFiltradosCancelado = todosPacientes.filter(({ Especialista }) => Especialista === list.value)
 
     nameinpcancelado.innerHTML = ''
     pacientesFiltradosCancelado.forEach(item => {
@@ -774,7 +775,7 @@ document.getElementById('cancelado').addEventListener('click', () => {
 function atendimento(id, nome) {
     const nomePaciente = age_name.options[age_name.selectedIndex].text;
     const url = new URL(window.location.href)
-    url.pathname= "/sistema/atendimento/atendimento.html";
+    url.pathname = "/sistema/atendimento/atendimento.html";
     url.searchParams.set("id", id);
     url.searchParams.set("id_paciente", nameinp.value);
     url.searchParams.set("nome", nomePaciente);
