@@ -557,7 +557,7 @@ function agendamento(event) {
                 Telefone: phoneinp.value,
                 Convenio: convenioinp.value,
                 Observacao: observacaoinp.value,
-                Especialista: list.value,
+                // Especialista: list.value,
             }),
             headers: {
                 "Content-Type": "application/json"
@@ -583,6 +583,7 @@ function espera(event) {
     const phoneinp = document.getElementById("phone")
     const convenioinp = document.getElementById("esp-convenio")
     const observacaoinp = document.getElementById("esp-observacao")
+    const id_agendamento = document.getElementById("id_agendamento")
 
     fetch('/Lista_espera', {
         method: 'POST',
@@ -613,6 +614,8 @@ function insertItem(item, index) {
   <td>${item.Convenio}</td>
   <td>${item.Especialista}</td>
   <td>${item.Observacao}</td>
+
+  
  
   <td class="columnAction">
     <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
@@ -633,6 +636,8 @@ document.getElementById('btn-close-espera').addEventListener('click', () => {
     modEspera.close()
 })
 loadItens()
+
+
 
 // CANCELADO
 
