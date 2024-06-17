@@ -548,154 +548,89 @@ function agendamento(event) {
     }
 
 //ESPERA
-    function cadastro_espera(event) {
-        event.preventDefault()
-        fetch("/cadastro_paciente", {
-            method: "POST",
-            body: JSON.stringify({
-                Nome: nameinp.value,
-                Telefone: phoneinp.value,
-                Convenio: convenioinp.value,
-                Especialista: list.value,
-                Observacao: observacaoinp.value,
-
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(response => response.json()).then(data => {
-            alert("Paciente adicionado a lista de espera com sucesso!")
-            window.location.reload()
-        }).catch(() => alert("Erro ao adicionar"))
-    }
-}
-
-function AbrirEspera() {
-    // modEspera.showModal()
-    if (typeof modEspera.showModal === "function") {
-        modEspera.showModal(); // Abre o modal
-    } else {
-        // Fallback para navegadores que não suportam showModal
-        modEspera.style.display = "block";
-    }
-}
-
-function espera(event) {
+function cadastro_espera(event) {
     event.preventDefault()
-
-    const nameinp = document.getElementById("esp-name")
-    const phoneinp = document.getElementById("esp-phone")
-    const convenioinp = document.getElementById("esp-convenio")
-    const observacaoinp = document.getElementById("esp-observacao")   
-
-
-
-    fetch('/Lista_espera', {
-        method: 'POST',
+    fetch("/cadastro_paciente", {
+        method: "POST",
         body: JSON.stringify({
             Nome: nameinp.value,
             Telefone: phoneinp.value,
             Convenio: convenioinp.value,
-            Especialista: list2.value,
+            Especialista: list.value,
             Observacao: observacaoinp.value,
         }),
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(() => {
-        loadItens()
-    })
-
+    }).then(response => response.json()).then(data => {
+        alert("Paciente adicionado a lista de espera com sucesso!")
+        window.location.reload()
+    }).catch(() => alert("Erro ao adicionar"))
 }
-
-// loadintens espera
-const getItensBD = async (valuePacienteFiltrado) => {
-    const response = await fetch("/agendamentos_filtrado?id="+valuePacienteFiltrado, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-    });
-
-    itemsEspera = await response.json()
-    itemsEspera.map(arg => {
-        arg.Nome = todosPacientes.find(({id}) => id === arg.Nome).Nome
-        return arg
-    })
 }
-
-function loadConsultas(event) {    
-    event.preventDefault()
-    let pacienteFiltrado = document.getElementById("age_name_espera");
-    let valuePacienteFiltrado = pacienteFiltrado.value;
-    getConsultasBD(valuePacienteFiltrado).then(() => {
-        tbodyEspera.innerHTML = "";
-        itemsEspera.forEach((item, index) => {
-            insertItemEspera(item, index);
-        });
-
-    }).catch(console.error)
+function AbrirEspera() {
+// modEspera.showModal()
+if (typeof modEspera.showModal === "function") {
+    modEspera.showModal(); // Abre o modal
+} else {
+    // Fallback para navegadores que não suportam showModal
+    modEspera.style.display = "block";
 }
-
-
-
-async function deleteItem(id) {
-    await fetch(`/Lista_espera/${id}`, {method: 'DELETE'})
-    loadItens()
 }
+function espera(event) {
+event.preventDefault()
+const nameinp = document.getElementById("esp-name")
+const phoneinp = document.getElementById("phone")
+const convenioinp = document.getElementById("convenio")
+const observacaoinp = document.getElementById("observacao")
 
-function insertItem(item, index) {
-    let tr = document.createElement("tr");
-
-    tr.innerHTML = `
-      <td>${item.Nome}</td>
-      <td>${item.Telefone}</td>
-      <td>${item.Convenio}</td>
-      <td>${item.Especialista}</td>
-      <td>${item.Observacao}</td>
-      <td class="columnAction">
-        <button onclick="deleteItem('${item.id}')"><box-icon name="trash"></box-icon></button>
-      </td>
-    `;
-
-    tbody.appendChild(tr);
-}
-
-const tbody = document.querySelector("tbody");
-
-function loadItens() {
-    getItensBD().then(() => {
-        tbody.innerHTML = "";
-        items.forEach((item, index) => {
-            insertItem(item, index);
-        });
-
-    }).catch(console.error)
-}
-
-let pacientesFiltradosEspera = []
-const nameinpespera = document.getElementById("age_name_espera")
-
-
-document.getElementById('espera').addEventListener('click', () => {
-    if (list.value === "-") {
-        return
+fetch('/Lista_espera', {
+    method: 'POST',
+    body: JSON.stringify({
+        Nome: nameinp.value,
+        Telefone: phoneinp.value,
+        Convenio: convenioinp.value,
+        Especialista: list.value,
+        Observacao: observacaoinp.value,
+    }),
+    headers: {
+        "Content-Type": "application/json"
     }
-
-    pacientesFiltradosEspera = todosPacientes.filter(({Especialista}) => Especialista === list.value)
-
-    nameinpespera.innerHTML = ''
-    pacientesFiltradosEspera.forEach(item => {
-        nameinpespera.innerHTML += `<option value="${item.id}">${item.Nome}</option>`
-    })
-
-    modEspera.showModal()
-});
-
-document.getElementById('btn-close-espera').addEventListener('click', () => {
-    modEspera.close()
+}).then(() => {
+    loadItens()
 })
-
+}
+// loadintens espera
+const getItensBD = async () => {
+const response = await fetch('/Lista_espera')
+items = await response.json()
+}
+function insertItem(item, index) {
+let tr = document.createElement("tr");
+tr.innerHTML = `
+  <td>${item.Nome}</td>
+  <td>${item.Telefone}</td>
+  <td>${item.Convenio}</td>
+  <td>${item.Observacao}</td>
+  <td>${item.Especialista}</td>
+  <td class="columnAction">
+    <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+  </td>
+`;
+tbody.appendChild(tr);
+}
+const tbody = document.querySelector("tbody");
+function loadItens() {
+getItensBD().then(() => {
+    tbody.innerHTML = "";
+    items.forEach((item, index) => {
+        insertItem(item, index);
+    });
+}).catch(console.error)
+}
+document.getElementById('btn-close-espera').addEventListener('click', () => {
+modEspera.close()
+})
 loadItens()
 
 // CANCELADO
