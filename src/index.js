@@ -342,8 +342,11 @@ app.delete("/Fluxo_de_caixa", async (req, res) => {
 })
 
 
-app.get("/Lista_espera", async (req, res) => {
-    const lista_espera = await prisma.Espera.findMany()
+app.get("/Lista_espera/:especialista", async (req, res) => {
+    const lista_espera = await prisma.Espera.findMany({
+        where: { 
+            Especialista: req.params.especialista }
+    })
 
 
     res.json(lista_espera)

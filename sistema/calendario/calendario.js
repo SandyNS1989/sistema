@@ -64,15 +64,26 @@ function generateNewList() {
       </div>
     </li>
 
-    <li data-message="${String(hora).padStart(2, '0')}:30" style="--cardColor:rgb(18, 211, 195)">
-      <div class="content" id="status-${String(hora).padStart(2, '0')}:30" onclick="">
-        <div class="text" id="agendamento-${String(hora).padStart(2, '0')}:30">
-          
-          </div>
-      </div>
-    </li>
+    ${buildMinutes(hora)}
   `, '')
 }
+
+function buildMinutes(hora){
+    var minutosMontados = ''
+    for(let minute = 10; minute < 60; minute += 10) {
+        minutosMontados += `
+        <li data-message="${String(hora).padStart(2, '0')}:${String(minute).padStart(2, '0')}" style="--cardColor:rgb(18, 211, 195)">
+          <div class="content" id="status-${String(hora).padStart(2, '0')}:${String(minute).padStart(2, '0')}">
+              <div class="text" id="agendamento-${String(hora).padStart(2, '0')}:${String(minute).padStart(2, '0')}">
+                
+              </div>
+          </div>
+        </li>
+      `
+      }
+      return minutosMontados;
+}
+
 
 
 async function carregarLista(force) {
@@ -95,14 +106,24 @@ async function carregarLista(force) {
 
 
     data.forEach(arg => {
-        const contentId = `agendamento-${arg.Horario_da_consulta}`;
+        const contentId = `agendamento-${arg.Horario_da_consulta}`; 
         const contentEl = document.getElementById(contentId);
+   
 
         if (contentEl) {
-            contentEl.innerHTML = `${todosPacientes.find(pac => arg.Nome === pac.id)?.Nome} - Especialista: ${arg.Especialista}  ${arg.observacao}`
 
+            contentEl.innerHTML = `${todosPacientes.find(pac => arg.Nome === pac.id)?.Nome} - Especialista: ${arg.Especialista}  ${arg.observacao}`
+            
             contentEl.style = 'cursor: pointer; user-select: none;'
 
+            const lis = document.querySelectorAll("#olcards li");
+            const index = getIndexByDataMessage(`${arg.Horario_da_consulta}`);
+            const endIndex = index + 6; 
+            for (let i = index; i < endIndex && i < lis.length; i++) {
+                let element = lis[i].firstElementChild;
+                element.style = 'background-color: rgb(68, 71, 92);'
+            }
+            
             contentEl.onclick = () => {
                 pacientesFiltrados = todosPacientes.filter(({ Especialista }) => Especialista === list.value)
 
@@ -148,6 +169,12 @@ async function carregarLista(force) {
         }
     })
 
+}
+
+function getIndexByDataMessage(dataMessage) {
+    const element = document.querySelector(`[data-message="${dataMessage}"]`);
+    const lis = document.querySelectorAll("#olcards li");
+    return Array.prototype.indexOf.call(lis, element);
 }
 
 const generateCalendar = async (month, year) => {
@@ -569,7 +596,10 @@ function agendamento(event) {
     }
 }
 function AbrirEspera() {
+    const selectElement = document.getElementById('lista');
+    const valorSelecionado = selectElement.value;
     // modEspera.showModal()
+    loadItens(valorSelecionado)
     if (typeof modEspera.showModal === "function") {
         modEspera.showModal(); // Abre o modal
     } else {
@@ -602,30 +632,30 @@ function espera(event) {
     })
 }
 // loadintens espera
-const getItensBD = async () => {
-    const response = await fetch('/Lista_espera')
+const getItensBD = async (Especialista) => {
+    const response = await fetch(`/Lista_espera/${Especialista}`)
     items = await response.json()
 }
 function insertItem(item, index) {
     let tr = document.createElement("tr");
     tr.innerHTML = `
-  <td>${item.Nome}</td>
-  <td>${item.Telefone}</td>
-  <td>${item.Convenio}</td>
-  <td>${item.Especialista}</td>
-  <td>${item.Observacao}</td>
+<td>${item.Nome}</td>
+<td>${item.Telefone}</td>
+<td>${item.Convenio}</td>
+<td>${item.Especialista}</td>
+<td>${item.Observacao}</td>
 
-  
- 
-  <td class="columnAction">
+
+
+<td class="columnAction">
     <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
-  </td>
+</td>
 `;
     tbody.appendChild(tr);
 }
 const tbody = document.querySelector("tbody");
-function loadItens() {
-    getItensBD().then(() => {
+function loadItens(Especialista) {
+    getItensBD(Especialista).then(() => {
         tbody.innerHTML = "";
         items.forEach((item, index) => {
             insertItem(item, index);
@@ -635,7 +665,6 @@ function loadItens() {
 document.getElementById('btn-close-espera').addEventListener('click', () => {
     modEspera.close()
 })
-loadItens()
 
 
 
