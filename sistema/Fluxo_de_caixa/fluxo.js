@@ -103,7 +103,7 @@ function loadItens() {
     && (mes === '' || item.Data.split('-')[1] === mes) 
     && (selectedYear === '' || item.Data.split('-')[0] === selectedYear) 
     && (selectedPaciente === '' || item.Descricao === selectedPaciente))
-
+    console.log(itensFiltrados)
   itensFiltrados.forEach((item, index) => {
     insertItem(item, index);
   });
@@ -140,8 +140,10 @@ const getItensBD = async () => {
   items = await response.json()
 
 
-  const atendimentos = items.filter(items => items.Descricao.startsWith('Atendimento: ')).map(arg => arg.Descricao)
-
+  const itensFiltrados = items.filter(item => item.Especialista === Usuario) 
+  const atendimentos = itensFiltrados.filter(items => items.Descricao.startsWith('Atendimento: ')).map(arg => arg.Descricao)
+   
+   
   let atendimentosDistintos = [...new Set(atendimentos)];
 
   document.getElementById('selected-Pacientes').innerHTML += atendimentosDistintos.map(arg => `
