@@ -409,6 +409,7 @@ document.getElementById('agendamento').addEventListener('click', () => {
 });
 
 document.getElementById('btn-close').addEventListener('click', () => {
+    
     modAgen.close()
 })
 
@@ -596,6 +597,10 @@ function agendamento(event) {
     }
 }
 function AbrirEspera() {
+    if (list.value === "-") {
+        alert("Selecione o Especialista")
+        return
+    }
     const selectElement = document.getElementById('lista');
     const valorSelecionado = selectElement.value;
     // modEspera.showModal()
@@ -689,6 +694,7 @@ const getConsultasBD = async (valuePacienteFiltrado) => {
 }
 
 function loadConsultas(event) {
+    
     event.preventDefault()
     let pacienteFiltrado = document.getElementById("age_name_cancelado");
     let valuePacienteFiltrado = pacienteFiltrado.value;
@@ -704,6 +710,7 @@ function loadConsultas(event) {
 
 
 function insertItemCancelado(item, index) {
+    
     let tr = document.createElement("tr");
     const moment = new Date(item.Data_do_Atendimento)
     const dia = moment.getDate() + 1
@@ -778,6 +785,10 @@ document.getElementById('btn-close-cancelado').addEventListener('click', () => {
 })
 
 function AbrirCancelado() {
+    if (list.value === "-") {
+        alert("Selecione o Especialista")
+        return
+    }
     // modEspera.showModal()
     if (typeof modCancelado.showModal === "function") {
         modCancelado.showModal(); // Abre o modal
