@@ -1,0 +1,457 @@
+/* The switch - the box around the slider */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.barrinha {
+  position: relative;
+  width: 19%;
+  height: 45%;
+  left: 81.5%;
+  background: rgb(12, 158, 146);
+  border: 2px solid rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#meuUsuario1 {
+  flex: 1 1 0;
+  color: white;
+  font-size: 16px;
+  font-family: Nunito;
+  font-weight: 400;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+
+}
+
+#thumbnail {
+  position: absolute;
+  top: 15%;
+  width: 50px;
+  /* Define a largura da miniatura */
+  height: auto;
+  /* Mantém a proporção da imagem */
+
+  border-radius: 50%;
+  /* Faz a imagem ficar redonda */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  /* Adiciona sombra à imagem */
+  left: 5%;
+}
+
+.bi-person-square {
+  font-size: large;
+  position: absolute;
+  margin: 0;
+}
+
+#userGreeting1 {
+  text-align: right;
+  margin: 0;
+  margin-top: 3%;
+
+}
+
+.online {
+  margin: 0;
+  font-size: xx-small;
+  margin: 0;
+  color: aqua;
+  text-align: center;
+}
+
+
+
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
+h4 {
+  margin-top: 20%;
+}
+
+h1 {
+  top: 5%;
+  width: 100%;
+  height: 55%;
+  background: #065757;
+  border-radius: 15px;
+  padding: 10px 13px;
+  border: 5px solid rgb(255, 255, 255);
+  box-shadow: rgba(133, 215, 197, 0.878) 0px 30px 30px -20px;
+  margin: 0;
+}
+
+.escrita {
+  display: block;
+  font-size: 13.5px;
+  width: 70%;
+  font-weight: normal;
+  color: white;
+  padding-block: 5px;
+  margin-left: 15%;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  color: white;
+  text-transform: uppercase;
+
+}
+
+.contato {
+
+  font-size: 12.5px;
+  width: 70%;
+  font-weight: normal;
+  color: white;
+  padding-block: 5px;
+  margin-left: 15%;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  margin-top: 25%;
+
+
+}
+
+.switch-container {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 9px;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  height: 98%;
+  margin: 0;
+  max-width: 30%;
+  width: 15%;
+}
+
+.switch-container main {
+
+  border-radius: 15px;
+  position: absolute;
+  padding-top: 32px;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+}
+
+.switch-container main.off {
+  display: none;
+}
+
+
+.switch {
+  font-size: 1rem;
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  color: inherit;
+}
+
+
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #eee;
+  transition: 0.4s;
+  border-radius: 0.5em;
+  box-shadow: 0 0.2em #dfd9d9;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.5em;
+  width: 1.4em;
+  border-radius: 0.3em;
+  left: 0.3em;
+  bottom: 0.7em;
+  background-color: lightsalmon;
+  transition: 0.4s;
+  box-shadow: 0 0.4em #bcb4b4;
+}
+
+.slider:hover::before {
+  box-shadow: 0 0.2em #bcb4b4;
+  bottom: 0.5em;
+}
+
+input:checked+.slider:before {
+  transform: translateX(2em);
+  background: lightgreen;
+}
+
+.button0,
+.button1,
+.button2,
+.button3 {
+  z-index: 2;
+  position: relative;
+  margin-top: 5%;
+  left: 51%;
+  width: 150px;
+  height: 100px;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 0px;
+  cursor: pointer;
+  outline: 0px;
+  padding: 0 2px;
+  font-weight: 600;
+  font-size: 13px;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+}
+
+.button1 {
+  left: 51%;
+}
+
+.button2 {
+  left: 56%;
+}
+
+.button3 {
+  left: 56%;
+}
+
+
+.backdrop,
+.backdrop1,
+.backdrop2,
+.backdrop3 {
+  position: absolute;
+  z-index: 1;
+  width: 150px;
+  height: 100px;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  border-radius: 15px;
+  transition: all ease-in-out 0.5s;
+  /* Esta transição deve ser aplicada a todos os backdrops */
+}
+
+/* cadastro paciente */
+.backdrop {
+  top: 28.5%;
+  left: 50%;
+}
+
+/* agendamento */
+.backdrop1 {
+  top: 55%;
+  left: 50%;
+}
+
+/* cadastro convenio */
+.backdrop2 {
+  top: 28.4%;
+  left: 75.2%;
+}
+
+/* fluxo de caixa */
+.backdrop3 {
+  top: 55%;
+  left: 75.2%;
+}
+
+.button0:hover+.backdrop,
+.button1:hover+.backdrop1,
+.button2:hover+.backdrop2,
+.button3:hover+.backdrop3 {
+
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transform: rotate(15deg) translateX(5%) translateY(-20%);
+}
+
+
+.button0:active,
+.button0:active+.backdrop,
+.button1:active,
+.button1:active+.backdrop1,
+.button2:active,
+.button2:active+.backdrop2,
+.button3:active,
+.button3:active+.backdrop3 {
+  box-shadow: none;
+}
+
+
+a {
+  color: inherit;
+  /* Herda a cor do elemento pai, assim não terá uma cor específica para o link */
+}
+
+.logo {
+  position: absolute;
+  top: 42%;
+  left: 23%;
+  transform: translate(-50%, -50%);
+  background-size: 50%;
+}
+
+.out-button {
+  position: absolute;
+  bottom: 59px;
+  left: 55%;
+  transform: translateX(-50%);
+  display: block;
+  width: 50%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  color: white;
+  padding-block: 15px;
+  margin: 10px auto;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  top: 85%;
+  height: 10%;
+}
+
+.inicio {
+  top: 100%;
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+  color: rgb(18, 211, 195);
+}
+
+.nsbasetech {
+  text-align: center;
+  font-weight: 10;
+  font-size: 20px;
+  color: rgb(0, 2, 2);
+}
+
+@media screen and (max-width:1081px) {
+  .logo {
+    width: 20%;
+    left: 10.2%;
+  }
+
+  .container {
+    height: 79%;
+  }
+
+  .button0 {
+    margin-top: 12%;
+    width: 28%;
+    left: 55%;
+  }
+
+  .button2 {
+    top: 17%;
+    width: 28%;
+    left: 55.5%;
+  }
+
+  .button1 {
+    top: 15%;
+    width: 28%;
+    left: 55%;
+  }
+
+  .button3 {
+    top: 15%;
+    width: 28%;
+    left: 55.5%;
+  }
+
+  .backdrop {
+    width: 23%;
+    top: 31%;
+    left: 53.5%;
+    margin-bottom: 5%;
+  }
+
+  .backdrop1 {
+    width: 23%;
+    top: 54%;
+    left: 53.5%;
+    margin-bottom: 5%;
+  }
+
+  .backdrop2 {
+    width: 23%;
+    top: 31%;
+    left: 77%;
+    margin-bottom: 5%;
+  }
+
+  .backdrop3 {
+    width: 23%;
+    left: 77%;
+    top: 54%;
+    margin-bottom: 5%;
+  }
+
+  .out-button {
+    top: 85%;
+    height: 9%;
+  }
+
+  .contato {
+    margin-top: 63%;
+  }
+
+  .switch-container {
+    height: 98%;
+    ;
+  }
+
+  .out-button {
+    top: 80%;
+  }
+
+  iframe {
+    margin-top: 8%;
+    margin-left: -1%;
+  }
+
+  h1 {
+    width: 110%;
+  }
+
+  .barrinha {
+    width: 30%;
+    height: 50%;
+  }
+
+
+
+}
