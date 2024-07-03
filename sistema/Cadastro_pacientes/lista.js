@@ -11,7 +11,7 @@ document.getElementById("ch-side").addEventListener("change",event=>{
 })
 
 document.getElementById("btn_voltar_li").addEventListener("click", () => {
-  window.location.href = '../Cadastro_pacientes/Cadastro.html';
+  window.location.href = '../Menu/menu.html';
 });
 
 const tbody = document.querySelector("tbody");

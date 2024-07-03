@@ -506,6 +506,20 @@ app.post("/chat/pendentes", async (req, res) => {
     res.status(200).json(users)
 })
 
+app.get('/agendamentos', (req, res) => {
+    const { data } = req.query;
+
+    appointments.find({
+        Data_do_Atendimento: data
+    }).toArray((err, results) => {
+        if (err) {
+            res.status(500).send(err);
+        } else {
+            res.json(results);
+        }
+    });
+});
+
 
 
 

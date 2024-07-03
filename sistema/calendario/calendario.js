@@ -632,7 +632,7 @@ function agendamento(event) {
     }
 
 
-
+}
     //ESPERA
     function cadastro_espera(event) {
         event.preventDefault()
@@ -653,7 +653,7 @@ function agendamento(event) {
             window.location.reload()
         }).catch(() => alert("Erro ao adicionar"))
     }
-}
+
 function AbrirEspera() {
     if (list.value === "-") {
         alert("Selecione o Especialista")
@@ -707,11 +707,8 @@ function insertItem(item, index) {
 <td>${item.Convenio}</td>
 <td>${item.Especialista}</td>
 <td>${item.Observacao}</td>
-
-
-
 <td class="columnAction">
-    <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+    <button onclick="deleteItem(${index})"><i class="bi bi-trash3"></i></button>
 </td>
 `;
     tbody.appendChild(tr);
@@ -725,6 +722,7 @@ function loadItens(Especialista) {
         });
     }).catch(console.error)
 }
+
 document.getElementById('btn-close-espera').addEventListener('click', () => {
     modEspera.close()
 })
