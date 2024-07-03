@@ -366,18 +366,19 @@ app.post("/Lista_espera", async (req, res) => {
 })
 
 app.delete("/Lista_espera/:id", async (req, res) => {
-    await prisma.Espera.delete({
-        where: {
-            id: req.params.id
-        }
-    })
+    try {
+        await prisma.Espera.delete({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.json({ message: "ok" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Erro ao deletar item" });
+    }
+});
 
-
-    res.json({
-        message: "ok"
-    })
-
-})
 
 app.get("/users", async (_, res) => {
     const users = await prisma.cadastro_user.findMany()
