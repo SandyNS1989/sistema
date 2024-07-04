@@ -714,9 +714,15 @@ function insertItem(item, index) {
     tbody.appendChild(tr);
 }
 const tbody = document.querySelector("tbody");
+function loadItens(Especialista) {
+    getItensBD(Especialista).then(() => {
+        tbody.innerHTML = "";
+        items.forEach((item, index) => {
+            insertItem(item, index);
+        });
+    }).catch(console.error);
+}
 
-
-// Função para deletar item
 function deleteItem(index) {
     const itemToDelete = items[index]; // Pega o item pelo índice
     fetch(`/Lista_espera/${itemToDelete.id}`, {
@@ -734,37 +740,6 @@ function deleteItem(index) {
     }).catch(() => alert("Erro ao deletar"));
 }
 
-// Função para carregar itens
-function loadItens(Especialista) {
-    getItensBD(Especialista).then(() => {
-        tbody.innerHTML = "";
-        items.forEach((item, index) => {
-            insertItem(item, index);
-        });
-    }).catch(console.error);
-}
-
-// Função para buscar itens do banco de dados
- getItensBD = async (Especialista) => {
-    const response = await fetch(`/Lista_espera/${Especialista}`);
-    items = await response.json();
-}
-
-// Função para inserir item na tabela
-function insertItem(item, index) {
-    let tr = document.createElement("tr");
-    tr.innerHTML = `
-        <td>${item.Nome}</td>
-        <td>${item.Telefone}</td>
-        <td>${item.Convenio}</td>
-        <td>${item.Especialista}</td>
-        <td>${item.Observacao}</td>
-        <td class="columnAction">
-            <button onclick="deleteItem(${index})"><i class='bi bi-trash'></i></button>
-        </td>
-   ` ;
-    tbody.appendChild(tr);
-}
 
 // Event listener para fechar o modal
 document.getElementById('btn-close-espera').addEventListener('click', () => {
