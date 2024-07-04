@@ -673,7 +673,7 @@ function AbrirEspera() {
 function espera(event) {
     event.preventDefault()
     const nameinp = document.getElementById("esp-name")
-    const phoneinp = document.getElementById("phone")
+    const phoneinp = document.getElementById("esp-phone")
     const convenioinp = document.getElementById("esp-convenio")
     const observacaoinp = document.getElementById("esp-observacao")
     const id_agendamento = document.getElementById("id_agendamento")
@@ -691,14 +691,20 @@ function espera(event) {
             "Content-Type": "application/json"
         }
     }).then(() => {
-        loadItens()
-    })
+        const selectElement = document.getElementById('lista');
+   	 const valorSelecionado = selectElement.value;
+   	 loadItens(valorSelecionado)
+        alert("Paciente adicionado a lista de espera com sucesso!")
+       
+    }).catch(() => alert("Erro ao adicionar"))
 }
+
 // loadintens espera
 const getItensBD = async (Especialista) => {
     const response = await fetch(`/Lista_espera/${Especialista}`)
     items = await response.json()
 }
+
 function insertItem(item, index) {
     let tr = document.createElement("tr");
     tr.innerHTML = `
@@ -713,6 +719,7 @@ function insertItem(item, index) {
 `;
     tbody.appendChild(tr);
 }
+
 const tbody = document.querySelector("tbody");
 function loadItens(Especialista) {
     getItensBD(Especialista).then(() => {
@@ -739,6 +746,8 @@ function deleteItem(index) {
         }
     }).catch(() => alert("Erro ao deletar"));
 }
+
+
 
 
 // Event listener para fechar o modal
