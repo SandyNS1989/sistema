@@ -19,6 +19,10 @@ document.getElementById("btn_cadastro").addEventListener("click", () => {
    }
  })
 
+ document.getElementById("open-chat-btn1").addEventListener("click", () => {
+   window.location.href = '../chat/chat.html'
+})
+
 
  let Usuario = ''
 

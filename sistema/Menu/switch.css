@@ -5,6 +5,34 @@
   box-sizing: border-box;
 }
 
+.open-chat-btn1 {
+  display:none;
+ 
+}
+
+.open-chat-btn1 i {
+  display:none;
+  font-size: 25px;
+}
+
+
+
+.meuUsuario{
+  flex: 1 1 0; 
+  color: white; 
+  font-size: 16px; 
+  font-family: Nunito; 
+  font-weight: 400; 
+  word-wrap: break-word
+}
+
+.meuUsuario  i{
+  font-size:large; 
+  align-items: center; 
+}
+
+
+
 .barrinha {
   position: relative;
   width: 19%;
@@ -358,100 +386,538 @@ a {
   color: rgb(0, 2, 2);
 }
 
-@media screen and (max-width:1081px) {
+
+@media (min-width: 410px) and (max-width: 600px) {
   .logo {
-    width: 20%;
-    left: 10.2%;
+    display: none;
   }
 
-  .container {
-    height: 79%;
+ 
+  .switch-container {
+    display: block;
+    z-index:1000;
+    height: 93%;
+    width:20%;
+    
+    
   }
 
-  .button0 {
-    margin-top: 12%;
-    width: 28%;
-    left: 55%;
+  .escrita{
+    font-size: 8px;
+    margin-bottom: 15%;
+    top: 20%;
+  }
+
+  .contato{
+    font-size: 8px;
+    margin:0;
+    margin-left:5%;
+    
+  }
+
+  h1{
+    display:none;
+  }
+
+  .button0,
+  .button1,
+  .button2,
+  .button3 {
+    left: 105px;
+    top: 90px;
+    z-index: 2;
+    position: absolute;
+     }
+
+  .button1 {
+    top: 210px;
   }
 
   .button2 {
-    top: 17%;
-    width: 28%;
-    left: 55.5%;
-  }
-
-  .button1 {
-    top: 15%;
-    width: 28%;
-    left: 55%;
+    top: 323px;
   }
 
   .button3 {
-    top: 15%;
-    width: 28%;
-    left: 55.5%;
+    top: 435px;
   }
 
-  .backdrop {
-    width: 23%;
-    top: 31%;
-    left: 53.5%;
-    margin-bottom: 5%;
-  }
-
-  .backdrop1 {
-    width: 23%;
-    top: 54%;
-    left: 53.5%;
-    margin-bottom: 5%;
-  }
-
-  .backdrop2 {
-    width: 23%;
-    top: 31%;
-    left: 77%;
-    margin-bottom: 5%;
-  }
-
+  .backdrop,
+  .backdrop1,
+  .backdrop2,
   .backdrop3 {
-    width: 23%;
-    left: 77%;
-    top: 54%;
+    position: absolute;
+    left: 95px;
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+    margin: 0;
+    /* Esta transição deve ser aplicada a todos os backdrops */
+  }
+
+  /* cadastro paciente */
+  .backdrop {
+    top: 117.9px;
+
+  }
+
+  /* agendamento */
+  .backdrop1 {
+    top: 237px;
+
+  }
+
+  /* cadastro convenio */
+  .backdrop2 {
+    top: 53%;
+
+  }
+
+  /* fluxo de caixa */
+  .backdrop3 {
+    top: 70%;
     margin-bottom: 5%;
+
+  } 
+
+  .barrinha {
+    width: 274px;
+    height: 2%;
+    left: 25%;
+
   }
 
   .out-button {
-    top: 85%;
-    height: 9%;
-  }
-
-  .contato {
-    margin-top: 63%;
-  }
-
-  .switch-container {
-    height: 98%;
-    ;
-  }
-
-  .out-button {
-    top: 80%;
+    width: 30%;
+    left:50%;
+    top:87%;
   }
 
   iframe {
-    margin-top: 8%;
-    margin-left: -1%;
+    display: none;
+  }
+
+  .open-chat-btn1 {
+    display:block;
+    position:fixed;
+    z-index:1;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    left:80%;
+    top:93%;
+}
+
+.open-chat-btn1 i {
+  display:block;
+    font-size: 25px;
+}
+
+}
+
+
+
+
+/* Tablets pequenos */
+@media (min-width: 601px) and (max-width: 768px) {
+  .open-chat-btn1 {
+    display:block;
+    position:fixed;
+    z-index:1;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    left:80%;
+    top:93%;
+}
+
+.open-chat-btn1 i {
+  display:block;
+    font-size: 25px;
+}
+
+
+  .logo {
+    display: none;
+  }
+
+  .switch-container {
+    width: auto;
+    height: 88%;
+  }
+
+  .contato {
+    font-size: 8px;
+    margin-left:5%;
+    text-align: center;
+    left:5%;
+  }
+
+  .escrita {
+    font-size: 8px;
   }
 
   h1 {
-    width: 110%;
+    display: none;
+  }
+
+  .button0 {
+    z-index: 2;
+    position: relative;
+    margin-top: 39.5px;
+    left: 2px;
+    top: -2px;
+    width: 150px;
+    height: 100px;
+ 
+  }
+
+  .button1 {
+    left: 2px;
+    top: 16px;
+    margin-top: 5%;
+  }
+
+  .button2 {
+    left: 40px;
+    top: -2px;;
+    margin-top: 0;
+  }
+
+  .button3 {
+    left: 40px;
+    top: 16px;
+    margin-top: 0;
+  }
+
+
+  .backdrop {
+    position: absolute;
+    left: 50%;
+    top: 450px;    
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+ 
+    /* Esta transição deve ser aplicada a todos os backdrops */
+  }
+
+  /* cadastro paciente */
+  .backdrop {
+    left: 12%;
+    top: 29.5%;
+
+  }
+
+  /* agendamento */
+  .backdrop1 {
+    left: 12%;
+    top: 56.5%;
+  }
+
+  /* cadastro convenio */
+  .backdrop2 {
+    left: 53%;
+    top: 29.5%;
+  }
+
+  /* fluxo de caixa */
+  .backdrop3 {
+    left: 53%;
+    top: 56.5%;
   }
 
   .barrinha {
-    width: 30%;
-    height: 50%;
+    width: 235px;
+    left: 55%;
+    height: 15%;
+  }
+
+  .out-button {
+    left: 50%;
   }
 
 
+  iframe {
+    display: none;
+  }
 
 }
+
+
+/* iPad em modo retrato*/
+@media (min-width: 769px) and (max-width: 1024px) {
+  .open-chat-btn1 {
+    display:block;
+    position:fixed;
+    z-index:1;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    left:80%;
+    top:93%;
+}
+
+.open-chat-btn1 i {
+  display:block;
+    font-size: 25px;
+}
+
+  .logo {
+    display: none;
+  }
+
+  .meuUsuario{
+    font-size: 10px;
+  }
+
+  .meuUsuario i{
+    font-size: 11px;
+  }
+  
+
+  .escrita {
+    font-size: 12px;
+  }
+
+  .contato{
+    font-size: 12px;
+    margin-left: 2%;
+    
+  }
+
+  .button0 {
+    z-index: 2;
+    position: relative;
+    margin-top: 39.5px;
+    left: 2px;
+    top: -2px;
+    width: 150px;
+    height: 100px;
+ 
+  }
+
+  .button1 {
+    left: 2px;
+    top: 16px;
+    margin-top: 5%;
+  }
+
+  .button2 {
+    left: 40px;
+    top: -2px;;
+    margin-top: 0;
+  }
+
+  .button3 {
+    left: 40px;
+    top: 16px;
+    margin-top: 0;
+  }
+
+
+  .backdrop {
+    position: absolute;
+    left: 50%;
+    top: 450px;    
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+ 
+    /* Esta transição deve ser aplicada a todos os backdrops */
+  }
+
+  /* cadastro paciente */
+  .backdrop {
+    left: 12%;
+    top: 29.5%;
+
+  }
+
+  /* agendamento */
+  .backdrop1 {
+    left: 12%;
+    top: 56.5%;
+  }
+
+  /* cadastro convenio */
+  .backdrop2 {
+    left: 53%;
+    top: 29.5%;
+  }
+
+  /* fluxo de caixa */
+  .backdrop3 {
+    left: 53%;
+    top: 56.5%;
+  }
+
+  .barrinha {
+    width: 235px;
+    left: 55%;
+    height: 15%;
+  }
+
+  .out-button {
+    left: 50%;
+  }
+
+ 
+ iframe{
+  display:none;
+ }
+
+}
+
+
+/* iPad em modo paisagem*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .logo {
+    display: none;
+  }
+
+  .meuUsuario{
+    font-size: 10px;
+  }
+
+  .meuUsuario i{
+    font-size: 11px;
+  }
+  
+
+  .escrita {
+    font-size: 12px;
+  }
+
+  .contato{
+    font-size: 12px;
+    margin-left: 2%;
+    
+  }
+
+  .button0 {
+    z-index: 2;
+    position: relative;
+    margin-top: 39.5px;
+    left: 2px;
+    top: -2px;
+    width: 150px;
+    height: 100px;
+ 
+  }
+
+  .button1 {
+    left: 2px;
+    top: 16px;
+    margin-top: 5%;
+  }
+
+  .button2 {
+    left: 40px;
+    top: -2px;;
+    margin-top: 0;
+  }
+
+  .button3 {
+    left: 40px;
+    top: 16px;
+    margin-top: 0;
+  }
+
+
+  .backdrop {
+    position: absolute;
+    left: 50%;
+    top: 450px;    
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+ 
+    /* Esta transição deve ser aplicada a todos os backdrops */
+  }
+
+  /* cadastro paciente */
+  .backdrop {
+    left: 12%;
+    top: 29.5%;
+
+  }
+
+  /* agendamento */
+  .backdrop1 {
+    left: 12%;
+    top: 56.5%;
+  }
+
+  /* cadastro convenio */
+  .backdrop2 {
+    left: 53%;
+    top: 29.5%;
+  }
+
+  /* fluxo de caixa */
+  .backdrop3 {
+    left: 53%;
+    top: 56.5%;
+  }
+
+  .barrinha {
+    width: 235px;
+    left: 55%;
+    height: 15%;
+  }
+
+  .out-button {
+    left: 50%;
+  }
+
+ 
+
+  iframe{
+    position: absolute;
+    left:50%;
+    width:auto;
+    top:50%;
+  }
+}
+
+/* iPad em modo paisagem*/
+@media (min-width: 1281px) and (max-width: 1440px) {
+  iframe{
+    display:none;
+  }
+
+
+}
+
+/* Monitores maiores*/
+@media (min-width: 1441px) and (max-width: 1920px) {}
