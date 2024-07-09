@@ -1,8 +1,25 @@
 verificaAutenticado()
 
+ document.getElementById("ch-side").addEventListener("change", event => {
+    const mainSide = document.getElementById("main-side")
+    if (event.target.checked) {
+        mainSide.classList.remove("off")
+    }
+    else {
+        mainSide.classList.add("off")
+    }
+})
+
+document.getElementById("open-chat-btn1").addEventListener("click", () => {
+    window.location.href = '../chat/chat.html'
+ })
+
 document.getElementById("btn_voltar_ed").addEventListener("click", () => {
     window.location.href = '../Cadastro_pacientes/lista_pacientes.html'
 })
+
+document.getElementById('btn_cadastrar').addEventListener('click', cadastrar_paciente);
+
 
 const list = document.getElementById("lista")
 
@@ -41,9 +58,11 @@ const phonemaeinp = document.getElementById("phonemae")
 
     })();
 
+// Adicione um evento de clique ao botão
+
 function cadastrar_paciente(event) {
-    event.preventDefault()
-    const params = new URLSearchParams(window.location.search)
+    event.preventDefault();
+    const params = new URLSearchParams(window.location.search);
     fetch(`/cadastrar_paciente/${params.get('id')}`, {
         method: "PUT",
         body: JSON.stringify({
@@ -67,30 +86,24 @@ function cadastrar_paciente(event) {
         }
     }).then(response => response.json()).then(data => {
         if (lista.value === "-") {
-            alert("Selecione o Especialista")
-            return
+            alert("Selecione o Especialista");
+            return;
+        } else {
+            alert("Paciente atualizado com sucesso!");
+            window.location.reload();
         }
-        else{
-        alert("Paciente atualizado com sucesso!")
-        window.location.reload()
-    }
-    }).catch(() => alert("Erro ao atualizar"))
+    }).catch(() => alert("Erro ao atualizar"));
 }
 
-document.getElementById("ch-side").addEventListener("change", event => {
-    const mainSide = document.getElementById("main-side")
-    if (event.target.checked) {
-        mainSide.classList.remove("off")
-    }
-    else {
-        mainSide.classList.add("off")
-    }
-})
+
+
 
 document.getElementById('mostrarSubformi').addEventListener('change', function () {
     var subformi = document.getElementById('subformi');
     subformi.style.display = this.checked ? 'block' : 'none';
 });
+
+
 
 ;(async () => {
     const token = localStorage.getItem(CHAVE)

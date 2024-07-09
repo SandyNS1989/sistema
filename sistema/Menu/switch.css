@@ -424,21 +424,21 @@ a {
   .button2,
   .button3 {
     left: 105px;
-    top: 90px;
+    top: 97px;
     z-index: 2;
     position: absolute;
      }
 
   .button1 {
-    top: 210px;
+    top: 205px;
   }
 
   .button2 {
-    top: 323px;
+    top: 315px;
   }
 
   .button3 {
-    top: 435px;
+    top: 425px;
   }
 
   .backdrop,
@@ -462,19 +462,19 @@ a {
 
   /* agendamento */
   .backdrop1 {
-    top: 237px;
+    top: 227px;
 
   }
 
   /* cadastro convenio */
   .backdrop2 {
-    top: 53%;
+    top: 52%;
 
   }
 
   /* fluxo de caixa */
   .backdrop3 {
-    top: 70%;
+    top: 69%;
     margin-bottom: 5%;
 
   } 
@@ -896,6 +896,10 @@ a {
     left:70%;
     top:12%;
     
+  }
+
+  .open-chat-btn1{
+    display: none;
   }
  
 

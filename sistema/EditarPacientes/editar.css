@@ -8,12 +8,12 @@ body {
   /* altura total da viewport */
   margin: 0;
   /* remova margens padrão */
- 
+  
 }
 
 
 
-.NS{
+.NS {
   text-align: center;
 }
 
@@ -139,8 +139,8 @@ h4 {
   margin-top: 15%;
 }
 
-h1{
-  top:5%;
+h1 {
+  top: 5%;
   width: 100%;
   height: 55%;
   background: #065757;
@@ -275,73 +275,279 @@ input:checked+.slider:before {
   background: lightgreen;
 }
 
-/* @media screen and (max-width:1312px){
-  /* barra lateral 
-  .slider{
-    width: 45%;     
+
+@media (min-width: 410px) and (max-width: 600px) {
+  iframe {
+    display: none;
   }
 
-.switch-container{
- width: 15%;
- height: 90%;
- margin: 0;
- border: 0;
+  h1 {
+    display: none;
+  }
+
+  .switch-container1 {
+    display: block;
+    z-index: 1000;
+    height: 93%;
+    width: 22%;
+
+
+  }
+
+
+  .escrita1 {
+    font-size: 9px;
+    margin-bottom: 15%;
+    top: 20%;
+  }
+
+  .contato {
+    font-size: 9px;
+    margin: 0;
+    margin-left: 5%;
+  }
+
+  .container {
+    position: absolute;
+    width: 75%;
+    left: 18%
+  }
+
+  .form .voltar-button {
+    width: 50%;
+  }
+
+  .form .login-button {
+    width: 50%;
+  }
+
+  .open-chat-btn1 {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    left: 80%;
+    top: 93%;
+  }
+
+  .open-chat-btn1 i {
+    display: block;
+    font-size: 25px;
+  }
+
 }
 
-.escrita{
-   font-size: 65%;
-   margin:15%;
-   text-align: left;
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .open-chat-btn1 {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    left: 80%;
+    top: 89%;
+  }
+
+  .open-chat-btn1 i {
+    display: block;
+    font-size: 25px;
+  }
+
+  iframe {
+    display: none;
+  }
+
+  h1 {
+    display: none;
+  }
+
+  .switch-container1 {
+    display: block;
+    z-index: 1000;
+    height: 93%;
+    width: 22%;
+
+
+  }
+
+
+  .escrita1 {
+    font-size: 9px;
+    margin-bottom: 15%;
+    top: 20%;
+  }
+
+  .contato {
+    font-size: 9px;
+    margin: 0;
+    margin-left: 5%;
+  }
+
+  .container {
+    position: absolute;
+    width: 75%;
+    left: 18%
+  }
+
+  .form .voltar-button {
+    width: 50%;
+  }
+
+  .form .login-button {
+    width: 50%;
+  }
+
+
 }
 
-.i{
-  margin:0;
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+
+  .open-chat-btn1 {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    left: 80%;
+    top: 89%;
+  }
+
+  .open-chat-btn1 i {
+    display: block;
+    font-size: 25px;
+  }
+
+  iframe {
+    display: none;
+  }
+
+  h1 {
+    display: none;
+  }
+
+  .switch-container1 {
+    display: block;
+    z-index: 1000;
+    height: 93%;
+    width: 15%;
+
+
+  }
+
+
+  .escrita1 {
+    font-size: 9px;
+    margin-bottom: 15%;
+    top: 20%;
+  }
+
+  .contato {
+    font-size: 9px;
+    margin: 0;
+    margin-left: 5%;
+  }
+
+  .container {
+    position: absolute;
+    width: 75%;
+    left: 18%;
+
+  }
+
+  .form .voltar-button {
+    width: 30%;
+  }
+
+  .form .login-button {
+    width: 30%;
+  }
 }
 
-.contato{
-  font-size: 70%;
-  margin-left: 8%;
-  text-align: center;
-  margin-top: 100%;
-  
-}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  iframe{
+    display: block;
+    width: 25%;
+    height: 85%;
+    left:68%;
+    top:18%;
+    
+  }
 
-/* geral 
-.NS{
-  text-align: center;
-}
-.container{
-  flex-direction: column;
-  width: 100%;
-  z-index: -1;
-}
+  .open-chat-btn1{
+    display: none;
+  }
 
-.heading{
-  margin-top:5%;
-  font-size:20px;
-}
-.hr-customizado{
-  font-size:11px;
-}
-.NS{
-  font-size:11px;
-}
-.form .voltar-button{
-  width: 30%;
-}
-
-.form .login-button{
-    width: 45%;
-    font-size: 65%;
-  }  
-}
-
-@media screen and (max-width:1200px){
   .container{
-    width: 65%;
+    position: absolute;
+    left:18%;
+    width: 48%;
   }
 
-  .switch-container{
-    z-index:9999999999;
-      }
-} */
+}
+
+@media (min-width: 1281px) and (max-width: 1440px) {
+  iframe{
+    display: block;
+    width: 25%;
+    height: 85%;
+    left:58%;
+    top:18%;
+    
+  }
+
+  .open-chat-btn1{
+    display: none;
+  }
+}
+
+@media (min-width: 1441px) and (max-width: 1920px) {
+  iframe{
+    display: block;
+    width: 25%;
+    height: 85%;
+    left:75%;
+    top:15%;
+    
+  }
+
+  .open-chat-btn1{
+    display: none;
+  }
+}
