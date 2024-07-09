@@ -803,16 +803,7 @@ a {
 @media (min-width: 1025px) and (max-width: 1280px) {
   .logo {
     display: none;
-  }
-
-  .meuUsuario{
-    font-size: 10px;
-  }
-
-  .meuUsuario i{
-    font-size: 11px;
-  }
-  
+  } 
 
   .escrita {
     font-size: 12px;

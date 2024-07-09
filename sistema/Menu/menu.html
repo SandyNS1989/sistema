@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../Logo/LOGO_02_DEGRADE.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <iframe class="unstyled"
-        src="https://shiny-space-umbrella-pj7pr4q4r6g6f7pq7-3000.app.github.dev/sistema/chat/chat.html"></iframe>
+        src="https://laughing-space-succotash-v6pqv979v5j6fxwrq-3000.app.github.dev/sistema/chat/chat.html"></iframe>
     <title>MENU</title>
 
 </head>
@@ -26,8 +26,8 @@
                     <a href="../meuPerfil/meuPerfil.html">
 
                         <div id="meuUsuario"
-                            style="flex: 1 1 0; color: white; font-size: 16px; font-family: Nunito; font-weight: 400; word-wrap: break-word">
-                            <i style="font-size:large; align-items: center; " class="bi bi-person-square"></i>
+                            class="meuUsuario">
+                            <i  class="bi bi-person-square"></i>
                             <br>
                             <p style="text-align: center;" id="userGreeting"></p>
                             <h4 style="font-size: xx-small;margin: 0; color: aqua; text-align: center;">Editar perfil
@@ -154,10 +154,10 @@
 
             <input class="out-button" onclick="logout()" type="button" value="SAIR" id="btn_agendamento">
         </form>
-
-        <button onclick="openChatWindow()" class="open-chat-btn1">
+        <button onclick="toggleChat()" class="open-chat-btn1" id="open-chat-btn1">
             <i class="bi bi-chat-dots"></i>
         </button>
+
 
         <script src="../chat/chat.js"></script>
         <script src="../global/auth.js"></script>
