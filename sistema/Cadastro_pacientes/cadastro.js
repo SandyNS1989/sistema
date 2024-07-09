@@ -14,6 +14,10 @@ document.getElementById("ch-side").addEventListener("change",event=>{
     window.location.href = '../Menu/menu.html';
 });
 
+document.getElementById("open-chat-btn1").addEventListener("click", () => {
+    window.location.href = '../chat/chat.html'
+ })
+
 const list = document.getElementById("lista")
 
 const nameinp = document.getElementById("name")
