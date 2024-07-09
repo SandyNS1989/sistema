@@ -905,6 +905,80 @@ a {
 /* iPad em modo paisagem*/
 @media (min-width: 1281px) and (max-width: 1440px) {
 
+  iframe{
+    display: block;
+    width: 25%;
+    height: 85%;
+    left:75%;
+    top:10%;
+    
+  }
+
+  .button0 {
+    z-index: 2;
+    position: relative;
+    margin-top: 39.5px;
+    left: 280px;
+    top: 45px;
+    width: 150px;
+    height: 100px;
+ 
+  }
+
+  .button1 {
+    left: 280px;
+    top: 95px;
+    margin-top: 5%;
+  }
+
+  .button2 {
+    left: 313px;
+    top: 45px;
+    margin-top: 0;
+  }
+
+  .button3 {
+    left: 313px;
+    top: 95px;
+    margin-top: 0;
+  }
+
+
+  .backdrop {
+    position: absolute;
+    left: 50%;
+    top: 450px;    
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+ 
+    /* Esta transição deve ser aplicada a todos os backdrops */
+  }
+
+  /* cadastro paciente */
+  .backdrop {
+    left: 48%;
+    top: 29.5%;
+
+  }
+
+  /* agendamento */
+  .backdrop1 {
+    left: 48%;
+    top: 56.5%;
+  }
+
+  /* cadastro convenio */
+  .backdrop2 {
+    left: 75%;
+    top: 29.5%;
+  }
+
+  /* fluxo de caixa */
+  .backdrop3 {
+    left: 75%;
+    top: 56.5%;
+  }
 
 
 }
