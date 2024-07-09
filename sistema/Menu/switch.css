@@ -59,7 +59,7 @@
 
 #thumbnail {
   position: absolute;
-  top: 15%;
+  top: 11%;
   width: 50px;
   /* Define a largura da miniatura */
   height: auto;
@@ -147,7 +147,7 @@ h1 {
   transition: all 0.2s ease-in-out;
   color: rgb(0, 0, 0);
   text-transform: uppercase;
-  margin-top: 25%;
+  margin-top: 35%;
 
 
 }
@@ -801,17 +801,15 @@ a {
 
 /* iPad em modo paisagem*/
 @media (min-width: 1025px) and (max-width: 1280px) {
-  .logo {
-    display: none;
-  } 
-
+ 
   .escrita {
     font-size: 12px;
   }
 
   .contato{
     font-size: 12px;
-    margin-left: 2%;
+    margin-left: 18%;
+    
     
   }
 
@@ -819,7 +817,7 @@ a {
     z-index: 2;
     position: relative;
     margin-top: 39.5px;
-    left: 2px;
+    left: 261px;
     top: -2px;
     width: 150px;
     height: 100px;
@@ -827,20 +825,20 @@ a {
   }
 
   .button1 {
-    left: 2px;
-    top: 16px;
+    left: 261px;
+    top: 8px;
     margin-top: 5%;
   }
 
   .button2 {
-    left: 40px;
+    left: 285px;
     top: -2px;;
     margin-top: 0;
   }
 
   .button3 {
-    left: 40px;
-    top: 16px;
+    left: 285px;
+    top: 8px;
     margin-top: 0;
   }
 
@@ -858,32 +856,32 @@ a {
 
   /* cadastro paciente */
   .backdrop {
-    left: 12%;
+    left: 48%;
     top: 29.5%;
 
   }
 
   /* agendamento */
   .backdrop1 {
-    left: 12%;
+    left: 48%;
     top: 56.5%;
   }
 
   /* cadastro convenio */
   .backdrop2 {
-    left: 53%;
+    left: 75%;
     top: 29.5%;
   }
 
   /* fluxo de caixa */
   .backdrop3 {
-    left: 53%;
+    left: 75%;
     top: 56.5%;
   }
 
   .barrinha {
-    width: 235px;
-    left: 55%;
+    width: 249px;
+    left: 78%;
     height: 15%;
   }
 
@@ -891,24 +889,101 @@ a {
     left: 50%;
   }
 
+  iframe{
+    display: block;
+    width: 32%;
+    height: 85%;
+    left:70%;
+    top:12%;
+    
+  }
  
 
-  iframe{
-    position: absolute;
-    left:50%;
-    width:auto;
-    top:50%;
-  }
+
 }
 
 /* iPad em modo paisagem*/
 @media (min-width: 1281px) and (max-width: 1440px) {
-  iframe{
-    display:none;
-  }
+
 
 
 }
 
 /* Monitores maiores*/
-@media (min-width: 1441px) and (max-width: 1920px) {}
+@media (min-width: 1441px) and (max-width: 1920px) {
+  iframe{
+    display: block;
+    width: 25%;
+    height: 85%;
+    left:75%;
+    top:10%;
+    
+  }
+
+  .button0 {
+    z-index: 2;
+    position: relative;
+    margin-top: 39.5px;
+    left: 341px;
+    top: 15px;
+    width: 150px;
+    height: 100px;
+ 
+  }
+
+  .button1 {
+    left: 341px;
+    top: 30px;
+    margin-top: 5%;
+  }
+
+  .button2 {
+    left: 409px;
+    top: 15px;
+    margin-top: 0;
+  }
+
+  .button3 {
+    left: 409px;
+    top: 30px;
+    margin-top: 0;
+  }
+
+
+  .backdrop {
+    position: absolute;
+    left: 50%;
+    top: 450px;    
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+ 
+    /* Esta transição deve ser aplicada a todos os backdrops */
+  }
+
+  /* cadastro paciente */
+  .backdrop {
+    left: 48%;
+    top: 29.5%;
+
+  }
+
+  /* agendamento */
+  .backdrop1 {
+    left: 48%;
+    top: 56.5%;
+  }
+
+  /* cadastro convenio */
+  .backdrop2 {
+    left: 75%;
+    top: 29.5%;
+  }
+
+  /* fluxo de caixa */
+  .backdrop3 {
+    left: 75%;
+    top: 56.5%;
+  }
+
+}

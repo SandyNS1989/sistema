@@ -232,12 +232,3 @@ function openChat(profileElement) {
     chatMessagesContainer.innerHTML = '';
 }
 
-function openChatWindow() {
-    var url = 'https://shiny-space-umbrella-pj7pr4q4r6g6f7pq7-3000.app.github.dev/sistema/chat/chat.html'; // Substitua pelo caminho correto para a página de chat
-    var width = 400; // Largura desejada da nova janela
-    var height = 400; // Altura desejada da nova janela
-    var left = (screen.width - width) * 90 ; // Centraliza a janela na tela
-    var top = (screen.height - height) / 2; // Centraliza a janela na tela
-
-    window.open(url, '_blank', `width=${width},height=${height},top=${top},left=${left}`);
-}

@@ -10,6 +10,17 @@ body {
   /* remova margens padrão */
 }
 
+iframe {
+  position: fixed;
+  max-height: 100%;
+  margin-right: 0%;
+  z-index: 4;
+  top: 15%;
+  left: 75%;   
+  border-radius: 10px;
+
+}
+
 .NS{
   text-align: center;
 }
@@ -283,23 +294,4 @@ input:checked+.slider:before {
   background: lightgreen;
 }
 
-@media screen and (max-width:1081px) {
 
-  iframe{
-    margin-top:8%;
-    margin-left:-1%;
-   }
-
-   .container{
-    width: 40%;
-    margin-top: 8%;
-   }
-
-   h1{
-    width: 110%;
-  }
-
-   .contato{
-    margin-top:78%;
-  }
-}

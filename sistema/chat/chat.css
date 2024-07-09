@@ -28,9 +28,7 @@ body {
 
 .chat-popup {
     z-index: 5;
-    margin-right: 0%;
-    overflow-y: auto;
-    margin-top: 15%;
+    overflow-y: auto; 
     position: absolute;
     display: none;
     bottom: 20px;
@@ -41,8 +39,8 @@ body {
     overflow: hidden;
     background-color: #cffff3 0px 10px 10px -5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    left: 50px;
-    top: 90px;
+    left: 10px;
+    top: 0px;
 
 }
 
@@ -179,10 +177,6 @@ body {
     height: 30px
 }
 
-
-
-
-
 .open-chat-btn {
     position: fixed;
     z-index: -1;
@@ -199,7 +193,7 @@ body {
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    left: 70%;
+    left: 80%;
     top: 90%;
 }
 
@@ -288,11 +282,7 @@ iframe {
     position: fixed;
     max-height: 100%;
     margin-right: 0%;
-    z-index: 4;
-    top: 4%;
-    left: 70%;
-    width: 35%;
-    height: 575px;
+    z-index: 4;     
     border-radius: 10px;
 
 }
@@ -322,16 +312,10 @@ iframe {
 }
 
 @media (min-width: 1025px) and (max-width: 1280px) {
-    iframe {
-        left: 68%;
+   
 
-    }
+ 
 
-    .chat-popup {
-        display: block;
-        width: 350px;
-        left:18px;
-    }
 
 }
 
@@ -340,7 +324,14 @@ iframe {
         display: block;
         width: 350px;
         left:18px;
+        top:10%;
+        margin:0;
     }
 
+}
 
+@media (min-width: 1441px) and (max-width: 1920px){
+    .chat-popup {
+        display: none;
+    }
 }

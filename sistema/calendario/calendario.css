@@ -769,10 +769,9 @@ label {
     max-height: 100%;
     margin-right: 0%;
     z-index:1000;    
-    top:13%;
+    top:20%;
     left:67.5%;
-    width: 38%;
-    height: 89%;
+  
     border-radius: 10px;
    
 }
@@ -780,12 +779,6 @@ label {
   background-color: red;
   color: white;
 }
-  /* @media screen and (max-width:1260px){
-    header{
-     position:absolute;
-    }
-    
-  } */
 
 
 
