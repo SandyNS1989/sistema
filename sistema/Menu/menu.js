@@ -1,7 +1,5 @@
 verificaAutenticado()
 
-
-
 document.getElementById("btn_cadastro").addEventListener("click", () => {
     window.location.href = '../Cadastro_pacientes/Cadastro.html'
  })

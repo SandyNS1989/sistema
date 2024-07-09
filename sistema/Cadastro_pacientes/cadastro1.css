@@ -480,6 +480,11 @@ display:block;
     top:14%;
     
   }
+
+  .open-chat-btn1  {
+    display:none;
+      
+  }
  
 }
 

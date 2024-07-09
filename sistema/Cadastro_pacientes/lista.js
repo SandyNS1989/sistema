@@ -14,6 +14,10 @@ document.getElementById("btn_voltar_li").addEventListener("click", () => {
   window.location.href = '../Menu/menu.html';
 });
 
+document.getElementById("open-chat-btn1").addEventListener("click", () => {
+  window.location.href = '../chat/chat.html'
+})
+
 const tbody = document.querySelector("tbody");
 const type = document.querySelector("#type");
 let items = [];
