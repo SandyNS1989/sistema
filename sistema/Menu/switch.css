@@ -991,10 +991,10 @@ a {
 @media (min-width: 1441px) and (max-width: 1920px) {
   iframe{
     display: block;
-    width: 25%;
-    height: 85%;
-    left:75%;
-    top:10%;
+    width: 20%;
+    height: 65%;
+    left:79%;
+    top:25%;
     
   }
 
@@ -1002,28 +1002,28 @@ a {
     z-index: 2;
     position: relative;
     margin-top: 39.5px;
-    left: 341px;
-    top: 15px;
+    left: 448px;
+    top: 78px;
     width: 150px;
     height: 100px;
  
   }
 
   .button1 {
-    left: 341px;
-    top: 30px;
+    left: 448px;
+    top: 139px;
     margin-top: 5%;
   }
 
   .button2 {
-    left: 409px;
-    top: 15px;
+    left: 575px;
+    top: 79px;
     margin-top: 0;
   }
 
   .button3 {
-    left: 409px;
-    top: 30px;
+    left: 575px;
+    top: 139px;
     margin-top: 0;
   }
 
@@ -1062,6 +1062,10 @@ a {
   .backdrop3 {
     left: 75%;
     top: 56.5%;
+  }
+
+  .barrinha{
+    width:15%;
   }
 
 }
