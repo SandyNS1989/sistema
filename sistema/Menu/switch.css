@@ -1069,3 +1069,84 @@ a {
   }
 
 }
+
+@media (min-width: 1921px) and (max-width: 2500px) {
+  iframe{
+    display: block;
+    width: 20%;
+    height: 65%;
+    left:79%;
+    top:25%;
+    
+  }
+
+  .button0 {
+    z-index: 2;
+    position: relative;
+    margin-top: 39.5px;
+    left: 448px;
+    top: 78px;
+    width: 150px;
+    height: 100px;
+ 
+  }
+
+  .button1 {
+    left: 448px;
+    top: 139px;
+    margin-top: 5%;
+  }
+
+  .button2 {
+    left: 575px;
+    top: 79px;
+    margin-top: 0;
+  }
+
+  .button3 {
+    left: 575px;
+    top: 139px;
+    margin-top: 0;
+  }
+
+
+  .backdrop {
+    position: absolute;
+    left: 50%;
+    top: 450px;    
+    z-index: 1;
+    width: 150px;
+    height: 100px;
+ 
+    /* Esta transição deve ser aplicada a todos os backdrops */
+  }
+
+  /* cadastro paciente */
+  .backdrop {
+    left: 48%;
+    top: 29.5%;
+
+  }
+
+  /* agendamento */
+  .backdrop1 {
+    left: 48%;
+    top: 56.5%;
+  }
+
+  /* cadastro convenio */
+  .backdrop2 {
+    left: 75%;
+    top: 29.5%;
+  }
+
+  /* fluxo de caixa */
+  .backdrop3 {
+    left: 75%;
+    top: 56.5%;
+  }
+
+  .barrinha{
+    width:15%;
+  }
+}
