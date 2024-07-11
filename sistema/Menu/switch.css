@@ -911,9 +911,9 @@ a {
 
   iframe{
     display: block;
-    width: 25%;
+    width: 28%;
     height: 85%;
-    left:75%;
+    left:73%;
     top:10%;
     
   }
@@ -922,28 +922,28 @@ a {
     z-index: 2;
     position: relative;
     margin-top: 39.5px;
-    left: 300px;
-    top: -2px;
+    left: 280px;
+    top: 6px;
     width: 150px;
     height: 100px;
  
   }
 
   .button1 {
-    left: 300px;
-    top: 2px;
+    left: 280px;
+    top: 19px;
     margin-top: 5%;
   }
 
   .button2 {
-    left: 346px;
-    top: -2px;
+    left: 313px;
+    top: 6px;
     margin-top: 0;
   }
 
   .button3 {
-    left: 346px;
-    top: 2px;
+    left: 313px;
+    top: 19px;
     margin-top: 0;
   }
 
@@ -985,6 +985,8 @@ a {
   }
 
 
+
+
 }
 
 /* Monitores maiores*/
@@ -1002,7 +1004,7 @@ a {
     z-index: 2;
     position: relative;
     margin-top: 39.5px;
-    left: 448px;
+    left: 478px;
     top: 78px;
     width: 150px;
     height: 100px;
@@ -1080,7 +1082,10 @@ a {
     
   }
 
+  
+
   .button0 {
+    
     z-index: 2;
     position: relative;
     margin-top: 39.5px;

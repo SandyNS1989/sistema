@@ -223,4 +223,10 @@ body {
   }
 }
 
+@media (min-width: 1281px) and (max-width: 1440px){
+ .container{
+  left:18%;
+ }
+} 
+
 
