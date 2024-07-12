@@ -3,14 +3,31 @@
 }
 
 iframe {
-  position: fixed;
+  position: absolute;
   max-height: 100%;
   margin-right: 0%;
   z-index: 4;
   top: 15%;
   left: 0%;   
   border-radius: 10px;
+  user-select: none;
+  cursor: move;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: content-box;
+}
 
+
+
+/* Define o cursor de movimento na área de padding */
+iframe::before {
+content: '';
+position: absolute;
+top: -20px;
+left: -20px;
+right: -20px;
+bottom: -20px;
+cursor: move;
 }
 
 h4 {
@@ -389,6 +406,8 @@ th {
   text-align: center;
 }
 
+
+
 @media (min-width: 410px) and (max-width: 600px) {
 
 }
@@ -400,7 +419,54 @@ th {
 
 
 @media (min-width: 769px) and (max-width: 1024px) {
-
+  iframe{
+    display:none;
+   }
+ 
+   h1{
+     display: none;
+   }
+ 
+   .open-chat-btn1{
+ 
+     display:block;
+     position:fixed;
+     z-index:1;
+     bottom: 20px;
+     right: 20px;
+     width: 50px;
+     height: 50px;
+     background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+     color: #fff;
+     border: none;
+     border-radius: 50%;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+     left:83%;
+     top:83%;
+   }
+ 
+   .container{
+     left:13%;
+     width: 65%;
+ 
+   }
+ 
+ .containertabela{
+   position: absolute;
+   left:-0.5%;
+   top:96%;
+   width: 101%;
+   border: 10px solid rgb(255, 255, 255);
+ }
+ 
+ .columnAmount {
+   width: 15%;
+ }
+ 
 
 }
   
@@ -460,7 +526,8 @@ th {
 
 @media (min-width: 1281px) and (max-width: 1440px) {
   iframe{
-    top:8%;
+    top:2%;
+    left:72%:
   }
 
   .open-chat-btn1{
