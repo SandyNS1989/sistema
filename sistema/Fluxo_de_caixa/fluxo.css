@@ -341,7 +341,7 @@ select {
 .divTable {
   width: 100%;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   margin: 0;
 }
 
@@ -425,10 +425,17 @@ th {
 
 .containertabela{
   position: absolute;
-  left:2%;
-  top:100%;
-  width: 100%;
+  left:-0.5%;
+  top:96%;
+  width: 101%;
+  border: 10px solid rgb(255, 255, 255);
 }
+
+.columnAmount {
+  width: 15%;
+}
+
+
 }
 
 @media (min-width: 1441px) and (max-width: 1920px){
