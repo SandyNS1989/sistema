@@ -153,6 +153,8 @@ const getItensBD = async () => {
 
 
 
+
+
   ; (async () => {
     const token = localStorage.getItem(CHAVE)
 
@@ -189,3 +191,7 @@ document.getElementById("ch-side").addEventListener("change", event => {
 document.getElementById("btn_voltar_flx").addEventListener("click", () => {
   window.location.href = '../Menu/menu.html';
 }); 
+
+document.getElementById("open-chat-btn1").addEventListener("click", () => {
+  window.location.href = '../chat/chat.html'
+})
