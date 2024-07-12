@@ -15,6 +15,34 @@
   font-size: 25px;
 }
 
+iframe {
+  position: absolute;
+  max-height: 100%;
+  margin-right: 0%;
+  z-index: 4;
+  top: 15%;
+  left: 0%;   
+  border-radius: 10px;
+  user-select: none;
+  cursor: move;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: content-box;
+}
+
+
+
+/* Define o cursor de movimento na área de padding */
+iframe::before {
+content: '';
+position: absolute;
+top: -20px;
+left: -20px;
+right: -20px;
+bottom: -20px;
+cursor: move;
+}
+
 
 
 .meuUsuario{
@@ -910,7 +938,7 @@ a {
 @media (min-width: 1281px) and (max-width: 1440px) {
 
   iframe{
-    display: block;
+    
     width: 28%;
     height: 85%;
     left:73%;
