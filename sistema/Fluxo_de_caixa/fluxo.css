@@ -563,16 +563,52 @@ th {
   .open-chat-btn1{
     display:none;
   }
+
+  .container{
+    left:13%;
+    width: 65%;
+
+  }
+
+.containertabela{
+  position: absolute;
+  left:-0.5%;
+  top:96%;
+  width: 101%;
+  border: 10px solid rgb(255, 255, 255);
+}
+
+.columnAmount {
+  width: 15%;
+}
 } 
 
 @media (min-width: 1921px) and (max-width: 2500px){
   iframe{
-    top:2%;
-    left:5%;
-    height: 10%;
+    top:-4%;
+    left:-10%;
+  
   }
 
   .open-chat-btn1{
     display:none;
   }
+
+  .container{
+    left:13%;
+    width: 65%;
+
+  }
+
+.containertabela{
+  position: absolute;
+  left:-0.5%;
+  top:96%;
+  width: 101%;
+  border: 10px solid rgb(255, 255, 255);
+}
+
+.columnAmount {
+  width: 15%;
+}
 } 
