@@ -557,7 +557,7 @@ th {
 
 @media (min-width: 1441px) and (max-width: 1920px){
   iframe{
-    top:15%;
+    top:-5%;
   }
 
   .open-chat-btn1{
@@ -567,7 +567,9 @@ th {
 
 @media (min-width: 1921px) and (max-width: 2500px){
   iframe{
-    top:15%;
+    top:2%;
+    left:5%;
+    height: 10%;
   }
 
   .open-chat-btn1{
