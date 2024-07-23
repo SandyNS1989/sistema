@@ -1055,7 +1055,12 @@ iframe {
     font-size: small;
   }
 
+  .canceladoSt{
+    position: absolute;
+    left:2%;
+    top: 2%;
 
+  }
 
 }
 
