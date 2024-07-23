@@ -913,7 +913,7 @@ iframe {
     position: absolute;
     left:5%;
     top: 2%;
-    
+
   }
 
 
@@ -1006,6 +1006,13 @@ iframe {
   .escritaN {
     font-size: 9px;
     text-align: center;
+  }
+
+  .canceladoSt{
+    position: absolute;
+    left:3%;
+    top: 2%;
+
   }
 
 }
