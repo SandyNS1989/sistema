@@ -900,7 +900,7 @@ iframe {
 
   }
 
- 
+
 
   .divTable {
     width: 150%;
@@ -1049,15 +1049,29 @@ iframe {
 @media (min-width: 1025px) and (max-width: 1280px) {
   iframe {
     position: absolute;
-    top: 18%;
-    left: 60%;
-    width: 35%;
+    top: 12%;
+    left: 65%;
+    width: 30%;
+
+
   }
 
   .open-chat-btn1 {
     display: none;
   }
 
+  .container {
+    position: absolute;
+    top: 23%;
+    left: 34%;
+  }
+
+  .esperaSt {
+    width: 100%;
+    justify-items: center;
+    height: 100%;
+    top: 2%;
+  }
 
 }
 
@@ -1069,12 +1083,21 @@ iframe {
   .open-chat-btn1 {
     display: none;
   }
+
+
 }
 
 @media (min-width: 1441px) and (max-width: 1920px) {
   iframe {
     top: 20%;
   }
+
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 33%;
+  }
+
 
   .open-chat-btn1 {
     display: none;
