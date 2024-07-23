@@ -825,7 +825,56 @@ iframe {
 }
 
 
-@media (min-width: 410px) and (max-width: 600px) {}
+@media (min-width: 410px) and (max-width: 600px) {
+  iframe {
+    display: none;
+  }
+  main{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  header{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 0;
+    margin:0;
+  }
+  .voltar-button {
+    width: 50%;
+  }
+
+  .container {
+    position: absolute;
+    top: 120%;
+    width: 100%;    
+  }
+
+  .calendar {
+    position: absolute;
+    top: 52%;
+  
+  }
+
+
+
+
+  .olcards li {
+    height: 15%;
+    font-size: small;
+  }
+
+  
+  
+ 
+
+
+
+
+}
 
 
 @media (min-width: 601px) and (max-width: 768px) {
