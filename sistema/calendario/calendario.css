@@ -41,11 +41,11 @@ main {
 
 }
 
-.escritaN{
-  color: white; 
-  font-size: 12px;    
-  font-weight: 400; 
-  word-wrap: break-word  
+.escritaN {
+  color: white;
+  font-size: 12px;
+  font-weight: 400;
+  word-wrap: break-word
 }
 
 .borda {
@@ -545,20 +545,21 @@ li::before {
   margin: 0;
 }
 
-.nameEspec{
-  flex: 1 1 0; 
-  color: black; 
-  font-size: 16px;   
-  font-weight: 400; word-wrap: break-word
+.nameEspec {
+  flex: 1 1 0;
+  color: black;
+  font-size: 16px;
+  font-weight: 400;
+  word-wrap: break-word
 }
 
-.novoagendamento{
-  padding: 8px; 
-  background: #439A46; 
-  border-radius: 8px; 
-  justify-content: center; 
-  align-items: center; 
-  gap: 16px; 
+.novoagendamento {
+  padding: 8px;
+  background: #439A46;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
   display: flex
 }
 
@@ -829,25 +830,26 @@ iframe {
   iframe {
     display: none;
   }
-  main{
+
+  main {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     overflow: auto;
   }
 
-  header{
+  header {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     padding: 0;
-    margin:0;
+    margin: 0;
   }
 
   .open-chat-btn1 {
-    display:block;
-    position:fixed;
-    z-index:1;
+    display: block;
+    position: fixed;
+    z-index: 1;
     bottom: 20px;
     right: 20px;
     width: 50px;
@@ -861,9 +863,9 @@ iframe {
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    left:80%;
-    top:93%;
-}
+    left: 80%;
+    top: 93%;
+  }
 
   .voltar-button {
     width: 50%;
@@ -872,23 +874,41 @@ iframe {
   .container {
     position: absolute;
     top: 120%;
-    width: 100%;    
+    width: 100%;
   }
 
   .calendar {
     position: absolute;
     top: 52%;
-  
+
   }
+
   .olcards li {
     height: 15%;
     font-size: small;
   }
 
   .open-chat-btn1 i {
-    display:block;
-      font-size: 25px;
+    display: block;
+    font-size: 25px;
   }
+
+  .esperaSt {
+    width: 100%;
+    justify-items: center;
+    height: 100%;
+
+  }
+
+ 
+
+  .divTable {
+    width: 150%;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+  }
+
 
 }
 
@@ -899,9 +919,9 @@ iframe {
   }
 
   .open-chat-btn1 {
-    display:block;
-    position:fixed;
-    z-index:1;
+    display: block;
+    position: fixed;
+    z-index: 1;
     bottom: 20px;
     right: 20px;
     width: 50px;
@@ -915,46 +935,47 @@ iframe {
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    left:80%;
-    top:93%;
-}
-
-  .open-chat-btn1 i {
-    display:block;
-      font-size: 25px;
+    left: 80%;
+    top: 93%;
   }
 
-  main{
+  .open-chat-btn1 i {
+    display: block;
+    font-size: 25px;
+  }
+
+  main {
     display: flex;
     justify-content: space-around;
     flex-direction: column;
     overflow: auto;
-  } 
+  }
 
   .calendar {
     position: absolute;
     top: 15%;
-  
+
   }
 
   .container {
     position: absolute;
     top: 87%;
-    width: 100%;    
+    width: 100%;
   }
 
   header {
     padding: 0;
   }
 
-select{
-  width:98%;
-}
+  select {
+    width: 98%;
+  }
+
   .voltar-button {
     width: 50%;
   }
 
-  
+
   .text {
     font-size: small;
   }
@@ -965,19 +986,19 @@ select{
     font-size: small;
   }
 
-  .nameEspec{
-   font-size: small;   
-   
-  }
-  
-  .novoagendamento{
-   width: 20%;
-   left:50%;
+  .nameEspec {
+    font-size: small;
+
   }
 
-  .escritaN{
-   font-size: 9px;
-   text-align: center;
+  .novoagendamento {
+    width: 20%;
+    left: 50%;
+  }
+
+  .escritaN {
+    font-size: 9px;
+    text-align: center;
   }
 
 }
@@ -1032,7 +1053,8 @@ select{
     left: 60%;
     width: 35%;
   }
-  .open-chat-btn1{
+
+  .open-chat-btn1 {
     display: none;
   }
 
@@ -1043,7 +1065,8 @@ select{
   iframe {
     top: 10%;
   }
-  .open-chat-btn1{
+
+  .open-chat-btn1 {
     display: none;
   }
 }
@@ -1052,7 +1075,8 @@ select{
   iframe {
     top: 20%;
   }
-  .open-chat-btn1{
+
+  .open-chat-btn1 {
     display: none;
   }
 }
@@ -1061,7 +1085,8 @@ select{
   iframe {
     top: 15%;
   }
-  .open-chat-btn1{
+
+  .open-chat-btn1 {
     display: none;
   }
 }
