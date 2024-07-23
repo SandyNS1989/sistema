@@ -909,6 +909,13 @@ iframe {
     overflow: auto;
   }
 
+  .canceladoSt{
+    position: absolute;
+    left:5%;
+    top: 2%;
+    
+  }
+
 
 }
 
