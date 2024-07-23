@@ -16,7 +16,7 @@ body {
   width: 100%;
   align-items: center;
   background: linear-gradient(to right, #a9cfc6);
- 
+
 }
 
 header {
@@ -38,7 +38,14 @@ main {
   justify-content: left;
   align-items: center;
   overflow: hidden;
-  
+
+}
+
+.escritaN{
+  color: white; 
+  font-size: 12px;    
+  font-weight: 400; 
+  word-wrap: break-word  
 }
 
 .borda {
@@ -292,7 +299,7 @@ main {
 .container {
   display: flex;
   height: 30rem;
-  width: 50%;
+  width: 70%;
   overflow: auto;
   background: #f8fdfd;
   background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 251, 249) 100%);
@@ -384,7 +391,7 @@ li::before {
 }
 
 .olcards li .content {
-  background-color:#f2f3f5;
+  background-color: #f2f3f5;
   --inlinePadding: 1em;
   --boxPadding: 0.5em;
   display: grid;
@@ -402,7 +409,7 @@ li::before {
   position: relative;
   width: 100%;
   font-size: 1.25em;
-  
+
 }
 
 
@@ -516,7 +523,7 @@ li::before {
   width: 50%;
   border: none;
   margin-top: 2%;
-  
+
 }
 
 .esperaSt {
@@ -528,7 +535,7 @@ li::before {
   height: 80%;
   border: none;
   margin-top: 5%;
-  
+
 }
 
 .divTable {
@@ -538,12 +545,30 @@ li::before {
   margin: 0;
 }
 
+.nameEspec{
+  flex: 1 1 0; 
+  color: black; 
+  font-size: 16px;   
+  font-weight: 400; word-wrap: break-word
+}
+
+.novoagendamento{
+  padding: 8px; 
+  background: #439A46; 
+  border-radius: 8px; 
+  justify-content: center; 
+  align-items: center; 
+  gap: 16px; 
+  display: flex
+}
+
 table {
 
   width: 98%;
   padding: 20px 0;
   border-radius: 5px;
-  border-collapse: collapse; /* Remove spacing between cells */
+  border-collapse: collapse;
+  /* Remove spacing between cells */
 }
 
 
@@ -554,24 +579,33 @@ table {
   padding: 0;
 }
 
-.inputespera th, .inputespera td {
-  padding: 1%; /* Remove padding from table cells */
-  
+.inputespera th,
+.inputespera td {
+  padding: 1%;
+  /* Remove padding from table cells */
+
 }
 
 .inputespera th {
-  width: 20%; /* Set appropriate width for each column */
+  width: 20%;
+  /* Set appropriate width for each column */
 }
 
 .inputespera .input {
-  width: 100%; /* Ensure inputs take the full width of the table cell */
+  width: 100%;
+  /* Ensure inputs take the full width of the table cell */
   background: white;
   border: none;
-  padding: 10px; /* Adjust padding to reduce size */
-  border-radius: 20px; /* Adjust border-radius for inputs */
-  margin: 0.5%; /* Remove margin from inputs */
-  box-shadow: #a9cfc6 0px 5px 5px -2px; /* Adjust box shadow to fit smaller input size */
-  border: 1px solid #ddd; /* Add a border for better input visibility */
+  padding: 10px;
+  /* Adjust padding to reduce size */
+  border-radius: 20px;
+  /* Adjust border-radius for inputs */
+  margin: 0.5%;
+  /* Remove margin from inputs */
+  box-shadow: #a9cfc6 0px 5px 5px -2px;
+  /* Adjust box shadow to fit smaller input size */
+  border: 1px solid #ddd;
+  /* Add a border for better input visibility */
 }
 
 
@@ -700,124 +734,227 @@ dialog {
   background-color: rgb(18, 211, 195) !important;
 }
 
-.campomenor{
+.campomenor {
   display: contents;
   width: 40%;
   margin: 10%;
- 
+
 }
 
 label {
-   font-weight: bold;
-   font-size: small;
+  font-weight: bold;
+  font-size: small;
 }
 
-.canceladoSt{
+.canceladoSt {
   left: 25%;
-  border:none;
+  border: none;
   border-radius: 5%;
   padding: 2%;
 
-  
-    
+
+
   table {
-      border-collapse: collapse;
-      width: 100%;
+    border-collapse: collapse;
+    width: 100%;
   }
-  th, td {
-      border: 1px solid #dddddd;
-      text-align: center;
-      padding: 8px;
+
+  th,
+  td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
   }
+
   tr:nth-child(even) {
-      background-color: #f2f2f2;
+    background-color: #f2f2f2;
   }
+
   tr:hover {
-      background-color: #ddd;
+    background-color: #ddd;
   }
+
   .selected {
-      background-color: #aaf;
-  }
-  
+    background-color: #aaf;
   }
 
-
-
-  .form .cancel-button {
-    width: 25%;
-    align-items: center;
-    margin-top: 0.5%;  
-    font-weight: bold;
-    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
-    color: white;
-    padding-block: 8px;
-    border-radius: 20px;
-    box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
-    border: none;
-    transition: all 0.2s ease-in-out;
-    margin-top: 1%;
-    margin-bottom: 1%;
-    
-  }
-
-  .unstyled {
-    border: unset;
 }
 
-  iframe {
-    position: fixed;
-    max-height: 100%;
-    margin-right: 0%;
-    z-index:1000;    
-    top:20%;
-    left:67.5%;
-  
-    border-radius: 10px;
-   
+
+
+.form .cancel-button {
+  width: 25%;
+  align-items: center;
+  margin-top: 0.5%;
+  font-weight: bold;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  color: white;
+  padding-block: 8px;
+  border-radius: 20px;
+  box-shadow: rgba(133, 215, 194, 0.878) 0px 20px 10px -15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+  margin-top: 1%;
+  margin-bottom: 1%;
+
 }
+
+.unstyled {
+  border: unset;
+}
+
+iframe {
+  position: fixed;
+  max-height: 100%;
+  margin-right: 0%;
+  z-index: 1000;
+  top: 20%;
+  left: 67.5%;
+  border-radius: 10px;
+  user-select: none;
+  cursor: move;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: content-box;
+
+}
+
 .highlight {
   background-color: red;
   color: white;
 }
 
 
-@media (min-width: 410px) and (max-width: 600px) {
-
-}
+@media (min-width: 410px) and (max-width: 600px) {}
 
 
 @media (min-width: 601px) and (max-width: 768px) {
+  iframe {
+    display: none;
+  }
+
+  header {
+    padding: 0;
+  }
+
+
+  .voltar-button {
+    width: 50%;
+  }
+
+  .container {
+    position: absolute;
+    top: 17%;
+    left: 46%;
+    border-radius: 0%;
+    width: 55%;
+    
+  }
+
+  .calendar {
+    position: absolute;
+    top: 18%;
+    padding: 0%;
+    border-radius: 0;
+    width: 47%;
+  }
+
+  .text {
+    font-size: small;
+  }
+
+
+  .olcards li {
+    height: 15%;
+    font-size: small;
+  }
+
+  .nameEspec{
+   font-size: small;   
+   
+  }
+  
+  .novoagendamento{
+   width: 20%;
+   left:50%;
+  }
+
+  .escritaN{
+   font-size: 9px;
+   text-align: center;
+  }
 
 }
-
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  iframe {
+    display: none;
+  }
+
+  header {
+    padding: 0;
+  }
+
+  .voltar-button {
+    width: 10%;
+  }
+
+  .container {
+    position: absolute;
+    top: 17%;
+    left: 43%;
+    border-radius: 0%;
+    width: 55%;
+    ;
+  }
+
+  .calendar {
+    position: absolute;
+    top: 18%;
+    padding: 0%;
+    border-radius: 0;
+  }
+
+  .text {
+    font-size: small;
+  }
+
+  .olcards li {
+    height: 15%;
+    font-size: small;
+  }
+
+
 
 }
-  
 
 
 @media (min-width: 1025px) and (max-width: 1280px) {
+  iframe {
+    position: absolute;
+    top: 18%;
+    left: 60%;
+    width: 35%;
+  }
 
- 
+
+
 }
 
 @media (min-width: 1281px) and (max-width: 1440px) {
-  iframe{
-    top:15%;
+  iframe {
+    top: 10%;
   }
 }
 
-@media (min-width: 1441px) and (max-width: 1920px){
-  iframe{
-    top:15%;
+@media (min-width: 1441px) and (max-width: 1920px) {
+  iframe {
+    top: 20%;
   }
-} 
+}
 
-@media (min-width: 1921px) and (max-width: 2500px){
-  iframe{
-    top:15%;
+@media (min-width: 1921px) and (max-width: 2500px) {
+  iframe {
+    top: 15%;
   }
-} 
-
-
+}
