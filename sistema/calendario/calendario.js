@@ -944,3 +944,8 @@ draggable.onmousedown = function(event) {
        document.removeEventListener('mousemove', onMouseMove);
    };
 };
+
+document.getElementById("open-chat-btn1").addEventListener("click", () => {
+    window.location.href = '../chat/chat.html'
+ })
+ 
