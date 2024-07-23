@@ -1153,4 +1153,11 @@ iframe {
   .open-chat-btn1 {
     display: none;
   }
+
+  .canceladoSt{
+    position: absolute;
+    left:21%;
+    top: 12%;
+
+  }
 }
