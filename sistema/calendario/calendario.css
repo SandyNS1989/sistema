@@ -1128,13 +1128,20 @@ iframe {
 
   .container {
     position: absolute;
-    top: 50%;
+    top: 23%;
     left: 33%;
   }
 
 
   .open-chat-btn1 {
     display: none;
+  }
+
+  .canceladoSt{
+    position: absolute;
+    left:14%;
+    top: 2%;
+
   }
 }
 
