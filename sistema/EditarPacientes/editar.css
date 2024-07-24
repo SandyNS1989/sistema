@@ -550,14 +550,17 @@ input:checked+.slider:before {
 
 }
 
-@media (min-width: 1281px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1440px){
   iframe{
-    display: block;
-    width: 28%;
-    height: 85%;
+    display: block;   
     left:72%;
-    top:8%;
+    top:28%;
+    width:25%;
     
+  }
+
+  .contato{
+    margin-top:130%;
   }
 
   .open-chat-btn1{

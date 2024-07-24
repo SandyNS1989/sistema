@@ -1083,7 +1083,7 @@ iframe {
     position: absolute;
     top: 23%;
     left: 43%;
-    width: 59%;
+    width: 35%;
   }
 
   .esperaSt {
@@ -1102,9 +1102,25 @@ iframe {
 
 }
 
-@media (min-width: 1281px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1440px){
   iframe {
-    top: 10%;
+    top: 33%;
+    left: 70%;
+  }
+
+  .calendar {
+    position: absolute;
+    left:8%;
+    top: 30%;
+   
+  }
+
+  .container {
+    position: absolute;
+    top: 28.8%;
+    height: 60%;
+    left: 40%;
+    width: 58%;
   }
 
   .canceladoSt{

@@ -413,86 +413,19 @@ button[type="submit"]:hover {
     background: lightgreen;
   }
 
-/* @media screen and (max-width:1260px) {
+  @media (min-width: 1369px) and (max-width: 1440px){
+    iframe{
+        display: block;   
+        left:75%;
+        top:35%;
+        
+      }
 
-    /* barra lateral 
-    .slider {
-        width: 45%;
-    }
+      .switch-container{
+        width:12%;
+      }
 
-    .switch-container {
-        width: 15%;
-        height: 90%;
-        margin: 0;
-        border: 0;
-    }
-
-    .escrita {
-        font-size: 65%;
-        margin: 15%;
-        text-align: left;
-    }
-
-    .i {
-        margin: 0;
-    }
-
-    .contato {
-        font-size: 70%;
-        margin-left: 8%;
-        text-align: center;
-        margin-top: 100%;
-
-    }
-
-    /* geral 
-    .NS {
-        text-align: center;
-    }
-
-    .container {
-        flex-direction: column;
-        width: 100%;
-        z-index: -1;
-    }
-
-    .heading {
-        margin-top: 5%;
-        font-size: 20px;
-    }
-
-    .hr-customizado {
-        font-size: 11px;
-    }
-
-    .NS {
-        font-size: 11px;
-    }
-
-    .form .voltar-button {
-        width: 30%;
-    }
-
-    .form .login-button {
-        width: 45%;
-        font-size: 65%;
-    }
-}
-
-@media screen and (max-width:412px) {
-    .container {
-        width: 90%;
-        padding: 5%;
-        margin: 0;
-    }
-
-    .switch-container {
-        z-index: 9999999999;
-        width: 90%;
-    }
-
-    .contato {
-        margin-top: 280%;
-    }
-}
- */
+      .contato{
+        margin-top:130%;
+      }
+  }

@@ -516,17 +516,25 @@ display:block;
  
 }
 
-@media (min-width: 1281px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1440px) {
   .container{
-    left:15%;
+    left:25%;
+  }
+
+  .contato{
+    margin-top:120%;
+  }
+
+  .open-chat-btn1{
+    display: none;
   }
 
   iframe{
     display: block;
     width: 28%;
-    height: 85%;
-    left:68%;
-    top:10%;
+    height: 65%;
+    left:71%;
+    top:30%;
     
   }
 }

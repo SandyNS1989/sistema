@@ -524,21 +524,32 @@ th {
  
 }
 
-@media (min-width: 1281px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1440px) {
   iframe{
-    top:2%;
+    top:25%;
     left:72%;
   }
 
   .open-chat-btn1{
     display:none;
   }
+  .contato{
+    
+    margin-top: 150%;
+  }
+
+  h1{
+    height: 30%;
+  } 
 
   .container{
-    left:13%;
+    left:15%;
     width: 65%;
+    height: 75%;
 
   }
+
+ 
 
 .containertabela{
   position: absolute;

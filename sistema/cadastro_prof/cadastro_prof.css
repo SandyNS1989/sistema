@@ -285,67 +285,25 @@ body {
     transform: translateX(2em);
     background: lightgreen;
   }
-  
-  
-  /* css para celular */
-  
-  /* @media screen and (max-width:1312px){
-    /* barra lateral 
-    .slider{
-      width: 45%;     
+
+  @media (min-width: 1369px) and (max-width: 1440px){
+    iframe{
+      top: 35%;
+      left: 75%;
     }
-  
-    .switch-container{
-   width: 100%;
-   margin: 0;
-   border: 0;
-  }
-  
-  .escrita{
-     font-size: 65%;
-     margin:15%;
-     text-align: left;
-  }
-  
-  .i{
-    margin:0;
-  }
-  
-  .h4{
-    margin-bottom:50%;
+
+    h1{
+      width: 68%;
+      height: 50%;
     }
-  
-  .contato{
-    font-size: 70%;
-    margin-left: 8%;
+
+    .contato{
+      margin-top:80%;
+    }
+
+    .container{
+      margin-top:1%;
+    }
     
   }
   
-  /* geral 
-  .container{
-    flex-direction: column;
-    width: 80%;
-    margin-top: 5%;
-   
-    
-  }
-  
-  .heading{
-    margin-top:5%;
-    font-size:20px;
-  }
-  .hr-customizado{
-    font-size:11px;
-  }
-  .NS{
-    font-size:11px;
-  }
-  .form .voltar-button{
-    width: 30%;
-  }
-  
-  .form .login-button{
-      width: 30%;
-      font-size: 65%;
-    }  
-  } */

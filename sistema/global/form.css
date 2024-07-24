@@ -213,7 +213,7 @@ body {
 
 
 /* iPad em modo paisagem*/
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1269px) and (max-width: 1368px) {
   .container {
     width: 670px;
     left:17%;
@@ -223,9 +223,11 @@ body {
   }
 }
 
-@media (min-width: 1281px) and (max-width: 1440px){
+@media (min-width: 1369px) and (max-width: 1440px){
  .container{
   left:18%;
+  height: 75%;
+  top:10%;
  }
 } 
 

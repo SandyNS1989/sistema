@@ -450,20 +450,24 @@ font-size: 25px;
   
 }
 
-@media (min-width: 1281px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1440px) {
   .open-chat-btn1{
     display:none;
+  }
+
+  .contato{
+    margin-top:120%;
   }
 
   iframe{
     display: block;   
     left:72%;
-    top:5%;
+    top:28%;
     
   }
 .container{
   position:absolute;
-  left:15%;
+  left:22%;
 }
 
 }
