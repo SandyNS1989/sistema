@@ -286,6 +286,19 @@ body {
     background: lightgreen;
   }
 
+  @media (min-width: 1269px) and (max-width: 1368px) {
+
+    .open-chat-btn1{
+      display:none;
+    }
+    
+    iframe{
+      left:71%;
+      top:12%;
+      width: 28%;
+    }
+  }
+
   @media (min-width: 1369px) and (max-width: 1440px){
     iframe{
       top: 35%;
