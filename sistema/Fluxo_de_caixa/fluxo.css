@@ -472,7 +472,7 @@ th {
   
 
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1025px) and (max-width: 1268px) {
   iframe{
    display:none;
   }
@@ -522,6 +522,52 @@ th {
 }
 
  
+}
+
+@media (min-width: 1269px) and (max-width: 1368px) {
+
+  .open-chat-btn1{
+    display:none;
+  }
+  
+  iframe{
+    left:72%;
+    top:4%;
+    width: 26%;
+    height: 90%;
+  }
+
+  .switch-container{
+    width:13%;
+  }
+
+  
+
+  .contato{
+    margin-top:30%;
+    font-size: 12px;
+  }
+  
+  .container{
+    left:15%;
+    width: 63%;
+    height: 75%;
+
+  }
+
+ 
+
+.containertabela{
+  position: absolute;
+  left:-0.5%;
+  top:96%;
+  width: 101%;
+  border: 10px solid rgb(255, 255, 255);
+}
+
+.columnAmount {
+  width: 15%;
+}
 }
 
 @media (min-width: 1369px) and (max-width: 1440px) {

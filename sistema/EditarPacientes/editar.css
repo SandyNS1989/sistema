@@ -528,7 +528,7 @@ input:checked+.slider:before {
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1025px) and (max-width: 1268px) {
   iframe{
     display: block;
     width: 25%;
@@ -548,6 +548,19 @@ input:checked+.slider:before {
     width: 48%;
   }
 
+}
+
+@media (min-width: 1269px) and (max-width: 1368px) {
+
+  .open-chat-btn1{
+    display:none;
+  }
+  
+  iframe{
+    left:71%;
+    top:4%;
+    width: 28%;
+  }
 }
 
 @media (min-width: 1369px) and (max-width: 1440px){

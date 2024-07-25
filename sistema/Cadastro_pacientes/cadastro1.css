@@ -495,7 +495,7 @@ display:block;
 
 }
 
-@media (min-width: 1025px) and (max-width: 1280px) {
+@media (min-width: 1025px) and (max-width: 1268px) {
 .container{
   left:15%;
 }
@@ -514,6 +514,23 @@ display:block;
       
   }
  
+}
+
+@media (min-width: 1269px) and (max-width: 1368px) {
+
+.open-chat-btn1{
+  display:none;
+}
+
+iframe{
+  left:71%;
+  top:5%;
+}
+
+.container{
+  left:25%;
+}
+
 }
 
 @media (min-width: 1369px) and (max-width: 1440px) {

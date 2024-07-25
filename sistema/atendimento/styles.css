@@ -413,6 +413,20 @@ button[type="submit"]:hover {
     background: lightgreen;
   }
 
+  @media (min-width: 1269px) and (max-width: 1368px) {
+
+    .open-chat-btn1{
+      display:none;
+    }
+    
+    iframe{
+      left:71%;
+      top:15%;
+      width: 28%;
+    }
+   
+  }
+
   @media (min-width: 1369px) and (max-width: 1440px){
     iframe{
         display: block;   
