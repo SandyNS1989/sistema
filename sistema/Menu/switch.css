@@ -937,7 +937,7 @@ a {
 }
 
 /* iPad em modo paisagem*/
-@media (min-width: 1369px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1439px) {
 
   iframe{
     
@@ -1026,10 +1026,10 @@ a {
 
 
 /* Monitores maiores*/
-@media (min-width: 1441px) and (max-width: 1920px) {
+@media (min-width: 1440px) and (max-width: 1920px) {
   iframe{
     display: block;
-    width: 30%;
+    width: 25%;
     height: 75%;
     left:72%;
     top:20%;
@@ -1039,9 +1039,9 @@ a {
   .button0 {
     z-index: 2;
     position: relative;
-    margin-top: 39.5px;
+    margin-top: 50px;
     left: 320px;
-    top: 90%;
+    top: 85%;
     width: 150px;
     height: 100px;
  
@@ -1049,14 +1049,14 @@ a {
 
   .button1 {
     left: 320px;
-    top: 46px;
-    margin-top: 5%;
+    top: 13px;
+   
   }
 
   .button2 {
     left: 377px;
-    top: 22px;
-    margin-top: 0;
+    top: 2px;
+    
   }
 
   .button3 {
@@ -1104,6 +1104,11 @@ a {
 
   .barrinha{
     width:18%;
+    top:5%;
+  }
+
+  .contato{
+    margin-top:90%;
   }
 
 }

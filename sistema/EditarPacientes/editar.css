@@ -563,7 +563,7 @@ input:checked+.slider:before {
   }
 }
 
-@media (min-width: 1369px) and (max-width: 1440px){
+@media (min-width: 1369px) and (max-width: 1439px){
   iframe{
     display: block;   
     left:72%;
@@ -581,17 +581,22 @@ input:checked+.slider:before {
   }
 }
 
-@media (min-width: 1441px) and (max-width: 1920px) {
+@media (min-width: 1440px) and (max-width: 1920px) {
   iframe{
     display: block;
     width: 25%;
     height: 85%;
-    left:75%;
-    top:15%;
+    left:73%;
+    top:13%;
     
   }
 
   .open-chat-btn1{
     display: none;
+  }
+
+  .contato{
+        margin-top:98%;
+    
   }
 }

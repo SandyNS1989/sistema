@@ -533,7 +533,7 @@ iframe{
 
 }
 
-@media (min-width: 1369px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1439px) {
   .container{
     left:25%;
   }
@@ -556,7 +556,7 @@ iframe{
   }
 }
 
-@media (min-width: 1441px) and (max-width: 1920px){
+@media (min-width: 1440px) and (max-width: 1920px){
   .container{
     left:17%;
   }
@@ -569,6 +569,12 @@ iframe{
     top:14%;
     
   }
+
+  .contato{
+    margin-top: 90%;
+  }
+
+
 } 
 
 

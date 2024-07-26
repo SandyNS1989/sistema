@@ -295,3 +295,12 @@ input:checked+.slider:before {
 }
 
 
+@media (min-width: 1439px) and (max-width: 1920px) {
+  .contato{
+    margin-top:93%;
+  }
+
+  iframe{
+top:25%;
+  }
+}

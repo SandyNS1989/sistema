@@ -427,7 +427,7 @@ button[type="submit"]:hover {
    
   }
 
-  @media (min-width: 1369px) and (max-width: 1440px){
+  @media (min-width: 1369px) and (max-width: 1439px){
     iframe{
         display: block;   
         left:75%;
@@ -442,4 +442,15 @@ button[type="submit"]:hover {
       .contato{
         margin-top:130%;
       }
+  }
+
+  @media (min-width: 1439px) and (max-width: 1920px){
+    iframe{
+      top:30%;
+      left:75%;
+    }
+
+    .contato{
+      margin-top: 83%;
+    }
   }

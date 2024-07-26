@@ -458,7 +458,7 @@ input:checked+.slider:before {
  
 }
 
-@media (min-width: 1369px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1439px) {
   .container {
     margin-top: 5%;
     height: 78%;
@@ -477,5 +477,27 @@ input:checked+.slider:before {
 
   .contato{
     margin-top:170%;
+  }
+}
+
+@media (min-width: 1439px) and (max-width: 1920px) {
+  .contato{
+    margin-top:123%;
+  }
+  .switch-container{
+    height:95%;
+  }
+  
+  .open-chat-btn1{
+    top:37%;
+  }
+
+  .voltar-button_mp{
+left:48%;
+top:78%;
+  }
+
+  .container{
+    height: 85%;
   }
 }

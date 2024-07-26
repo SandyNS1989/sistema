@@ -464,7 +464,7 @@ font-size: 25px;
  
 }
 
-@media (min-width: 1369px) and (max-width: 1440px) {
+@media (min-width: 1369px) and (max-width: 1439px) {
   .open-chat-btn1{
     display:none;
   }
@@ -486,7 +486,7 @@ font-size: 25px;
 
 }
 
-@media (min-width: 1441px) and (max-width: 1920px){
+@media (min-width: 1440px) and (max-width: 1920px){
   .open-chat-btn1{
     display:none;
   }
@@ -494,11 +494,15 @@ font-size: 25px;
   iframe{
     display: block;   
     left:72%;
-    top:14%;   
+    top:20%;   
   }
 
   .container{
     position:absolute;
     left:20%;
+  }
+
+  .contato{
+    margin-top:93%;
   }
 }
