@@ -320,7 +320,7 @@ setInterval(() => {
 
 
 const list = document.getElementById("lista")
-const list2 = document.getElementById("esp-especialista")
+// const list2 = document.getElementById("esp-especialista")
 let consultores = []
 
     ; (async () => {
@@ -346,12 +346,12 @@ let consultores = []
         if (data.Secretaria) {
             consultores.filter(arq => !arq.Secretaria && arq.Nome !== "ADM").forEach(({ Usuario, Nome }) => {
                 list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-                list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+                // list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
             })
         } else {
             [data].forEach(({ Usuario, Nome }) => {
                 list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-                list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+                // list2.innerHTML += `<option value="${Usuario}">${Nome}</option>`
             })
         }
     })().catch(console.error)
