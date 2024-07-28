@@ -1,110 +1,110 @@
 verificaAutenticado()
 
 document.getElementById("btn_cadastro").addEventListener("click", () => {
-    window.location.href = '../Cadastro_pacientes/Cadastro.html'
- })
- document.getElementById("btn_agendamento").addEventListener("click", () => {
-    window.location.href = '../calendario/calendario.html'
- })
+   window.location.href = '../Cadastro_pacientes/Cadastro.html'
+})
+document.getElementById("btn_agendamento").addEventListener("click", () => {
+   window.location.href = '../calendario/calendario.html'
+})
 
- document.getElementById("ch-side").addEventListener("change",event=>{
-   const mainSide=document.getElementById("main-side")
-   if(event.target.checked){
-      mainSide.classList.remove("off") 
+document.getElementById("ch-side").addEventListener("change", event => {
+   const mainSide = document.getElementById("main-side")
+   if (event.target.checked) {
+      mainSide.classList.remove("off")
    }
-   else{
-      mainSide.classList.add("off") 
+   else {
+      mainSide.classList.add("off")
    }
- })
- 
- document.getElementById("open-chat-btn1").addEventListener("click", () => {
+})
+
+document.getElementById("open-chat-btn1").addEventListener("click", () => {
    window.location.href = '../chat/chat.html'
 })
 
- let Usuario = ''
+let Usuario = ''
 
- ;(async () => {
-   const token = localStorage.getItem(CHAVE)
+   ; (async () => {
+      const token = localStorage.getItem(CHAVE)
 
-   const response = await fetch('/verify', {
-       body: JSON.stringify({ token }),
-       method: 'POST',
-       headers: {
-           "Content-Type": "application/json"
-       }
-   })
+      const response = await fetch('/verify', {
+         body: JSON.stringify({ token }),
+         method: 'POST',
+         headers: {
+            "Content-Type": "application/json"
+         }
+      })
 
 
-   
 
-   const data = await response.json()
-   Usuario = data.Usuario;
 
-   const userGreeting = document.getElementById('userGreeting');
-   userGreeting.textContent = `Olá, ${Usuario}!`;
+      const data = await response.json()
+      Nome = data.Nome;
 
-   const userGreeting1 = document.getElementById('userGreeting1');
-   userGreeting1.textContent = `Bem-vindo(a) ${Usuario}!`;
+      const userGreeting = document.getElementById('userGreeting');
+      userGreeting.textContent = `Olá, ${Nome}!`;
 
-   const thumbnail = document.getElementById('thumbnail');
-            thumbnail.src = data.foto
-            thumbnail.style.display = 'block';
+      const userGreeting1 = document.getElementById('userGreeting1');
+      userGreeting1.textContent = `Bem-vindo(a) ${Nome}!`;
 
-   if (data.Secretaria) {
-      const btnFluxo = document.getElementById("btn_fluxo");
-      btnFluxo.parentNode.removeChild(btnFluxo);
-      const backdrop3 = document.getElementById("backdrop3");
-      backdrop3.parentNode.removeChild(backdrop3);
-      const flxlateral = document.getElementById("flxLateral");
-      flxlateral.parentNode.removeChild(flxLateral);
-      
+      const thumbnail = document.getElementById('thumbnail');
+      thumbnail.src = data.foto
+      thumbnail.style.display = 'block';
+
+      if (data.Secretaria) {
+         const btnFluxo = document.getElementById("btn_fluxo");
+         btnFluxo.parentNode.removeChild(btnFluxo);
+         const backdrop3 = document.getElementById("backdrop3");
+         backdrop3.parentNode.removeChild(backdrop3);
+         const flxlateral = document.getElementById("flxLateral");
+         flxlateral.parentNode.removeChild(flxLateral);
+
+      } else {
+         // COISAS Q EU QUERO FAZER SE N FOR SECRETARIA
+      }
+
+      if (data.Profissional) {
+         // COISAS Q EU QUERO FAZER SE FOR PROFISSIONAL
+      } else {
+         // COISAS Q EU QUERO FAZER SE N FOR PROFISSIONAL
+      }
+   })().catch(console.error)
+
+function redirecionaCadUser() {
+   if (Usuario === 'Adm') {
+      location.href = '../cadastro_user/cadastro_user.html'
    } else {
-      // COISAS Q EU QUERO FAZER SE N FOR SECRETARIA
+      alert('Entrar em contato com Administrativo')
    }
+}
 
-   if (data.Profissional) {
-       // COISAS Q EU QUERO FAZER SE FOR PROFISSIONAL
-   } else {
-      // COISAS Q EU QUERO FAZER SE N FOR PROFISSIONAL
-   }
-})().catch(console.error)
-
- function redirecionaCadUser() {
-    if (Usuario === 'Adm'){
-       location.href = '../cadastro_user/cadastro_user.html'
-    } else {
-       alert('Entrar em contato com Administrativo')
-    }
- }
-
- const draggable = document.getElementById('draggable-container');
- let isDraggable = true;
+const draggable = document.getElementById('draggable-container');
+let isDraggable = true;
 let mouseDown = false;
 
-draggable.onmousedown = function(event) {
-    if (!isDraggable) return;
+draggable.onmousedown = function (event) {
+   if (!isDraggable) return;
 
-    mouseDown = true;
-    event.preventDefault();
-    
-    let shiftX = event.clientX - draggable.getBoundingClientRect().left;
-    let shiftY = event.clientY - draggable.getBoundingClientRect().top;
+   mouseDown = true;
+   event.preventDefault();
 
-    function moveAt(pageX, pageY) {
-        draggable.style.left = pageX - shiftX + 'px';
-        draggable.style.top = pageY - shiftY + 'px';
-    }
+   let shiftX = event.clientX - draggable.getBoundingClientRect().left;
+   let shiftY = event.clientY - draggable.getBoundingClientRect().top;
 
-    function onMouseMove(event) {
-        if (mouseDown) {
-            moveAt(event.pageX, event.pageY);
-        }
-    }
+   function moveAt(pageX, pageY) {
+      draggable.style.left = pageX - shiftX + 'px';
+      draggable.style.top = pageY - shiftY + 'px';
+   }
 
-    document.addEventListener('mousemove', onMouseMove);
+   function onMouseMove(event) {
+      if (mouseDown) {
+         moveAt(event.pageX, event.pageY);
+      }
+   }
 
-    draggable.onmouseup = function() {
-        mouseDown = false;
-        document.removeEventListener('mousemove', onMouseMove);
-    };
+   document.addEventListener('mousemove', onMouseMove);
+
+   draggable.onmouseup = function () {
+      mouseDown = false;
+      document.removeEventListener('mousemove', onMouseMove);
+   };
 };

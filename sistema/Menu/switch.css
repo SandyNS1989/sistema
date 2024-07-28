@@ -6,12 +6,12 @@
 }
 
 .open-chat-btn1 {
-  display:none;
- 
+  display: none;
+
 }
 
 .open-chat-btn1 i {
-  display:none;
+  display: none;
   font-size: 25px;
 }
 
@@ -21,7 +21,7 @@ iframe {
   margin-right: 0%;
   z-index: 4;
   top: 15%;
-  left: 0%;   
+  left: 0%;
   border-radius: 10px;
   user-select: none;
   cursor: move;
@@ -34,29 +34,29 @@ iframe {
 
 /* Define o cursor de movimento na área de padding */
 iframe::before {
-content: '';
-position: absolute;
-top: -20px;
-left: -20px;
-right: -20px;
-bottom: -20px;
-cursor: move;
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  cursor: move;
 }
 
 
 
-.meuUsuario{
-  flex: 1 1 0; 
-  color: white; 
-  font-size: 16px; 
-  font-family: Nunito; 
-  font-weight: 400; 
+.meuUsuario {
+  flex: 1 1 0;
+  color: white;
+  font-size: 16px;
+  font-family: Nunito;
+  font-weight: 400;
   word-wrap: break-word
 }
 
-.meuUsuario  i{
-  font-size:large; 
-  align-items: center; 
+.meuUsuario i {
+  font-size: large;
+  align-items: center;
 }
 
 
@@ -90,7 +90,7 @@ cursor: move;
   top: 11%;
   width: 50px;
   /* Define a largura da miniatura */
-  height: auto;
+  height: 50px;
   /* Mantém a proporção da imagem */
 
   border-radius: 50%;
@@ -420,31 +420,31 @@ a {
     display: none;
   }
 
- 
+
   .switch-container {
     display: block;
-    z-index:1000;
+    z-index: 1000;
     height: 93%;
-    width:20%;
-    
-    
+    width: 20%;
+
+
   }
 
-  .escrita{
+  .escrita {
     font-size: 8px;
     margin-bottom: 15%;
     top: 20%;
   }
 
-  .contato{
+  .contato {
     font-size: 8px;
-    margin:0;
-    margin-left:5%;
-    
+    margin: 0;
+    margin-left: 5%;
+
   }
 
-  h1{
-    display:none;
+  h1 {
+    display: none;
   }
 
   .button0,
@@ -455,7 +455,7 @@ a {
     top: 97px;
     z-index: 2;
     position: absolute;
-     }
+  }
 
   .button1 {
     top: 205px;
@@ -505,7 +505,7 @@ a {
     top: 69%;
     margin-bottom: 5%;
 
-  } 
+  }
 
   .barrinha {
     width: 274px;
@@ -516,8 +516,8 @@ a {
 
   .out-button {
     width: 30%;
-    left:50%;
-    top:87%;
+    left: 50%;
+    top: 87%;
   }
 
   iframe {
@@ -525,9 +525,9 @@ a {
   }
 
   .open-chat-btn1 {
-    display:block;
-    position:fixed;
-    z-index:1;
+    display: block;
+    position: fixed;
+    z-index: 1;
     bottom: 20px;
     right: 20px;
     width: 50px;
@@ -541,14 +541,14 @@ a {
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    left:80%;
-    top:93%;
-}
+    left: 80%;
+    top: 93%;
+  }
 
-.open-chat-btn1 i {
-  display:block;
+  .open-chat-btn1 i {
+    display: block;
     font-size: 25px;
-}
+  }
 
 
 
@@ -560,9 +560,9 @@ a {
 /* Tablets pequenos */
 @media (min-width: 601px) and (max-width: 768px) {
   .open-chat-btn1 {
-    display:block;
-    position:fixed;
-    z-index:1;
+    display: block;
+    position: fixed;
+    z-index: 1;
     bottom: 20px;
     right: 20px;
     width: 50px;
@@ -576,14 +576,14 @@ a {
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    left:80%;
-    top:93%;
-}
+    left: 80%;
+    top: 93%;
+  }
 
-.open-chat-btn1 i {
-  display:block;
+  .open-chat-btn1 i {
+    display: block;
     font-size: 25px;
-}
+  }
 
 
   .logo {
@@ -597,9 +597,9 @@ a {
 
   .contato {
     font-size: 8px;
-    margin-left:5%;
+    margin-left: 5%;
     text-align: center;
-    left:5%;
+    left: 5%;
   }
 
   .escrita {
@@ -618,7 +618,7 @@ a {
     top: -2px;
     width: 150px;
     height: 100px;
- 
+
   }
 
   .button1 {
@@ -629,7 +629,8 @@ a {
 
   .button2 {
     left: 40px;
-    top: -2px;;
+    top: -2px;
+    ;
     margin-top: 0;
   }
 
@@ -643,11 +644,11 @@ a {
   .backdrop {
     position: absolute;
     left: 50%;
-    top: 450px;    
+    top: 450px;
     z-index: 1;
     width: 150px;
     height: 100px;
- 
+
     /* Esta transição deve ser aplicada a todos os backdrops */
   }
 
@@ -697,9 +698,9 @@ a {
 /* iPad em modo retrato*/
 @media (min-width: 769px) and (max-width: 1024px) {
   .open-chat-btn1 {
-    display:block;
-    position:fixed;
-    z-index:1;
+    display: block;
+    position: fixed;
+    z-index: 1;
     bottom: 20px;
     right: 20px;
     width: 50px;
@@ -713,36 +714,36 @@ a {
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    left:80%;
-    top:93%;
-}
+    left: 80%;
+    top: 93%;
+  }
 
-.open-chat-btn1 i {
-  display:block;
+  .open-chat-btn1 i {
+    display: block;
     font-size: 25px;
-}
+  }
 
   .logo {
     display: none;
   }
 
-  .meuUsuario{
+  .meuUsuario {
     font-size: 10px;
   }
 
-  .meuUsuario i{
+  .meuUsuario i {
     font-size: 11px;
   }
-  
+
 
   .escrita {
     font-size: 12px;
   }
 
-  .contato{
+  .contato {
     font-size: 12px;
     margin-left: 2%;
-    
+
   }
 
   .button0 {
@@ -753,7 +754,7 @@ a {
     top: -2px;
     width: 150px;
     height: 100px;
- 
+
   }
 
   .button1 {
@@ -764,7 +765,8 @@ a {
 
   .button2 {
     left: 40px;
-    top: -2px;;
+    top: -2px;
+    ;
     margin-top: 0;
   }
 
@@ -778,11 +780,11 @@ a {
   .backdrop {
     position: absolute;
     left: 50%;
-    top: 450px;    
+    top: 450px;
     z-index: 1;
     width: 150px;
     height: 100px;
- 
+
     /* Esta transição deve ser aplicada a todos os backdrops */
   }
 
@@ -821,26 +823,26 @@ a {
     left: 50%;
   }
 
- 
- iframe{
-  display:none;
- }
+
+  iframe {
+    display: none;
+  }
 
 }
 
 
 /* iPad em modo paisagem*/
 @media (min-width: 1269px) and (max-width: 1368px) {
- 
+
   .escrita {
     font-size: 12px;
   }
 
-  .contato{
+  .contato {
     font-size: 12px;
     margin-left: 18%;
-    
-    
+
+
   }
 
   .button0 {
@@ -851,7 +853,7 @@ a {
     top: -2px;
     width: 150px;
     height: 100px;
- 
+
   }
 
   .button1 {
@@ -862,7 +864,8 @@ a {
 
   .button2 {
     left: 285px;
-    top: -2px;;
+    top: -2px;
+    ;
     margin-top: 0;
   }
 
@@ -876,11 +879,11 @@ a {
   .backdrop {
     position: absolute;
     left: 50%;
-    top: 450px;    
+    top: 450px;
     z-index: 1;
     width: 150px;
     height: 100px;
- 
+
     /* Esta transição deve ser aplicada a todos os backdrops */
   }
 
@@ -919,37 +922,37 @@ a {
     left: 50%;
   }
 
-  iframe{
+  iframe {
     display: block;
     width: 26%;
     height: 85%;
-    left:72%;
-    top:9%;
-    
+    left: 72%;
+    top: 9%;
+
   }
 
-  .open-chat-btn1{
+  .open-chat-btn1 {
     display: none;
   }
- 
+
 
 
 }
 
 /* iPad em modo paisagem*/
-@media (min-width: 1369px) and (max-width: 1439px) {
+@media (min-width: 1369px) and (max-width: 1441px) {
 
-  iframe{
-    
+  iframe {
+
     width: 25%;
     height: 70%;
-    left:73%;
-    top:25%;
-    
+    left: 73%;
+    top: 25%;
+
   }
 
-  .contato{
-    margin-top:120%;
+  .contato {
+    margin-top: 120%;
   }
 
   .button0 {
@@ -960,7 +963,7 @@ a {
     top: 28px;
     width: 150px;
     height: 100px;
- 
+
   }
 
   .button1 {
@@ -985,11 +988,11 @@ a {
   .backdrop {
     position: absolute;
     left: 50%;
-    top: 70%;    
+    top: 70%;
     z-index: 1;
     width: 150px;
     height: 100px;
- 
+
     /* Esta transição deve ser aplicada a todos os backdrops */
   }
 
@@ -1018,22 +1021,37 @@ a {
     top: 56.5%;
   }
 
+  .barrinha {
+    width: 18%;
+    top: 5%; 
+    left:82%;  
+    height: 15%;
+  }
 
 
+
+  #thumbnail {
+    width: 50px;
+    height: 50px;
+  }
+
+  .bemvindo{
+
+  }
 
 }
 
 
 
 /* Monitores maiores*/
-@media (min-width: 1440px) and (max-width: 1920px) {
-  iframe{
+@media (min-width: 1442px) and (max-width: 1920px) {
+  iframe {
     display: block;
     width: 25%;
     height: 75%;
-    left:72%;
-    top:20%;
-    
+    left: 72%;
+    top: 20%;
+
   }
 
   .button0 {
@@ -1044,19 +1062,19 @@ a {
     top: 85%;
     width: 150px;
     height: 100px;
- 
+
   }
 
   .button1 {
     left: 320px;
     top: 13px;
-   
+
   }
 
   .button2 {
     left: 377px;
     top: 2px;
-    
+
   }
 
   .button3 {
@@ -1069,11 +1087,11 @@ a {
   .backdrop {
     position: absolute;
     left: 50%;
-    top: 90%;    
+    top: 90%;
     z-index: 1;
     width: 150px;
     height: 100px;
- 
+
     /* Esta transição deve ser aplicada a todos os backdrops */
   }
 
@@ -1102,31 +1120,35 @@ a {
     top: 56.5%;
   }
 
-  .barrinha{
-    width:18%;
-    top:5%;
+  .barrinha {
+    width: 20%;
+    top: 5%; 
+    left:80%;  
+    height: 15%;
   }
 
-  .contato{
-    margin-top:90%;
+
+
+  .contato {
+    margin-top: 90%;
   }
 
 }
 
 @media (min-width: 1921px) and (max-width: 2500px) {
-  iframe{
+  iframe {
     display: block;
     width: 20%;
     height: 65%;
-    left:79%;
-    top:25%;
-    
+    left: 79%;
+    top: 25%;
+
   }
 
-  
+
 
   .button0 {
-    
+
     z-index: 2;
     position: relative;
     margin-top: 39.5px;
@@ -1134,7 +1156,7 @@ a {
     top: 78px;
     width: 150px;
     height: 100px;
- 
+
   }
 
   .button1 {
@@ -1159,11 +1181,11 @@ a {
   .backdrop {
     position: absolute;
     left: 50%;
-    top: 450px;    
+    top: 450px;
     z-index: 1;
     width: 150px;
     height: 100px;
- 
+
     /* Esta transição deve ser aplicada a todos os backdrops */
   }
 
@@ -1192,7 +1214,7 @@ a {
     top: 56.5%;
   }
 
-  .barrinha{
-    width:15%;
+  .barrinha {
+    width: 15%;
   }
 }
