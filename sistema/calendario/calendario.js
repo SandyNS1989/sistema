@@ -114,7 +114,7 @@ async function carregarLista(force) {
 
         if (contentEl) {
 
-            contentEl.innerHTML = `${todosPacientes.find(pac => arg.Nome === pac.id)?.Nome} - Especialista: ${arg.Especialista}  ${arg.observacao}`
+            contentEl.innerHTML = `${todosPacientes.find(pac => arg.Nome === pac.id)?.Nome} - Especialista: ${consultores.find(arg => arg.Usuario === list.value).Nome} - Observação: ${arg.observacao}`
 
             contentEl.style = 'cursor: pointer; user-select: none;'
 
