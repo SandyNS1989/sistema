@@ -15,6 +15,27 @@ body {
   text-align: center;
 }
 
+.open-chat-btn1 {
+  display:block;
+  position:fixed;
+  z-index:1;
+  bottom: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+  color: #fff;
+  border:none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  left:51.5%;
+  top:46%;
+}
+
 .container {
  
   width: 35%;

@@ -70,7 +70,9 @@ let Usuario = ''
    })().catch(console.error)
 
 function redirecionaCadUser() {
-   if (Usuario === 'Adm') {
+ 
+   
+   if (Nome == 'Adm Nsbase') {
       location.href = '../cadastro_user/cadastro_user.html'
    } else {
       alert('Entrar em contato com Administrativo')
