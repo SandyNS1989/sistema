@@ -189,4 +189,28 @@ document.addEventListener('click', function(event) {
     draggable.style.cursor = isDraggable ? 'move' : 'default';
 });
 
+//cep
 
+// Função para consultar o CEP e preencher os campos de endereço
+async function consultarCEP(cep) {
+    try {
+        const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = response.data;
+
+        // Preencher os campos de endereço com os dados recebidos da API
+        document.getElementById('address').value = data.logradouro;
+        document.getElementById('cidade').value = data.localidade;
+        document.getElementById('estado').value = data.uf;
+    } catch (error) {
+        console.error('Erro ao consultar CEP:', error);
+        alert('CEP não encontrado. Verifique o número e tente novamente.');
+    }
+}
+
+// Função para capturar o evento de mudança no campo de CEP
+document.getElementById('cep').addEventListener('change', function() {
+    const cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    if (cep.length === 8) { // Verifica se o CEP possui 8 dígitos
+        consultarCEP(cep);
+    }
+});
