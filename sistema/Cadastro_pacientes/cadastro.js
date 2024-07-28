@@ -28,6 +28,8 @@ const cpf_cnpjinp = document.getElementById("cpf_cnpj")
 const addressinp = document.getElementById("address")
 const numberinp = document.getElementById("number")
 const cepinp = document.getElementById("cep")
+const cidadeinp = document.getElementById ("cidade")
+const estadoinp = document.getElementById ("estado")
 const isehcrianca = document.getElementById("mostrarSubforme")
 const namepaiinp = document.getElementById("namepai")
 const phonepaiinp = document.getElementById("phonepai")
@@ -47,6 +49,8 @@ function cadastrar_paciente(event) {
             Endereco: addressinp.value,
             Numero: numberinp.value,
             CEP: cepinp.value,
+            Estado: estadoinp.value,
+            Cidade: cidadeinp.value,
             Eh_Crianca: isehcrianca.checked,
             Nome_do_Pai_ou_Responsavel: namepaiinp.value,
             Telefone_Pai: phonepaiinp.value,
@@ -150,4 +154,29 @@ document.addEventListener('click', function(event) {
 });
 
 
+//cep
+
+// Função para consultar o CEP e preencher os campos de endereço
+async function consultarCEP(cep) {
+    try {
+        const response = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        const data = response.data;
+
+        // Preencher os campos de endereço com os dados recebidos da API
+        document.getElementById('address').value = data.logradouro;
+        document.getElementById('cidade').value = data.localidade;
+        document.getElementById('estado').value = data.uf;
+    } catch (error) {
+        console.error('Erro ao consultar CEP:', error);
+        alert('CEP não encontrado. Verifique o número e tente novamente.');
+    }
+}
+
+// Função para capturar o evento de mudança no campo de CEP
+document.getElementById('cep').addEventListener('change', function() {
+    const cep = this.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+    if (cep.length === 8) { // Verifica se o CEP possui 8 dígitos
+        consultarCEP(cep);
+    }
+});
 

@@ -31,6 +31,8 @@ const cpf_cnpjinp = document.getElementById("cpf_cnpj")
 const addressinp = document.getElementById("address")
 const numberinp = document.getElementById("number")
 const cepinp = document.getElementById("cep");
+const cidadeinp = document.getElementById ("cidade")
+const estadoinp = document.getElementById ("estado")
 const isehcrianca = document.getElementById("mostrarSubformi")
 const namepaiinp = document.getElementById("namepai")
 const phonepaiinp = document.getElementById("phonepai")
@@ -50,6 +52,8 @@ const phonemaeinp = document.getElementById("phonemae")
         addressinp.value = data.Endereco
         numberinp.value = data.Numero
         cepinp.value = data.CEP
+        cidadeinp.value = data.Cidade
+        estadoinp.value = data.Estado
         isehcrianca.checked = data.Eh_Crianca
         namepaiinp.value = data.Nome_do_Pai_ou_Responsavel
         phonepaiinp.value = data.Telefone_Pai
@@ -74,6 +78,8 @@ function cadastrar_paciente(event) {
             Endereco: addressinp.value,
             Numero: numberinp.value,
             CEP: cepinp.value,
+            Estado: estadoinp.value,
+            Cidade: cidadeinp.value,
             Eh_Crianca: isehcrianca.checked,
             Nome_do_Pai_ou_Responsavel: namepaiinp.value,
             Telefone_Pai: phonepaiinp.value,
