@@ -214,3 +214,30 @@ document.getElementById('cep').addEventListener('change', function() {
         consultarCEP(cep);
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const numberInput = document.getElementById('number');
+
+    // Seleciona todos os inputs relevantes exceto o campo de número
+    const inputs = Array.from(document.querySelectorAll('input.input, input.inputnasc'))
+        .filter(input => input.id !== 'number');
+
+    inputs.forEach((input) => {
+        input.addEventListener('keydown', (event) => {
+            console.log('Tecla pressionada:', event.key); // Log para verificar a tecla pressionada
+            if (event.key === 'Enter' || event.keyCode === 13) {
+                event.preventDefault(); // Evita o envio do formulário
+                console.log('Enter detectado no input:', input.id); // Log para verificar o input atual
+
+                // Foco específico no campo de número
+                if (numberInput) {
+                    setTimeout(() => {
+                        numberInput.focus(); // Move o foco para o campo de número
+                        console.log('Foco movido para o campo número:', numberInput.id); // Log para verificar o campo de número
+                    }, 10); // Adiciona um pequeno atraso
+                }
+            }
+        });
+    });
+});

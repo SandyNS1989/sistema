@@ -110,19 +110,17 @@
                 <option value="-">Selecione um especialista</option>
             </select>
 
-            <input class="input" name="name" id="name" placeholder="Nome"></input>
-            <input class="input" name="phone" id="phone" placeholder="Telefone">
-            <input class="input" name="email" id="email" placeholder="E-mail"></input>
-           <br><br> Data de Nascimento <input class="inputnasc" type="date" name="nasc" id="nasc"> </input>
-           <input class="input" name="cep" id="cep" placeholder="CEP" onchange="consultarCEP(this.value)"></input>
-            <input class="input" name="address" id="address" placeholder="Endereço"></input>
-            <input class="input" type="NUMBER" name="number" id="number" placeholder="Numero"></input>
-            <input class="input" name="cidade" id="cidade" placeholder="Cidade"></input>
-            <input class="input" name="estado" id="estado" placeholder="Estado"></input>
-            <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ"
-                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
-            </input>
-
+            <input class="input" name="name" id="name" placeholder="Nome" />
+            <input class="input" name="phone" id="phone" placeholder="Telefone" />
+            <input class="input" name="email" id="email" placeholder="E-mail" />
+            <br><br> Data de Nascimento &nbsp;<input class="inputnasc" type="date" name="nasc" id="nasc" />
+            <br>
+            <input class="input" name="cep" id="cep" placeholder="CEP" onchange="consultarCEP(this.value)"  /> 
+            <input class="input" name="address" id="address" placeholder="Endereço" disabled />
+            <input class="input" type="number" name="number" id="number" placeholder="Número" />
+            <input class="input" name="cidade" id="cidade" placeholder="Cidade" disabled />
+            <input class="input" name="estado" id="estado" placeholder="Estado" disabled />
+            <input class="input" type="text" name="cpf_cnpj" id="cpf_cnpj" placeholder="CPF/CNPJ" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" />
             <div>
                 <input style="margin-top:5%;" type="checkbox" id="mostrarSubforme"> É criança?</input>
                 <form>
