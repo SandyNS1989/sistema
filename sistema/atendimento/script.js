@@ -270,4 +270,23 @@ let Usuario = ''
     }
 })().catch(console.error)
 
-//getAllAtendimentos();
+function generatePDF() {
+    const content = document.getElementById('formContent').value;
+    const title = formTitle.textContent; // Obtém o título do formulário
+    const nomePaciente = document.getElementById('nomePaciente').value.trim() || 'documento';
+
+    // Cria o nome do arquivo combinando o título do formulário e o valor do campo nomePaciente
+    const fileName = `${title}_${nomePaciente}.pdf`;
+
+    if (content) {
+        const docDefinition = {
+            content: [
+                { text: content }
+            ]
+        };
+        pdfMake.createPdf(docDefinition).download(fileName);
+    } else {
+        alert('O campo de texto está vazio!');
+    }
+}
+

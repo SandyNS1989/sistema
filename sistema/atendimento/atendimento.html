@@ -15,6 +15,9 @@
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.72/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.72/vfs_fonts.js"></script>
+
     <title>Formulário de Atendimento</title>
 
     <script>
@@ -24,6 +27,7 @@
         });
 
     </script>
+        
 
 </head>
 
@@ -130,6 +134,8 @@
                     <input style="border-radius: 20px;" type="text" id="nomePaciente" placeholder="Nome do Paciente">
                     <div class="form-fields">
                         <textarea id="formContent" placeholder="Preencha aqui"></textarea>
+                        <input type="text" id="nomePaciente" placeholder="Nome do arquivo" value=".pdf" disabled>
+                        <button type="button"  class="voltar-button" style="width: 30%;" onclick="generatePDF()">Gerar PDF</button>
                        
                     </div>
 
@@ -151,6 +157,8 @@
     <script src="../global/auth.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <script src="../chat/chat.js"></script>
+ 
+</body>
     
 
 </body>
