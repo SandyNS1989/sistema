@@ -290,6 +290,8 @@ function toDataURL(url, callback) {
     xhr.send();
 }
 
+
+
 function generatePDF() {
     const content = document.getElementById('formContent').value;
     const title = document.getElementById('formTitle').textContent; // Obtém o título do formulário
@@ -313,7 +315,15 @@ function generatePDF() {
                         return {
                             columns: [
                                 { image: footerImage, width: 70, height: 70,},
-                                 { text: currentPage.toString() + ' de ' + pageCount, alignment: 'right' }
+                                { 
+                                    text: [
+                                        "LUFCAM – CLÍNICA DE SAÚDE E BEM-ESTAR\n",
+                                        "Av. Presidente Getúlio Vargas, nº 497 – Nova Paulínia - Paulínia/SP\n",
+                                        { text: "@lufcamclinicadesaudeebemestar - Contato: +55 19 99910.0383", link: "mailto:lufcamclinicadesaudeebemestar@example.com", color: 'blue', decoration: 'underline' }
+                                    ],
+                                    alignment: 'center',
+                                    margin: [0, 10, 0, 0]
+                                }
                              ],
                             margin: [20, -70, 0, 0]// Ajuste a margem superior para subir a imagem
                         };
@@ -323,11 +333,24 @@ function generatePDF() {
                         title === "Atestado" ? {
                             text: [
                                 { text: "DECLARAÇÃO DE COMPARECIMENTO\n\n", alignment: 'center', fontSize: 16, bold: true },
-                                "Declaro, para os devidos fins, que __________________________________________________\ncompareceu para:\n(  ) atendimento em Psicoterapia\n(  ) atendimento em Psicopedagogia\n(  ) sessão de orientação em Avaliação Neuropsicológica\n(  ) sessão em Avaliação Neuropsicológica\n(  ) sessão de Devolutiva de Avaliação Neuropsicológica\n(  ) acompanha o menor __________________________________________________\n\nNesta data, no período das ________ às ________ horas.\n\nPaulínia, _____ de _______________ de ________\n\nAtenciosamente,\n\n\n_________________________________\n\nAssinatura da psicóloga responsável\n\n"
+                                `Declaro, para os devidos fins, que `,
+                                { text: nomePaciente, bold: true, decoration: 'underline' },
+                                ` compareceu para:\n`,
+                                "(  ) atendimento em Psicoterapia\n",
+                                "(  ) atendimento em Psicopedagogia\n",
+                                "(  ) sessão de orientação em Avaliação Neuropsicológica\n",
+                                "(  ) sessão em Avaliação Neuropsicológica\n",
+                                "(  ) sessão de Devolutiva de Avaliação Neuropsicológica\n",
+                                `(  ) acompanha o menor ${nomePaciente}\n\n`,
+                                "Nesta data, no período das ________ às ________ horas.\n\n",
+                                `Paulínia, _____ de _______________ de ________\n\n`,
+                                "Atenciosamente,\n\n\n",
+                                "_________________________________\n\n",
+                                "Assinatura da psicóloga responsável\n\n"
                             ],
-                            margin: [30, 90, 0, 20]
+                            margin: [50, 100, 0, 20] // Ajusta a margem para o texto fixo
                         } : {},
-                        { text: content, margin: [0, 90, 0, 60] }
+                        { text: content, margin: [0, 60, 0, 60] }
                     ]
                 };
                 pdfMake.createPdf(docDefinition).download(fileName);
