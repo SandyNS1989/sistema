@@ -43,6 +43,7 @@ let atendimentos = [];
 let conteudoAtestado = ""
 let conteudoAnaminese = ""
 let conteudoProntuario = ""
+let conteudoNeuro = ""
 
 // Função para atualizar o tempo do timer
 function updateTimer() {
@@ -92,6 +93,7 @@ stopButton.addEventListener('click', () => {
             conteudoAtestado,
             conteudoAnaminese,
             conteudoProntuario,
+            conteudoNeuro,
             dataHora: dataHora,
             tempo: tempoAtendimento,
             paciente: paciente // Referência para o paciente
@@ -107,6 +109,7 @@ stopButton.addEventListener('click', () => {
                 conteudoAtestado: atendimento.conteudoAtestado,
                 conteudoAnaminese: atendimento.conteudoAnaminese,
                 conteudoProntuario: atendimento.conteudoProntuario,
+                conteudoNeuro: atendimento.conteudoNeuro,
                 tempo: atendimento.tempo + "",
                 dataHora: atendimento.dataHora
             }),
@@ -149,7 +152,7 @@ function openAtendimentoDetails(atendimento) {
     conteudoAnaminese = atendimento.conteudoAnaminese
     conteudoAtestado = atendimento.conteudoAtestado
     conteudoProntuario = atendimento.conteudoProntuario
-
+    conteudoNeuro = atendimento.conteudoNeuro
     // nomePacienteInput.value = atendimento.paciente.nome; // Usamos o nome do paciente associado ao atendimento
     nomePacienteInput.value = nome_paciente; // Usamos o nome do paciente associado ao atendimento
 
@@ -174,6 +177,10 @@ function openForm(title) {
 
     if (title === "Prontuário") {
         formContent.value = conteudoProntuario;
+    }
+
+    if (title === "Neuropsicológica") {
+        formContent.value = conteudoNeuro;
     }
 }
 
@@ -201,6 +208,10 @@ formContent.addEventListener("change", e => {
 
     if (title === "Prontuário") {
         conteudoProntuario = content;
+    }
+
+    if (title === "Neuropsicológica") {
+        conteudoNeuro = content;
     }
 })
 
@@ -272,6 +283,8 @@ let Usuario = ''
 
     let fixedText = ''; // Variável global para armazenar o texto fixo
 
+    let selectedFormType = '';
+
     function toDataURL(url, callback) {
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
@@ -291,6 +304,7 @@ let Usuario = ''
     }
     
     function openForm(formType) {
+        selectedFormType = formType; // Atualiza a variável global com o tipo de formulário selecionado
         document.getElementById('formTitle').textContent = formType;
         const nomePaciente = document.getElementById('nomePaciente').value.trim();
     
@@ -315,12 +329,17 @@ let Usuario = ''
         } else if (formType === 'Anamnese') {
             // Adicione o texto fixo para 'Anamnese'
             fixedText = [
-                { text: "Texto fixo para Anamnese com ${nomePaciente}...\n", fontSize: 12 }
+                { text: "Texto fixo para Anamnese ...\n", fontSize: 12 }
             ];
         } else if (formType === 'Prontuário') {
             // Adicione o texto fixo para 'Prontuário'
             fixedText = [
-                { text: "Texto fixo para Prontuário com ${nomePaciente}...\n", fontSize: 12 }
+                { text: "Texto fixo para Prontuário ...\n", fontSize: 12 }
+            ];
+        } else if (formType === 'Neuropsicológica') {
+            // Adicione o texto fixo para 'Prontuário'
+            fixedText = [
+                { text: "Texto fixo para Avaliação Neuropsicológica ...\n", fontSize: 12 }
             ];
         }
     
@@ -333,9 +352,8 @@ let Usuario = ''
         const title = document.getElementById('formTitle').textContent;
         const nomePaciente = document.getElementById('nomePaciente').value.trim() || 'documento';
         const fileName = `${title}_${nomePaciente}.pdf`;
-    
+
         if (content) {
-            // Converte as imagens para base64 e depois gera o PDF
             toDataURL('/sistema/Logo/logo_lufcam.png', function(headerImage) {
                 toDataURL('/sistema/Logo/logo_lufcam.png', function(footerImage) {
                     const docDefinition = {
@@ -348,38 +366,53 @@ let Usuario = ''
                         footer: function(currentPage, pageCount) {
                             return {
                                 columns: [
-                                    { 
-                                        image: footerImage, 
-                                        width: 70, 
-                                        height: 70
-                                    },
+                                    { image: footerImage, width: 70, height: 70 },
                                     { 
                                         text: [
                                             "LUFCAM – CLÍNICA DE SAÚDE E BEM-ESTAR\n",
                                             "Av. Presidente Getúlio Vargas, nº 497 – Nova Paulínia - Paulínia/SP\n",
-                                            { 
-                                                text: "@lufcamclinicadesaudeebemestar - Contato: +55 19 99910.0383", 
-                                                link: "mailto:lufcamclinicadesaudeebemestar@example.com", 
-                                                color: 'blue', 
-                                                decoration: 'underline' 
-                                            }
+                                            { text: "@lufcamclinicadesaudeebemestar - Contato: +55 19 99910.0383", link: "mailto:lufcamclinicadesaudeebemestar@example.com", color: 'blue', decoration: 'underline' }
                                         ],
                                         alignment: 'center',
                                         margin: [0, 10, 0, 0]
                                     }
                                 ],
-                                margin: [20, -70, 0, 0] // Ajusta a margem superior para subir a imagem
+                                margin: [20, -70, 0, 0]
                             };
                         },
-                        content: [
-                           
-                            { text: "DECLARAÇÃO DE COMPARECIMENTO\n\n", alignment: 'center', fontSize: 16, bold: true,margin: [85, 50, 0, 20]  },
-                            {text: `Declaro, para os devidos fins, que `, margin: [85, 0, 0, 20] },
-                            { text: nomePaciente, bold: true, decoration: 'underline', margin: [85, 0, 0, 20]  },
-                            
-                            { text: content, margin: [85, 0, 0, 20] }
-                        ]
+                        content: []
                     };
+
+                    if (selectedFormType === 'Atestado') {
+                        docDefinition.content = [
+                            { text: "DECLARAÇÃO DE COMPARECIMENTO\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
+                            { text: `Declaro, para os devidos fins, que `, margin: [85, 0, 0, 20] },
+                            { text: nomePaciente, bold: true, decoration: 'underline', margin: [85, 0, 0, 20] },
+                            { text: content, margin: [85, 0, 0, 20] }
+                        ];
+                    } else if (selectedFormType === 'Anamnese') {
+                        docDefinition.content = [
+                            { text: "Anamnese\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
+                            { text: `Conteúdo adicional para Anamnese: `, margin: [85, 0, 0, 20] },
+                            { text: content, margin: [85, 0, 0, 20] }
+                        ];
+                    } else if (selectedFormType === 'Prontuário') {
+                        docDefinition.content = [
+                            { text: "Prontuário\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
+                            { text: `Conteúdo adicional para Prontuário: `, margin: [85, 0, 0, 20] },
+                            { text: content, margin: [85, 0, 0, 20] }
+                        ];
+                    
+
+                } else if (selectedFormType === 'Neuropsicológica') {
+                    docDefinition.content = [
+                        { text: "AVALIAÇÃO PSICOLÓGICA COM ENFOQUE NEUROPSICOLÓGICO\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
+                        { text: `Conteúdo adicional para Avaliação Neuropsicológica: `, margin: [85, 0, 0, 20] },
+                        { text: content, margin: [85, 0, 0, 20] }
+                    ];
+                }
+
+console.log(selectedFormType)
                     pdfMake.createPdf(docDefinition).download(fileName);
                 });
             });

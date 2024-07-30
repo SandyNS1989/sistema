@@ -123,6 +123,7 @@ model Atendimento {
   conteudoAtestado String
   conteudoAnaminese String
   conteudoProntuario String
+  conteudoNeuro String
   dataHora String
   tempo String
 }
