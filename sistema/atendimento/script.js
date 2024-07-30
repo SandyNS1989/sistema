@@ -270,23 +270,62 @@ let Usuario = ''
     }
 })().catch(console.error)
 
+
+
+function toDataURL(url, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            var reader = new FileReader();
+            reader.onloadend = function() {
+                callback(reader.result);
+            };
+            reader.readAsDataURL(xhr.response);
+        } else {
+            console.error("Failed to load image: " + url);
+        }
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+}
+
 function generatePDF() {
     const content = document.getElementById('formContent').value;
-    const title = formTitle.textContent; // Obtém o título do formulário
+    const title = document.getElementById('formTitle').textContent; // Obtém o título do formulário
     const nomePaciente = document.getElementById('nomePaciente').value.trim() || 'documento';
 
     // Cria o nome do arquivo combinando o título do formulário e o valor do campo nomePaciente
     const fileName = `${title}_${nomePaciente}.pdf`;
 
     if (content) {
-        const docDefinition = {
-            content: [
-                { text: content }
-            ]
-        };
-        pdfMake.createPdf(docDefinition).download(fileName);
+        // Converte as imagens para base64 e depois gera o PDF
+        toDataURL('/sistema/Logo/logo_lufcam.png', function(headerImage) {
+            toDataURL('/sistema/Logo/logo_lufcam.png', function(footerImage) {
+                const docDefinition = {
+                    header: {
+                        image: headerImage,
+                        width: 100,
+                        height: 100
+                
+                    },
+                    footer: function(currentPage, pageCount) {
+                        return {
+                            columns: [
+                                { image: footerImage, width: 70, height: 70,},
+                                { text: currentPage.toString() + ' de ' + pageCount, alignment: 'right' }
+                            ],
+                            margin: [20, -50, 0, 0]
+                        };
+                    },
+                    content: [
+                        { text: content }
+                    ]
+                };
+                pdfMake.createPdf(docDefinition).download(fileName);
+            });
+        });
     } else {
         alert('O campo de texto está vazio!');
     }
 }
-
