@@ -1,16 +1,16 @@
 verificaAutenticado()
 
-document.getElementById("ch-side").addEventListener("change",event=>{
-    const mainSide=document.getElementById("main-side")
-    if(event.target.checked){
-       mainSide.classList.remove("off") 
+document.getElementById("ch-side").addEventListener("change", event => {
+    const mainSide = document.getElementById("main-side")
+    if (event.target.checked) {
+        mainSide.classList.remove("off")
     }
-    else{
-       mainSide.classList.add("off") 
+    else {
+        mainSide.classList.add("off")
     }
-  })
+})
 
-  document.getElementById("btn_voltar_atd").addEventListener("click", () => {
+document.getElementById("btn_voltar_atd").addEventListener("click", () => {
     window.location.href = '../calendario/calendario.html';
 });
 
@@ -76,7 +76,7 @@ stopButton.addEventListener('click', () => {
         const now = new Date();
         const dataHora = `${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
         const tempoAtendimento = timerSeconds; // Tempo de atendimento em segundos
-        
+
         // Criando um objeto para representar o paciente
         const paciente = {
             nome: nomePaciente,
@@ -96,8 +96,8 @@ stopButton.addEventListener('click', () => {
             tempo: tempoAtendimento,
             paciente: paciente // Referência para o paciente
         };
-        
-        
+
+
 
         fetch("/atendimento", {
             method: "POST",
@@ -121,7 +121,7 @@ stopButton.addEventListener('click', () => {
         // Adicionando o atendimento à lista de atendimentos do paciente
         paciente.atendimentos.push(atendimento);
 
-        
+
 
         console.log(atendimento)
 
@@ -200,7 +200,7 @@ formContent.addEventListener("change", e => {
     }
 
     if (title === "Prontuário") {
-         conteudoProntuario = content;
+        conteudoProntuario = content;
     }
 })
 
@@ -209,75 +209,75 @@ async function getAtendimentos() {
     return response_atendimentos;
 }
 
-function getAllAtendimentos (){
-getAtendimentos().then(response => response.json()).then(data => {
-    for (let index = 0; index < data.paciente.length; index++) {
+function getAllAtendimentos() {
+    getAtendimentos().then(response => response.json()).then(data => {
+        for (let index = 0; index < data.paciente.length; index++) {
 
-        const listItemUpdated = document.createElement('li');
-        listItemUpdated.textContent = `${data.paciente[index].dataHora} - ${nome_paciente}`;
+            const listItemUpdated = document.createElement('li');
+            listItemUpdated.textContent = `${data.paciente[index].dataHora} - ${nome_paciente}`;
 
-        // Cria o botão "Visualizar"
-        const viewButton = document.createElement('button');
-        viewButton.textContent = 'Visualizar';
-        viewButton.classList.add('visual-button'); 
-        viewButton.addEventListener('click', () => openAtendimentoDetails(data.paciente[index]));
+            // Cria o botão "Visualizar"
+            const viewButton = document.createElement('button');
+            viewButton.textContent = 'Visualizar';
+            viewButton.classList.add('visual-button');
+            viewButton.addEventListener('click', () => openAtendimentoDetails(data.paciente[index]));
 
-        // Adiciona o botão ao elemento <li>
-        listItemUpdated.appendChild(viewButton);
+            // Adiciona o botão ao elemento <li>
+            listItemUpdated.appendChild(viewButton);
 
-        // Adiciona o elemento <li> à lista de histórico (historyList)
-        historyList.appendChild(listItemUpdated);
-    }
-    
-})
+            // Adiciona o elemento <li> à lista de histórico (historyList)
+            historyList.appendChild(listItemUpdated);
+        }
+
+    })
 }
 
 let Usuario = ''
 
-;(async () => {
-    const token = localStorage.getItem(CHAVE)
+    ; (async () => {
+        const token = localStorage.getItem(CHAVE)
 
-    const response = await fetch('/verify', {
-        body: JSON.stringify({ token }),
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json"
+        const response = await fetch('/verify', {
+            body: JSON.stringify({ token }),
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+        const data = await response.json()
+        Usuario = data.Usuario;
+        const userGreeting = document.getElementById('userGreeting');
+        userGreeting.textContent = `Olá, ${Usuario}!`;
+
+        // data = USUARIO DO BANCO LOGADO
+
+        // -----------------------------------
+
+        const response2 = await fetch('/users')
+        const consultores = await response2.json()
+
+
+        if (data.Secretaria) {
+            consultores.filter(arq => !arq.Secretaria && arq.Nome !== "ADM").forEach(({ Usuario, Nome }) => {
+                list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+            })
+        } else {
+            [data].forEach(({ Usuario, Nome }) => {
+                list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
+
+            })
         }
-    })
-
-    const data = await response.json()
-    Usuario = data.Usuario;
-    const userGreeting = document.getElementById('userGreeting');
-    userGreeting.textContent = `Olá, ${Usuario}!`;
-
-    // data = USUARIO DO BANCO LOGADO
-
-// -----------------------------------
-
-    const response2 = await fetch('/users')
-    const consultores = await response2.json()
-
-
-    if (data.Secretaria) {
-        consultores.filter(arq=>!arq.Secretaria && arq.Nome !== "ADM").forEach(({Usuario, Nome}) => {
-            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-        })
-    } else {
-        [data].forEach(({Usuario, Nome}) => {
-            list.innerHTML += `<option value="${Usuario}">${Nome}</option>`
-          
-        })
-    }
-})().catch(console.error)
+    })().catch(console.error)
 
 
 
 function toDataURL(url, callback) {
     var xhr = new XMLHttpRequest();
-    xhr.onload = function() {
+    xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
             var reader = new FileReader();
-            reader.onloadend = function() {
+            reader.onloadend = function () {
                 callback(reader.result);
             };
             reader.readAsDataURL(xhr.response);
@@ -300,26 +300,34 @@ function generatePDF() {
 
     if (content) {
         // Converte as imagens para base64 e depois gera o PDF
-        toDataURL('/sistema/Logo/logo_lufcam.png', function(headerImage) {
-            toDataURL('/sistema/Logo/logo_lufcam.png', function(footerImage) {
+        toDataURL('/sistema/Logo/logo_lufcam.png', function (headerImage) {
+            toDataURL('/sistema/Logo/logo_lufcam.png', function (footerImage) {
                 const docDefinition = {
                     header: {
                         image: headerImage,
                         width: 100,
-                        height: 100
-                
+                        height: 100,
+                        margin: [10, 20, 0, 0]
                     },
-                    footer: function(currentPage, pageCount) {
+                    footer: function (currentPage, pageCount) {
                         return {
                             columns: [
                                 { image: footerImage, width: 70, height: 70,},
-                                { text: currentPage.toString() + ' de ' + pageCount, alignment: 'right' }
-                            ],
-                            margin: [20, -50, 0, 0]
+                                 { text: currentPage.toString() + ' de ' + pageCount, alignment: 'right' }
+                             ],
+                            margin: [20, -70, 0, 0]// Ajuste a margem superior para subir a imagem
                         };
                     },
                     content: [
-                        { text: content }
+                        // Adiciona o texto fixo se o título do formulário for "Atestado"
+                        title === "Atestado" ? {
+                            text: [
+                                { text: "DECLARAÇÃO DE COMPARECIMENTO\n\n", alignment: 'center', fontSize: 16, bold: true },
+                                "Declaro, para os devidos fins, que __________________________________________________\ncompareceu para:\n(  ) atendimento em Psicoterapia\n(  ) atendimento em Psicopedagogia\n(  ) sessão de orientação em Avaliação Neuropsicológica\n(  ) sessão em Avaliação Neuropsicológica\n(  ) sessão de Devolutiva de Avaliação Neuropsicológica\n(  ) acompanha o menor __________________________________________________\n\nNesta data, no período das ________ às ________ horas.\n\nPaulínia, _____ de _______________ de ________\n\nAtenciosamente,\n\n\n_________________________________\n\nAssinatura da psicóloga responsável\n\n"
+                            ],
+                            margin: [30, 90, 0, 20]
+                        } : {},
+                        { text: content, margin: [0, 90, 0, 60] }
                     ]
                 };
                 pdfMake.createPdf(docDefinition).download(fileName);
@@ -329,3 +337,44 @@ function generatePDF() {
         alert('O campo de texto está vazio!');
     }
 }
+
+
+// function generatePDF() {
+//     const content = document.getElementById('formContent').value;
+//     const title = document.getElementById('formTitle').textContent; // Obtém o título do formulário
+//     const nomePaciente = document.getElementById('nomePaciente').value.trim() || 'documento';
+
+//     // Cria o nome do arquivo combinando o título do formulário e o valor do campo nomePaciente
+//     const fileName = `${title}_${nomePaciente}.pdf`;
+
+//     if (content) {
+//         // Converte as imagens para base64 e depois gera o PDF
+//         toDataURL('/sistema/Logo/logo_lufcam.png', function(headerImage) {
+//             toDataURL('/sistema/Logo/logo_lufcam.png', function(footerImage) {
+//                 const docDefinition = {
+//                     header: {
+//                         image: headerImage,
+//                         width: 100,
+//                         height: 100,
+//                         margin: [10, 20, 0, 0]
+//                     },
+//                     footer: function(currentPage, pageCount) {
+//                         return {
+//                             columns: [
+//                                 { image: footerImage, width: 70, height: 70,},
+//                                 { text: currentPage.toString() + ' de ' + pageCount, alignment: 'right' }
+//                             ],
+//                             margin: [20, -70, 0, 0]
+//                         };
+//                     },
+//                     content: [
+//                         { text: content, margin: [0, 90, 0, 60] } // Ajuste as margens aqui
+//                     ]
+//                 };
+//                 pdfMake.createPdf(docDefinition).download(fileName);
+//             });
+//         });
+//     } else {
+//         alert('O campo de texto está vazio!');
+//     }
+// }
