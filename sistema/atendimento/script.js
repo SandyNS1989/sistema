@@ -282,9 +282,8 @@ let Usuario = ''
     })().catch(console.error)
 
     let fixedText = ''; // Variável global para armazenar o texto fixo
-
     let selectedFormType = '';
-
+    
     function toDataURL(url, callback) {
         var xhr = new XMLHttpRequest();
         xhr.onload = function () {
@@ -309,51 +308,38 @@ let Usuario = ''
         const nomePaciente = document.getElementById('nomePaciente').value.trim();
     
         if (formType === 'Atestado') {
-            // Define o texto fixo com a formatação desejada
-            fixedText = [
-                
-                
-                { text: ` compareceu para:\n` },
-                { text: "(  ) atendimento em Psicoterapia\n" },
-                { text: "(  ) atendimento em Psicopedagogia\n" },
-                { text: "(  ) sessão de orientação em Avaliação Neuropsicológica\n" },
-                { text: "(  ) sessão em Avaliação Neuropsicológica\n" },
-                { text: "(  ) sessão de Devolutiva de Avaliação Neuropsicológica\n" },
-                { text: `(  ) acompanha o menor ________________\n\n` },
-                { text: "Nesta data, no período das ________ às ________ horas.\n\n" },
-                { text: `Paulínia, _____ de _______________ de ________\n\n` },
-                { text: "Atenciosamente,\n\n\n" },
-                { text: "_________________________________\n\n" },
-                { text: "Assinatura da psicóloga responsável\n\n" }
-            ];
+            fixedText = `
+                 compareceu para:
+                (  ) atendimento em Psicoterapia
+                (  ) atendimento em Psicopedagogia
+                (  ) sessão de orientação em Avaliação Neuropsicológica
+                (  ) sessão em Avaliação Neuropsicológica
+                (  ) sessão de Devolutiva de Avaliação Neuropsicológica
+                (  ) acompanha o menor ________________\n\n
+                Nesta data, no período das ________ às ________ horas.\n\n
+                Paulínia, _____ de _______________ de ________\n\n
+                Atenciosamente,\n\n\n\n
+                __________________________________
+                Assinatura da psicóloga responsável
+            `;
         } else if (formType === 'Anamnese') {
-            // Adicione o texto fixo para 'Anamnese'
-            fixedText = [
-                { text: "Texto fixo para Anamnese ...\n", fontSize: 12 }
-            ];
+            fixedText = `Texto fixo para Anamnese com ${nomePaciente}...`;
         } else if (formType === 'Prontuário') {
-            // Adicione o texto fixo para 'Prontuário'
-            fixedText = [
-                { text: "Texto fixo para Prontuário ...\n", fontSize: 12 }
-            ];
+            fixedText = `Texto fixo para Prontuário com ${nomePaciente}...`;
         } else if (formType === 'Neuropsicológica') {
-            // Adicione o texto fixo para 'Prontuário'
-            fixedText = [
-                { text: "Texto fixo para Avaliação Neuropsicológica ...\n", fontSize: 12 }
-            ];
+            fixedText = `Texto fixo para Avaliação Neuropsicológica com ${nomePaciente}...`;
         }
     
-        // Define o conteúdo do textarea com o texto fixo formatado
-        document.getElementById('formContent').value = fixedText.map(item => typeof item === 'string' ? item : item.text).join('');
+        // Define o conteúdo da div
+        document.getElementById('formContent').innerText = fixedText;
     }
     
     function generatePDF() {
-        const content = document.getElementById('formContent').value;
         const title = document.getElementById('formTitle').textContent;
         const nomePaciente = document.getElementById('nomePaciente').value.trim() || 'documento';
         const fileName = `${title}_${nomePaciente}.pdf`;
-
-        if (content) {
+    
+        if (selectedFormType) {
             toDataURL('/sistema/Logo/logo_lufcam.png', function(headerImage) {
                 toDataURL('/sistema/Logo/logo_lufcam.png', function(footerImage) {
                     const docDefinition = {
@@ -367,7 +353,7 @@ let Usuario = ''
                             return {
                                 columns: [
                                     { image: footerImage, width: 70, height: 70 },
-                                    { 
+                                    {
                                         text: [
                                             "LUFCAM – CLÍNICA DE SAÚDE E BEM-ESTAR\n",
                                             "Av. Presidente Getúlio Vargas, nº 497 – Nova Paulínia - Paulínia/SP\n",
@@ -382,37 +368,35 @@ let Usuario = ''
                         },
                         content: []
                     };
-
+    
                     if (selectedFormType === 'Atestado') {
                         docDefinition.content = [
                             { text: "DECLARAÇÃO DE COMPARECIMENTO\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
                             { text: `Declaro, para os devidos fins, que `, margin: [85, 0, 0, 20] },
                             { text: nomePaciente, bold: true, decoration: 'underline', margin: [85, 0, 0, 20] },
-                            { text: content, margin: [85, 0, 0, 20] }
+                            { text: document.getElementById('formContent').innerText, margin: [85, 0, 0, 20] }
                         ];
                     } else if (selectedFormType === 'Anamnese') {
                         docDefinition.content = [
                             { text: "Anamnese\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
                             { text: `Conteúdo adicional para Anamnese: `, margin: [85, 0, 0, 20] },
-                            { text: content, margin: [85, 0, 0, 20] }
+                            { text: document.getElementById('formContent').innerText, margin: [85, 0, 0, 20] }
                         ];
                     } else if (selectedFormType === 'Prontuário') {
                         docDefinition.content = [
                             { text: "Prontuário\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
                             { text: `Conteúdo adicional para Prontuário: `, margin: [85, 0, 0, 20] },
-                            { text: content, margin: [85, 0, 0, 20] }
+                            { text: document.getElementById('formContent').innerText, margin: [85, 0, 0, 20] }
                         ];
-                    
-
-                } else if (selectedFormType === 'Neuropsicológica') {
-                    docDefinition.content = [
-                        { text: "AVALIAÇÃO PSICOLÓGICA COM ENFOQUE NEUROPSICOLÓGICO\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
-                        { text: `Conteúdo adicional para Avaliação Neuropsicológica: `, margin: [85, 0, 0, 20] },
-                        { text: content, margin: [85, 0, 0, 20] }
-                    ];
-                }
-
-console.log(selectedFormType)
+                    } else if (selectedFormType === 'Neuropsicológica') {
+                        docDefinition.content = [
+                            { text: "AVALIAÇÃO PSICOLÓGICA COM ENFOQUE NEUROPSICOLÓGICO\n\n", alignment: 'center', fontSize: 16, bold: true, margin: [85, 50, 0, 20] },
+                            { text: `Conteúdo adicional para Avaliação Neuropsicológica: `, margin: [85, 0, 0, 20] },
+                            { text: document.getElementById('formContent').innerText, margin: [85, 0, 0, 20] }
+                        ];
+                    }
+    
+                    console.log(selectedFormType);
                     pdfMake.createPdf(docDefinition).download(fileName);
                 });
             });

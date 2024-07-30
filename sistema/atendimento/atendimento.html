@@ -134,8 +134,9 @@
                     <h2 id="formTitle"></h2>
                     <input style="border-radius: 20px;" type="text" id="nomePaciente" placeholder="Nome do Paciente">
                     <div class="form-fields">
-                        <textarea id="formContent" placeholder="Preencha aqui"></textarea>
-                        <input type="text" id="nomePaciente" placeholder="Nome do arquivo" value=".pdf" disabled>
+                        <div id="formContent" contenteditable="true" style="border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto;"></div>
+                       
+                        <input type="text" id="nomePaciente" placeholder="Nome do arquivo" value=".pdf" disabled style="display:none;">
                         <button type="button"  class="voltar-button" style="width: 30%;" onclick="generatePDF()">Gerar PDF</button>
                        
                     </div>
