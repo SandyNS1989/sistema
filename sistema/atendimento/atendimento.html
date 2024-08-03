@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="../global/font.css">
     <link rel="shortcut icon" href="../Logo/LOGO_02_DEGRADE.png" type="image/x-icon">
-    <link rel="stylesheet" href="../chat/chat.css"> 
+    <link rel="stylesheet" href="../chat/chat.css">
     <iframe class="unstyled"
-        src="https://literate-adventure-7v7j7vvjwx6r2prj9-3000.app.github.dev/sistema/chat/chat.html" height="500"; width="350" ></iframe>
+        src="https://literate-adventure-7v7j7vvjwx6r2prj9-3000.app.github.dev/sistema/chat/chat.html" height="500" ;
+        width="350"></iframe>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -27,7 +28,7 @@
         });
 
     </script>
-        
+
 
 </head>
 
@@ -115,9 +116,6 @@
             <button id="pauseButton">Pausar</button>
             <button id="stopButton">Finalizar Atendimento</button>
 
-
-
-
         </div>
         <div class="content">
             <div class="options">
@@ -126,19 +124,55 @@
                     <li><button onclick="openForm('Atestado')">Atestado</button></li>
                     <li><button onclick="openForm('Anamnese')">Anamnese</button></li>
                     <li><button onclick="openForm('Prontuário')">Prontuário</button></li>
-                    <li><button onclick="openForm('Neuropsicológica')">Neuropsicológica</button></li>
+                    <!-- <li><button onclick="openForm('Neuropsicológica')">Neuropsicológica</button></li> -->
+
+                    <div class="menu">
+                        <div class="item">
+                            <a href="#" class="link">
+                                <li><button onclick="openForm('Neuropsicológica')">Neuropsicológica</button></li>
+                                <!-- <svg viewBox="0 0 360 360" xml:space="preserve"> -->
+                                    <g id="SVGRepo_iconCarrier">
+                                        <path id="XMLID_225_"
+                                            d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z">
+                                        </path>
+                                    </g>
+                                </svg>
+                            </a>
+                            <div class="submenu">
+                                <div class="submenu-item">
+                                    <a href="#" class="submenu-link"> Development </a>
+                                </div>
+                                <div class="submenu-item">
+                                    <a href="#" class="submenu-link"> Design </a>
+                                </div>
+                                <div class="submenu-item">
+                                    <a href="#" class="submenu-link"> Marketing </a>
+                                </div>
+                                <div class="submenu-item">
+                                    <a href="#" class="submenu-link"> SEO </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </ul>
             </div>
+
+
+
+
             <div class="form-container">
                 <form id="form">
                     <h2 id="formTitle"></h2>
                     <input style="border-radius: 20px;" type="text" id="nomePaciente" placeholder="Nome do Paciente">
                     <div class="form-fields">
-                        <div id="formContent" contenteditable="true" style="border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto;"></div>
-                       
-                        <input type="text" id="nomePaciente" placeholder="Nome do arquivo" value=".pdf" disabled style="display:none;">
-                        <button type="button"  class="voltar-button" style="width: 30%;" onclick="generatePDF()">Gerar PDF</button>
-                       
+                        <div id="formContent" contenteditable="true"
+                            style="border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto;"></div>
+
+                        <input type="text" id="nomePaciente" placeholder="Nome do arquivo" value=".pdf" disabled
+                            style="display:none;">
+                        <button type="button" class="voltar-button" style="width: 30%;" onclick="generatePDF()">Gerar
+                            PDF</button>
+
                     </div>
 
                 </form>
@@ -155,13 +189,13 @@
 
         </div>
     </div>
-    
+
     <script src="../global/auth.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <script src="../chat/chat.js"></script>
- 
+
 </body>
-    
+
 
 </body>
 
