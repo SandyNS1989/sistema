@@ -158,6 +158,21 @@ app.get("/pacientes/:id", async (req, res) => {
     res.status(200).json(paciente)
 })
 
+
+app.delete("/pacientes", async (req, res) => {
+    await prisma.cadastro_pacientes.delete({
+        where: {
+            id: req.body.id
+        }
+    })
+
+
+    res.json({
+        message: "ok"
+    })
+
+})
+
 app.post("/cadastro_convenio", async (req, res) => {
     await prisma.cadastro_convenio.create({
         data: req.body,

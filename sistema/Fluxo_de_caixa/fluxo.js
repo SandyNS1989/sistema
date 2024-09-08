@@ -52,7 +52,6 @@ btnNew.onclick = (event) => {
 
 function deleteItem(index) {
 
-
   fetch('/Fluxo_de_caixa', {
     method: 'DELETE',
     body: JSON.stringify({

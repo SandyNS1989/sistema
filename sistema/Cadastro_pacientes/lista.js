@@ -38,6 +38,9 @@ function insertItem(item, index) {
     <td class="columnAction">
       <button onclick="editarItem(${index})"><i class='bi bi-pencil'></i></button>
     </td>
+     <td class="columnAction">
+     <button onclick="deleteItem(${index})"><i class='bx bx-trash'></i></button>
+    </td>
   `;
 
   tbody.appendChild(tr);
@@ -51,6 +54,49 @@ function loadItens(user) {
   });
 }
 
+function deleteItem(index) {
+  // Primeiro alerta de confirmação
+  const confirmDelete = confirm("Tem certeza que deseja deletar esse cadastro?");
+
+  if (confirmDelete) {
+    // Verifica se o item e o índice são válidos
+    if (items && items[index]) {
+      fetch('/pacientes', {
+        method: 'DELETE',
+        body: JSON.stringify({
+          id: items[index].id
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Erro ao deletar o cadastro.");
+        }
+        return response.json();
+      })
+      .then(() => {
+        // Remover o item excluído do array 'items' localmente
+        items.splice(index, 1);
+        loadItens(); // Atualiza a lista na interface
+        
+        // Segundo alerta de sucesso
+        alert("Cadastro deletado com sucesso.");
+      })
+      .catch(error => {
+        console.error('Erro ao deletar item:', error);
+        alert('Erro ao deletar o cadastro. Por favor, tente novamente.');
+      });
+    } else {
+      console.error('Índice de item inválido ou item não encontrado.');
+    }
+  } else {
+    console.log('Ação de exclusão cancelada.');
+  }
+}
+
+
 
 const getItensBD = async () => {
   const response = await fetch('/pacientes')
@@ -59,6 +105,8 @@ const getItensBD = async () => {
 
 
 getItensBD()
+
+
 
 
 const list = document.getElementById("lista")
