@@ -83,6 +83,7 @@ function deleteItem(index) {
         
         // Segundo alerta de sucesso
         alert("Cadastro deletado com sucesso.");
+        location.reload()
       })
       .catch(error => {
         console.error('Erro ao deletar item:', error);
