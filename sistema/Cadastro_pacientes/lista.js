@@ -55,17 +55,27 @@ function loadItens(user) {
 }
 
 function deleteItem(index) {
-  // Primeiro alerta de confirmação
-  const confirmDelete = confirm("Tem certeza que deseja deletar esse cadastro?");
+  // Filtra o item com base no Especialista selecionado
+  const filteredItems = items.filter(item => item.Especialista === list.value);
 
-  if (confirmDelete) {
-    // Verifica se o item e o índice são válidos
-    if (items && items[index]) {
+  // Verifica se o índice é válido no array filtrado
+  if (filteredItems[index]) {
+    const itemToDelete = filteredItems[index];
+    const patientName = itemToDelete.Nome; // Supondo que o campo do nome do paciente seja 'Nome'
+
+    // Primeiro alerta de confirmação com o nome do paciente
+    const confirmDelete = confirm(`Tem certeza que deseja deletar o cadastro do(a) paciente ${patientName}?`);
+
+    if (confirmDelete) {
+       // Alerta para verificar agendamentos em aberto
+       alert("Verifique se o(a) paciente possui agendamentos em aberto.");
+       
+      const idToDelete = itemToDelete.id;
+
+      // Realiza a requisição DELETE
       fetch('/pacientes', {
         method: 'DELETE',
-        body: JSON.stringify({
-          id: items[index].id
-        }),
+        body: JSON.stringify({ id: idToDelete }),
         headers: {
           "Content-Type": "application/json"
         }
@@ -78,24 +88,25 @@ function deleteItem(index) {
       })
       .then(() => {
         // Remover o item excluído do array 'items' localmente
-        items.splice(index, 1);
+        items = items.filter(item => item.id !== idToDelete);
         loadItens(); // Atualiza a lista na interface
-        
+
         // Segundo alerta de sucesso
         alert("Cadastro deletado com sucesso.");
-        location.reload()
+        location.reload();
       })
       .catch(error => {
         console.error('Erro ao deletar item:', error);
         alert('Erro ao deletar o cadastro. Por favor, tente novamente.');
       });
     } else {
-      console.error('Índice de item inválido ou item não encontrado.');
+      console.log('Ação de exclusão cancelada.');
     }
   } else {
-    console.log('Ação de exclusão cancelada.');
+    console.error('Índice de item inválido ou item não encontrado para o Especialista selecionado.');
   }
 }
+
 
 
 
