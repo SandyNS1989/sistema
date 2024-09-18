@@ -34,7 +34,7 @@
         <div><b>NS BaseTech</b></div>
         <div class="hr-customizado"></div>
 
-        <form onsubmit="agendamento(event)" id="formagendamento" class="form" data-agendamentoId="0">
+        <form onsubmit="agendamento(event)" id="formagendamento" class="form" data-agendamentoid="0">
             Paciente: <select class="input" name="name" id="age_name" style="margin-bottom: 2%; margin-right: 2%;"
                 onchange="atualizaTelefone()">
 
@@ -86,7 +86,7 @@
             <br>
 
             <input class="input" type="number" name="valor_consulta" id="valor_consulta"
-                placeholder="Valor da Consulta">
+                placeholder="Valor da Consulta" step="0.01" min="0">
 
             <h4 class="margem">Status do Pagamento</h4>
             <select id="status_pagamento" class="input" type="text"></select>

@@ -21,7 +21,7 @@ btnNew.onclick = (event) => {
   }
 
   const Descricao = descItem.value
-  const Valor = parseInt(amount.value, 10);
+  const Valor = parseFloat(amount.value, 10);
   const Tipo = type.value
   const Data = date.value
 

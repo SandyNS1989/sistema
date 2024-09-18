@@ -53,7 +53,7 @@ model Agendamento {
   Data_do_Atendimento            String
   Horario_da_consulta            String
   Horario_de_Termino_da_consulta String
-  Valor_da_Consulta              Int
+  Valor_da_Consulta              Float
   Status_da_Consulta             String
   Status_do_pagamento            String
   observacao                     String
@@ -85,7 +85,7 @@ model cadastro_user {
 model Fluxo_de_caixa {
   id           String @id @default(uuid())
   Descricao    String
-  Valor        Int
+  Valor        Float
   Tipo         String
   Data         String
   Especialista String
