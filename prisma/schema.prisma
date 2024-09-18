@@ -53,7 +53,7 @@ model Agendamento {
   Data_do_Atendimento            String
   Horario_da_consulta            String
   Horario_de_Termino_da_consulta String
-  Valor_da_Consulta              Float
+  Valor_da_Consulta              Float?
   Status_da_Consulta             String
   Status_do_pagamento            String
   observacao                     String

@@ -10,7 +10,8 @@
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
     <iframe class="unstyled" id="draggable-container"
-        src="https://friendly-guide-pjg59qj6rv4rh6jw-3000.app.github.dev/sistema/chat/chat.html" height="500"; width="400" ></iframe>
+        src="https://friendly-guide-pjg59qj6rv4rh6jw-3000.app.github.dev/sistema/chat/chat.html" height="500" ;
+        width="400"></iframe>
     <link rel="stylesheet" href="calendario.css">
     <link rel="shortcut icon" href="../Logo/LOGO_02_DEGRADE.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -54,7 +55,7 @@
 
                     <label for="date">Horário de Inicio da Consulta</label>
                     <input class="inputdata" type="time" name="horario_consulta" id="horario_consulta" required>
-                   <br>
+                    <br>
                     <label for="date">Horário de Termino da Consulta</label>
                     <input class="inputdata" type="time" name="horariot_consulta" id="horariot_consulta" required>
                     <input type="checkbox" id="mostrarSubform"> Repetir
@@ -86,7 +87,8 @@
             <br>
 
             <input class="input" type="number" name="valor_consulta" id="valor_consulta"
-                placeholder="Valor da Consulta" step="0.01" min="0">
+            placeholder="Valor da Consulta" step="0.01" min="0">
+     
 
             <h4 class="margem">Status do Pagamento</h4>
             <select id="status_pagamento" class="input" type="text"></select>
@@ -125,17 +127,20 @@
                     <thead>
                         <tr>
                             <th><input class="input" name="name" id="esp-name" placeholder="Nome"></input></th>
-                            <th><input class="input" type="text" name="phone" id="esp-phone" placeholder="Telefone"></input></th>
-                            <th><input class="input" name="convenio" id="esp-convenio" placeholder="Convênio"></input></th>
-                            <th><input class="input" type="text" name="observacao" id="esp-observacao" placeholder="Observação"></th>
-                            
+                            <th><input class="input" type="text" name="phone" id="esp-phone"
+                                    placeholder="Telefone"></input></th>
+                            <th><input class="input" name="convenio" id="esp-convenio" placeholder="Convênio"></input>
+                            </th>
+                            <th><input class="input" type="text" name="observacao" id="esp-observacao"
+                                    placeholder="Observação"></th>
+
                         </tr>
                     </thead>
                 </table>
                 <th>
                     <!-- <optgroup label="Especialista"></optgroup>
                     <select style="width:50%;" class="input" type="text" name="Especialista" id="esp-especialista"></select> -->
-                
+
             </div>
 
 
@@ -194,7 +199,7 @@
                                 <th class="columnAction">Horário de Término</th>
                                 <th class="columnAction">Status da Consulta</th>
                                 <th class="columnAction">Status do Pagamento</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody id="tbodyCancelado">
@@ -213,8 +218,7 @@
     <header>
         <input class="voltar-button" type="button" value="Voltar" id="btn_voltar_a">
 
-        <div id="selectedName" class="nameEspec"
-            style="font-family: Nunito;">
+        <div id="selectedName" class="nameEspec" style="font-family: Nunito;">
             Selecione um especialista
         </div>
 
@@ -235,7 +239,7 @@
 
         <button id="agendamento" class="novoagendamento">
             <i class="ph ph-plus" style="color: white;"></i>
-            <div  class="escritaN" style="font-family: Nunito;">
+            <div class="escritaN" style="font-family: Nunito;">
                 NOVO AGENDAMENTO</div>
         </button>
 
