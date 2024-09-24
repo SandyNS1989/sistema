@@ -886,9 +886,10 @@ function insertItemCancelado(item, index) {
       <td>${item.Status_da_Consulta}</td>
       <td>${item.Status_do_pagamento}</td>
      <td class="columnAction">
-        <button type="button" onclick='showModal(${JSON.stringify(item)})'>
+        <button type="button" onclick='showModal(${JSON.stringify(item,index)})'>
           <i class="bi bi-pencil"></i>
         </button>
+        
       </td>
     `;
 
@@ -896,9 +897,11 @@ function insertItemCancelado(item, index) {
 }
 
 
-function showModal(item) {
-    document.getElementById("formagendamento").dataset.agendamentoId = item.id;
-
+function showModal(item) {  
+    // Define o ID do agendamento no dataset do formulário
+    document.getElementById("formagendamento").dataset.agendamentoid = item.id;
+    console.log("ID do agendamento:", item.id);
+    
     // Preencher o modal com as informações do item
     const selectPaciente = document.getElementById('age_name');
     
@@ -917,6 +920,19 @@ function showModal(item) {
 
         // Selecionar a opção correta
         selectPaciente.value = paciente.id; // Selecionar pelo ID
+
+        // Adicionar evento change para atualizar o modal e enviar dados ao servidor
+        selectPaciente.addEventListener('change', function () {
+            const agendamentoId = document.getElementById("formagendamento").dataset.agendamentoid;
+            const pacienteId = selectPaciente.value; // ID do paciente selecionado
+
+            // Atualizar os campos do modal
+            document.getElementById('modalAgendamentoId').textContent = `Agendamento ID: ${agendamentoId}`;
+            document.getElementById('modalPacienteId').textContent = `Paciente ID: ${pacienteId}`;
+
+            // Enviar dados para o servidor
+            enviarDadosParaServidor(agendamentoId, pacienteId);
+        });
     }
 
     // Preencher os outros campos do modal
@@ -928,20 +944,33 @@ function showModal(item) {
     document.getElementById('status_pagamento').value = item.Status_do_pagamento;
     document.getElementById('status_c').value = item.Status_da_Consulta;
     document.getElementById('observacao').value = item.observacao;
+
+    // Adicione a linha para definir o ID do agendamento
     document.getElementById('id_agendamento').value = item.id;
 
     // Exibir o modal
     document.getElementById('mod-agen').showModal();
 
-    const updateAppointment = (data) => {
+    // Função para enviar dados para o servidor
+    function enviarDadosParaServidor(agendamentoId, pacienteId) {
+        const data = {
+            id: agendamentoId,
+            PacienteId: pacienteId,
+            Telefone: document.getElementById('phone').value,
+            Data_do_Atendimento: document.getElementById('data_atendimento').value,
+            Horario_da_consulta: document.getElementById('horario_consulta').value,
+            Horario_de_Termino_da_consulta: document.getElementById('horariot_consulta').value,
+            Valor_da_Consulta: document.getElementById('valor_consulta').value,
+            Status_do_pagamento: document.getElementById('status_pagamento').value,
+            Status_da_Consulta: document.getElementById('status_c').value,
+            observacao: document.getElementById('observacao').value
+        };
+
         // Verifica se o status da consulta é "Cancelado" e o status do pagamento é "Pago"
         if (data.Status_da_Consulta === "Cancelado" && data.Status_do_pagamento === "Pago") {
             alert("Altere o Status do pagamento para 'Pendente' ou 'Cancelado' antes de atualizar.");
             return; // Interrompe a execução se as condições forem atendidas
         }
-
-        // Adiciona o ID do paciente ao objeto de dados
-        data.PacienteId = selectPaciente.value; // Agora envia o ID do paciente
 
         // Prossegue com a atualização do agendamento
         fetch("/agendamento", {
@@ -957,8 +986,9 @@ function showModal(item) {
             carregarLista(true).catch(console.error);
         })
         .catch(() => alert("Erro ao atualizar"));
-    };
+    }
 }
+
 
 
 // Adicione um evento de fechamento para o botão "FECHAR"
