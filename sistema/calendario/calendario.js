@@ -894,6 +894,7 @@ function insertItemCancelado(item, index) {
     `;
 
     tbodyCancelado.appendChild(tr);
+    loadConsultas(new Event('submit')); 
 }
 
 
