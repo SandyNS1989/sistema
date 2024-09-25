@@ -1044,6 +1044,7 @@ function deleteSelectedRows(event) {
             alert("Altere o Status do pagamento para 'Pendente' ou 'Cancelado'.");
         } else {
             deleteItemInDB(event, idDoElemento);
+            alert("Agendamento cancelado com sucesso!");
         }
     });
 }
