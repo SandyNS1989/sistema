@@ -894,7 +894,7 @@ function insertItemCancelado(item, index) {
     `;
 
     tbodyCancelado.appendChild(tr);
-    loadConsultas(new Event('submit')); 
+   
 }
 
 
@@ -985,9 +985,14 @@ function showModal(item) {
         .then(data => {
             alert("Paciente Atualizado com sucesso!");
             carregarLista(true).catch(console.error);
+            
+                        
         })
+       
         .catch(() => alert("Erro ao atualizar"));
+        
     }
+    
 }
 
 
@@ -995,6 +1000,8 @@ function showModal(item) {
 // Adicione um evento de fechamento para o botão "FECHAR"
 document.getElementById('btn-close').addEventListener('click', function () {
     document.getElementById('mod-agen').close();
+    loadConsultas(new Event('submit')); // Recarregar a lista
+   
 });
 
 
