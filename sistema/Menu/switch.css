@@ -1042,7 +1042,7 @@ a {
 
 
 /* Monitores maiores*/
-@media (min-width: 1442px) and (max-width: 1920px) {
+@media (min-width: 1442px) and (max-width: 1919px) {
   iframe {
     display: block;
     width: 25%;
@@ -1133,7 +1133,7 @@ a {
 
 }
 
-@media (min-width: 1921px) and (max-width: 2500px) {
+@media (min-width: 1920px) and (max-width: 2500px) {
   iframe {
     display: block;
     width: 20%;
@@ -1146,33 +1146,38 @@ a {
 
 
   .button0 {
-
     z-index: 2;
     position: relative;
     margin-top: 39.5px;
     left: 448px;
     top: 78px;
-    width: 150px;
-    height: 100px;
+    width: 180px;
+    height: 130px;
 
   }
 
   .button1 {
     left: 448px;
-    top: 139px;
+    top: 108px;
     margin-top: 5%;
+    width: 180px;
+    height: 130px;
   }
 
   .button2 {
-    left: 575px;
-    top: 79px;
+    left: 545px;
+    top: 88px;
     margin-top: 0;
+    width: 180px;
+    height: 130px;
   }
 
   .button3 {
-    left: 575px;
-    top: 139px;
+    left: 545px;
+    top: 108px;
     margin-top: 0;
+    width: 180px;
+    height: 130px;
   }
 
 
@@ -1181,8 +1186,8 @@ a {
     left: 50%;
     top: 450px;
     z-index: 1;
-    width: 150px;
-    height: 100px;
+    width: 180px;
+    height: 130px;
 
     /* Esta transição deve ser aplicada a todos os backdrops */
   }
@@ -1191,28 +1196,40 @@ a {
   .backdrop {
     left: 48%;
     top: 29.5%;
-
+    width: 180px;
+    height: 130px;
   }
 
   /* agendamento */
   .backdrop1 {
     left: 48%;
     top: 56.5%;
+    width: 180px;
+    height: 130px;
   }
 
   /* cadastro convenio */
   .backdrop2 {
     left: 75%;
     top: 29.5%;
+    width: 180px;
+    height: 130px;
   }
 
   /* fluxo de caixa */
   .backdrop3 {
     left: 75%;
     top: 56.5%;
+    width: 180px;
+    height: 130px;
   }
 
   .barrinha {
     width: 15%;
+  }
+
+  .logo {   
+   width: 100%;
+    background-size: 90%;
   }
 }
