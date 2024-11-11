@@ -414,6 +414,147 @@ a {
   color: rgb(0, 2, 2);
 }
 
+/*Viviane*/
+@media (width: 390px) and (height: 713px){
+  .logo {
+    display: none;
+  }
+
+
+  .switch-container {
+    display: block;
+    z-index: 1000;
+    height: 93%;
+    width: 20%;
+
+
+  }
+
+  .escrita {
+    font-size: 7px;
+    margin-bottom: 15%;
+    top: 20%;
+  }
+
+  .contato {
+    font-size: 7px;
+    margin: 0;
+    margin-left: 5%;
+
+  }
+
+  h1 {
+    display: none;
+  }
+
+  .button0,
+  .button1,
+  .button2,
+  .button3 {
+    left: 100px;
+    top: 85px;
+    z-index: 2;
+    position: absolute;
+    width: 38%;
+    height: 15%;
+  }
+
+  .backdrop,
+  .backdrop1,
+  .backdrop2,
+  .backdrop3 {
+    position: absolute;
+    left: 95px;
+    z-index: 1;    
+    margin: 0;
+    width: 38%;
+    height: 15%;
+    /* Esta transição deve ser aplicada a todos os backdrops */
+  }
+
+  .button1 {
+    top: 187px;
+  }
+
+  .button2 {
+    top: 290px;
+  }
+
+  .button3 {
+    top: 392px;
+  }
+
+
+
+  /* cadastro paciente */
+  .backdrop {
+    top: 105.9px;
+
+  }
+
+  /* agendamento */
+  .backdrop1 {
+    top: 210px;
+
+  }
+
+  /* cadastro convenio */
+  .backdrop2 {
+    top: 52%;
+
+  }
+
+  /* fluxo de caixa */
+  .backdrop3 {
+    top: 69%;
+    margin-bottom: 5%;
+
+  }
+
+  .barrinha {
+    width: 252px;
+    height: 0%;
+    left: 22%;
+
+  }
+
+  .out-button {
+    width: 30%;
+    left: 50%;
+    top: 87%;
+  }
+
+  iframe {
+    display: none;
+  }
+
+  .open-chat-btn1 {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, rgb(12, 158, 146) 0%, rgb(63, 217, 223) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    left: 80%;
+    top: 93%;
+  }
+
+  .open-chat-btn1 i {
+    display: block;
+    font-size: 25px;
+  }
+}
+
 
 @media (min-width: 410px) and (max-width: 600px) {
   .logo {
