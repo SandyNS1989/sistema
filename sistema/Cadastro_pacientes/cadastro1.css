@@ -324,7 +324,7 @@ input:checked+.slider:before {
   .switch-container {
     display: block;
     z-index:1000;
-    height: 93%;
+    height: 99%;
     width:20%;
     
     
