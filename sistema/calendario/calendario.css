@@ -881,7 +881,8 @@ iframe {
   .calendar {
     position: absolute;
     top: 52%;
-
+width: 95%;
+left:5%;
   }
 
   .olcards li {
