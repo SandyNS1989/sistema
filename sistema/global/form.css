@@ -175,12 +175,12 @@ body {
 }
 
 /*Viviane*/
-@media (width: 390px) and (height: 713px){
+@media (max-width: 400px){
   .container {
     justify-self: center;
-    width: 330px;
-    left:10%;
-    top:9%;
+    width: 250px;
+    left:21%;
+    top:13%;
     height: 85%;
     
   }

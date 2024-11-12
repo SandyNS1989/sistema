@@ -415,7 +415,7 @@ a {
 }
 
 /*Viviane*/
-@media (width: 390px) and (height: 713px){
+@media (max-width: 400px) {
   .logo {
     display: none;
   }
@@ -436,11 +436,15 @@ a {
     top: 20%;
   }
 
+  .nsbasetech{
+    font-size: small;
+  }
+
   .contato {
     font-size: 7px;
     margin: 0;
     margin-left: 5%;
-
+    margin-top: 390%;
   }
 
   h1 {
@@ -451,11 +455,11 @@ a {
   .button1,
   .button2,
   .button3 {
-    left: 100px;
-    top: 85px;
+    left: 70px;
+    top: 80px;
     z-index: 2;
     position: absolute;
-    width: 38%;
+    width: 50%;
     height: 15%;
   }
 
@@ -464,49 +468,49 @@ a {
   .backdrop2,
   .backdrop3 {
     position: absolute;
-    left: 95px;
+    left: 65px;
     z-index: 1;    
     margin: 0;
-    width: 38%;
+    width: 50%;
     height: 15%;
     /* Esta transição deve ser aplicada a todos os backdrops */
   }
 
   .button1 {
-    top: 187px;
+    top: 174px;
   }
 
   .button2 {
-    top: 290px;
+    top: 268px;
   }
 
   .button3 {
-    top: 392px;
+    top: 365px;
   }
 
 
 
   /* cadastro paciente */
   .backdrop {
-    top: 105.9px;
+    top: 94.9px;
 
   }
 
   /* agendamento */
   .backdrop1 {
-    top: 210px;
+    top: 189px;
 
   }
 
   /* cadastro convenio */
   .backdrop2 {
-    top: 52%;
+    top: 51%;
 
   }
 
   /* fluxo de caixa */
   .backdrop3 {
-    top: 69%;
+    top: 68.6%;
     margin-bottom: 5%;
 
   }
