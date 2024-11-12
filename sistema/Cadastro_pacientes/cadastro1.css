@@ -316,7 +316,7 @@ input:checked+.slider:before {
 }
 
 /*Viviane*/
-@media (width: 390px) and (height: 713px){
+@media (max-width: 400px) {
   iframe {
     display: none;
   }
@@ -349,6 +349,8 @@ input:checked+.slider:before {
 
  .container{
   width:73%;
+  left: 13%;
+
  }
 
  .open-chat-btn1 {

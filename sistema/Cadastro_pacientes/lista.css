@@ -297,11 +297,11 @@ input:checked+.slider:before {
 }
 
 /*Viviane*/
-@media (width: 390px) and (height: 713px){
+@media (max-width: 400px) {
   .container{
     position:absolute;
     width:70%;
-    left: 20%;
+    left: 13%;
   }
   
   
