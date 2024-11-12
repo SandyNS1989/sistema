@@ -874,8 +874,8 @@ iframe {
 
   .container {
     position: absolute;
-    top: 120%;
-    width: 100%;
+    top: 125%;
+    width: 112%;
   }
 
   .calendar {
@@ -885,8 +885,9 @@ iframe {
   }
 
   .olcards li {
-    height: 15%;
+    height: 20%;
     font-size: small;
+
   }
 
   .open-chat-btn1 i {
